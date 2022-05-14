@@ -1,0 +1,27 @@
+.Main {
+  width: 70vw;
+  max-height: 550px;
+  height: 70vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  /* border: 1px solid red; */
+  /* border-radius: 3rem 5% 5% 15%; */
+  overflow: hidden;
+}
+
+.Main-content {
+  position: absolute;
+  right: 0;
+  width: 80%;
+  height: 100%;
+
+  background-color: orange;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
