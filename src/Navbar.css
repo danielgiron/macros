@@ -1,33 +1,54 @@
 .Navbar {
   position: absolute;
   height: 100%;
-  width: 20%;
+  width: 5rem;
   left: 0;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: space-between;
 
-  background-color: gold;
+  background-color: rgb(37, 37, 37);
+  border-right: 1px solid rgb(255, 130, 41);
+
+
+
+  /* mix-blend-mode: screen; */
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  -webkit-box-shadow: 2px 0px 23px 6px rgba(0,0,0,0.31); 
+  box-shadow: 2px 0px 20px 6px rgba(0,0,0,0.20);
+  z-index: 3;
 }
 
 .Navbar a {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 25%;
+  width: 5rem;
+  height: 5rem;
   max-width: 8rem;
 
-  background-color: lightgrey;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
+  
+
+  /* background-color: lightgrey; */
+  border-bottom: 1px solid rgb(23, 23, 23);
 
   text-decoration: none;
-  color: white;
-  font-weight: 800;
+  color: rgb(243, 243, 243);
+  font-weight: 300;
 }
 
-.Navbar a:last-child {
-  border-bottom: none;
+.Navbar a:hover {
+  background-color: rgb(62, 62, 62);
 }
+
+
+
+
+/* .Navbar a:last-child {
+  border-bottom: none;
+} */

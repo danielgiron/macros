@@ -1,7 +1,7 @@
 .Header {
   position: absolute;
   top: 0;
-  width: calc(100vw - 4rem);
+  width: calc(100vw - 6rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,7 +11,12 @@
 }
 
 .Header-Links a {
-  padding: 0rem 1rem;
+  margin: 0rem 1rem;
   text-transform: lowercase;
   text-decoration: none;
+  color: white;
+}
+
+.Header h1 {
+  color: white;
 }

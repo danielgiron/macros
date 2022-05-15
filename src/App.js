@@ -26,7 +26,7 @@ function App() {
 
       <Main />
       <div className="colorMesh"></div>
-      <script src="./background.js"></script>
+
     </div>
   );
 }

@@ -9,6 +9,7 @@ function Header(props) {
       <h1>macrOS</h1>
       <div className="Header-Links">
         <Link to={"/"}>Login</Link>
+        <Link to={"/"}>Sign Up</Link>
       </div>
     </div>
   );
