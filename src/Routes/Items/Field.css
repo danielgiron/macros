@@ -1,0 +1,45 @@
+.Field {
+  position: relative;
+  width: 90%;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0rem;
+  margin-left: 5%;
+  /* background-color: lightgrey; */
+}
+
+.Field label {
+  /* width: 100%; */
+  position: absolute;
+  left: -0.5rem;
+  top: -0.75rem;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 0.2rem;
+  text-align: left;
+  font-size: 0.9rem;
+  background-color: white;
+}
+
+.Field input {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+}
+
+.Field-errorMsg {
+  font-size: 0.7rem;
+  color: red;
+  text-align: left;
+  display: none;
+}
+
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ .Field-errorMsg {
+  display: block;
+}

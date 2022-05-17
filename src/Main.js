@@ -4,16 +4,21 @@ import { Route, Routes } from "react-router-dom";
 import "./Main.css";
 import Navbar from "./Navbar";
 
+import Home from "./Routes/Home/Home";
+import Items from "./Routes/Items/Items";
+import Recipes from "./Routes/Recipes/Recipes";
+import Tracker from "./Routes/Tracker/Tracker";
+
 function Main(props) {
   return (
     <div className="Main">
       <Navbar />
       <div className="Main-content">
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
-          <Route path="/items" element={<h1>Items</h1>} />
-          <Route path="/recipes" element={<h1>recipes</h1>} />
-          <Route path="/tracker" element={<h1>tracker</h1>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/items" element={<Items />} />
+          <Route path="/recipes" element={<Recipes />} />
+          <Route path="/tracker" element={<Tracker />} />
         </Routes>
       </div>
     </div>
