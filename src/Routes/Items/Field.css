@@ -21,6 +21,7 @@
   text-align: left;
   font-size: 0.9rem;
   background-color: white;
+  border-radius: 0.5rem;
 }
 
 .Field input {

@@ -20,11 +20,94 @@
   margin: 0.5rem;
 }
 
-form {
+/**************** LEFT SIDE OF ItemSearch ************/
+
+.searchContainer {
+  height: 250px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
   background-color: white;
 }
 
-.results {
-  padding: 0;
-  background-color: lightgray;
+.searchContainer form {
+  width: 100%;
+}
+
+.searchContainer form button {
+  width: 100%;
+}
+
+/**************** RIGHT SIDE OF ItemSearch ************/
+
+.confirmationContainer {
+  height: 250px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: white;
+}
+
+.confirmationForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  /* background-color: lightgray; */
+  width: 100%;
+}
+
+.confirmationField {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-width: 260px;
+  margin: 0.25rem 0rem;
+}
+
+.confirmationField input {
+  border: 1px solid rgb(231, 231, 231);
+  background-color: rgb(244, 244, 244);
+}
+
+.confirmationField input:hover {
+  border: 1px solid rgb(245, 217, 213);
+  background-color: rgb(245, 225, 213);
+  color: rgb(108, 57, 2);
+}
+
+.confirmationForm button {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/********************************************/
+
+.ItemSearch button {
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.ItemSearch button:hover {
+  background-color: rgb(247, 192, 89);
+}
+
+.ItemSearch h1 {
+  /* width: 100%; */
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin: none;
+  padding: none;
+  line-height: 0.5;
 }

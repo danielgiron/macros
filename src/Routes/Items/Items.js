@@ -4,6 +4,11 @@ import ItemSearch from "./ItemSearch";
 import "./Items.css";
 
 function Items(props) {
+  const [collection, setCollection] = useState([]);
+  const renderedCollection = collection.map((item) => {
+    console.log("from Items", item);
+    return <div className="Item"> {item.food_name} </div>;
+  });
   return (
     <div className="Items">
       <div className="Page-Info">
@@ -14,14 +19,9 @@ function Items(props) {
         </div>
       </div>
 
-      <ItemSearch />
+      <ItemSearch collection={collection} setCollection={setCollection} />
 
-      <div className="Collection">
-        <div className="Item">[ Single Item ]</div>
-        <div className="Item">[ Single Item ]</div>
-        <div className="Item">[ Single Item ]</div>
-        <div className="Item">[ Single Item ]</div>
-      </div>
+      <div className="Collection">{renderedCollection}</div>
     </div>
   );
 }
