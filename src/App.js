@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import { Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useCallback, useState } from "react";
 
 import { setValues, changeBG } from "./background";
 

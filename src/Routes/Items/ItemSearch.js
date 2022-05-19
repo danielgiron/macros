@@ -123,7 +123,7 @@ function ItemSearch(props) {
     {
       fieldname: "category",
       type: "select",
-      options: ["Vegetable", "Fruit", "Dairy", "Meat", "Misc."],
+      options: ["Baked Goods", "Dairy", "Meat", "Produce", "Miscellaneous"],
       label: "Category",
       value: null,
       required: true,
@@ -135,12 +135,17 @@ function ItemSearch(props) {
     e.preventDefault();
     const inputData = new FormData(e.target);
     const confirmedItem = Object.fromEntries(inputData.entries());
+
     // console.log("From confirm: ", confirmedItem);
     // STILL NEED TO NORMALIZE ITEM ENTRY (IN GRAMS)
     props.setCollection([
       ...props.collection,
       { ...foodData, ...confirmedItem },
     ]);
+
+    setFoodData({});
+    setConfirmationValues({});
+    setFormValues({});
   }
 
   let confirmationForm;

@@ -1,0 +1,113 @@
+.CollectionComponent {
+  width: 100%;
+  height: min-content;
+
+  padding-bottom: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  background-color: white;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 2rem);
+}
+
+.DataButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.DataButtons button {
+  width: max-content;
+  color: gray;
+  font-weight: 500;
+  border: 1px solid lightgray;
+  /* border-radius: 0.5rem; */
+  background-color: transparent;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.DataButtons button:hover {
+  background-color: rgb(247, 192, 89);
+  border: 1px solid rgb(247, 192, 89);
+  color: white;
+}
+
+.CollectionComponent h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.CollectionContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+
+  width: calc(100% - 2rem);
+}
+
+.CategoryContainer {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  background-color: rgb(245, 245, 245);
+}
+
+.CategoryTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0.25rem 0.5rem;
+}
+
+.CategoryItems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.Item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 0.5rem;
+  height: 1.5rem;
+
+  cursor: pointer;
+}
+
+.Dairy {
+  background-color: rgb(194, 224, 236);
+}
+.BakedGoods {
+  background-color: rgb(248, 195, 97);
+}
+.Meat {
+  background-color: rgb(251, 120, 100);
+}
+.Produce {
+  background-color: rgb(190, 253, 123);
+}
+.Miscellaneous {
+  background-color: rgb(196, 138, 255);
+}

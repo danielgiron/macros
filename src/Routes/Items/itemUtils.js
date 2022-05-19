@@ -1,3 +1,10 @@
+import { seedString } from "./seedData";
+import { useNavigate } from "react-router-dom";
+import ItemEntry from "./ItemEntry";
+import { v4 as uuidv4 } from "uuid";
+
+//////////////////////////////////////////////////////  ITEMSEARCH COMPONENT
+
 const nutritionix_key = "32d54e5d69a98a8624cc81712bb937e7";
 const nutritionix_id = "f29aaa43";
 
@@ -49,9 +56,9 @@ export function processReturn(api_return) {
     nf_total_fat,
     photo,
     serving_qty,
-    serving_unit,
+    serving_unit: serving_unit.replace('"', " inch"),
     serving_weight_grams,
-    tags,
+    id: uuidv4(),
   };
   return newItem;
 }
@@ -73,7 +80,7 @@ export function generateFieldDivs(fieldsArray, onChange_confirm) {
     } else if (field.type === "select") {
       const options = field.options.map((option, index) => {
         return (
-          <option key={index} value={option}>
+          <option key={index} value={option.replace(" ", "")}>
             {option}
           </option>
         );
@@ -82,12 +89,13 @@ export function generateFieldDivs(fieldsArray, onChange_confirm) {
         <select
           id={field.fieldname}
           name={field.fieldname}
-          defaultValue="Select One"
+          defaultValue="Miscellaneous"
           required={true}
+          style={{ border: "1px solid orange" }}
         >
-          <option value={null} selected disabled hidden>
+          {/* <option value={null} selected disabled hidden>
             Select One
-          </option>
+          </option> */}
           {options}
         </select>
       );
@@ -101,3 +109,53 @@ export function generateFieldDivs(fieldsArray, onChange_confirm) {
   });
   return confirmationFieldDivs;
 }
+
+//////////////////////////////////////////////////////  COLLECTION COMPONENT
+
+export function generateCategories(collection) {
+  const DairyItems = collection.filter((item) => {
+    return item.category === "Dairy";
+  });
+  const BakedGoodsItems = collection.filter((item) => {
+    return item.category === "BakedGoods";
+  });
+  const MeatItems = collection.filter((item) => {
+    return item.category === "Meat";
+  });
+  const MiscellaneousItems = collection.filter((item) => {
+    return item.category === "Miscellaneous";
+  });
+  const ProduceItems = collection.filter((item) => {
+    return item.category === "Produce";
+  });
+
+  const DairyCollection = DairyItems.map((item) => {
+    return <ItemEntry key={item.id} item={item} />;
+  });
+  const BakedGoodsCollection = BakedGoodsItems.map((item) => {
+    return <ItemEntry key={item.id} item={item} />;
+  });
+  const MeatCollection = MeatItems.map((item) => {
+    return <ItemEntry key={item.id} item={item} />;
+  });
+  const MiscellaneousCollection = MiscellaneousItems.map((item) => {
+    return <ItemEntry key={item.id} item={item} />;
+  });
+  const ProduceCollection = ProduceItems.map((item) => {
+    return <ItemEntry key={item.id} item={item} />;
+  });
+
+  const categories = {
+    Dairy: DairyCollection,
+    BakedGoods: BakedGoodsCollection,
+    Meat: MeatCollection,
+    Miscellaneous: MiscellaneousCollection,
+    Produce: ProduceCollection,
+  };
+
+  return categories;
+}
+
+const seedString_JSON = JSON.parse(seedString);
+
+export const seedData = seedString_JSON;
