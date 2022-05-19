@@ -10,7 +10,7 @@ import Main from "./Main";
 
 function App() {
   useEffect(() => {
-    console.log("loaded");
+    // console.log("loaded");
     const elem = document.querySelector(".colorMesh");
     elem.style.backgroundColor = "#e7a247";
     const points = setValues();
@@ -26,7 +26,6 @@ function App() {
 
       <Main />
       <div className="colorMesh"></div>
-
     </div>
   );
 }

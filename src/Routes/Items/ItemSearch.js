@@ -74,6 +74,7 @@ function ItemSearch(props) {
   const confirmationForm_fields = [
     {
       fieldname: "food_name",
+      type: "text",
       label: "Name",
       value: confirmationValues.food_name,
       required: true,
@@ -81,6 +82,7 @@ function ItemSearch(props) {
     },
     {
       fieldname: "nf_calories",
+      type: "text",
       label: "Calories",
       value: confirmationValues.nf_calories,
       required: true,
@@ -88,6 +90,7 @@ function ItemSearch(props) {
     },
     {
       fieldname: "nf_total_carbohydrate",
+      type: "text",
       label: "Carbs (g)",
       value: confirmationValues.nf_total_carbohydrate,
       required: true,
@@ -95,6 +98,7 @@ function ItemSearch(props) {
     },
     {
       fieldname: "nf_total_fat",
+      type: "text",
       label: "Fat (g)",
       value: confirmationValues.nf_total_fat,
       required: true,
@@ -102,6 +106,7 @@ function ItemSearch(props) {
     },
     {
       fieldname: "nf_protein",
+      type: "text",
       label: "Protein (g)",
       value: confirmationValues.nf_protein,
       required: true,
@@ -109,8 +114,18 @@ function ItemSearch(props) {
     },
     {
       fieldname: "serving_weight_grams",
+      type: "text",
       label: "Serving Size (g)",
       value: confirmationValues.serving_weight_grams,
+      required: true,
+      pattern: null,
+    },
+    {
+      fieldname: "category",
+      type: "select",
+      options: ["Vegetable", "Fruit", "Dairy", "Meat", "Misc."],
+      label: "Category",
+      value: null,
       required: true,
       pattern: null,
     },

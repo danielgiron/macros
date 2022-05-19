@@ -70,15 +70,18 @@
   align-items: center;
   width: 100%;
   min-width: 260px;
-  margin: 0.25rem 0rem;
+  margin: 0.15rem 0rem;
 }
 
-.confirmationField input {
+.confirmationField input,
+.confirmationField select {
+  width: 50%;
   border: 1px solid rgb(231, 231, 231);
   background-color: rgb(244, 244, 244);
 }
 
-.confirmationField input:hover {
+.confirmationField input:hover,
+.confirmationField select:hover {
   border: 1px solid rgb(245, 217, 213);
   background-color: rgb(245, 225, 213);
   color: rgb(108, 57, 2);

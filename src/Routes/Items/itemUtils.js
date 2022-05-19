@@ -58,17 +58,44 @@ export function processReturn(api_return) {
 
 export function generateFieldDivs(fieldsArray, onChange_confirm) {
   const confirmationFieldDivs = fieldsArray.map((field) => {
+    let input;
+    if (field.type === "text") {
+      input = (
+        <input
+          id={field.fieldname}
+          name={field.fieldname}
+          type={field.type}
+          onChange={onChange_confirm}
+          value={field.value}
+          required={field.required}
+        />
+      );
+    } else if (field.type === "select") {
+      const options = field.options.map((option, index) => {
+        return (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        );
+      });
+      input = (
+        <select
+          id={field.fieldname}
+          name={field.fieldname}
+          defaultValue="Select One"
+          required={true}
+        >
+          <option value={null} selected disabled hidden>
+            Select One
+          </option>
+          {options}
+        </select>
+      );
+    }
     return (
       <div key={field.fieldname} className="confirmationField">
         <label htmlFor={field.fieldname}>{field.label}</label>
-        <input
-          id={field.fieldname}
-          // key={field.fieldname}
-          name={field.fieldname}
-          type={"text"}
-          onChange={onChange_confirm}
-          value={field.value}
-        />
+        {input}
       </div>
     );
   });
