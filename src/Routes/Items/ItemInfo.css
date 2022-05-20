@@ -12,12 +12,6 @@
   overflow-y: scroll;
 }
 
-.ItemInfo > div {
-  width: 50%;
-  /* border: 1px solid red; */
-  /* height: 100%; */
-}
-
 .leftSide {
   background-color: rgba(255, 255, 255, 0.268);
   padding: 0rem 1rem;
@@ -26,7 +20,21 @@
   overflow-y: scroll;
 }
 
-.ItemInfo h1 {
+.infoHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0rem;
+}
+
+.ItemInfo > div {
+  width: 50%;
+  /* border: 1px solid red; */
+  /* height: 100%; */
+}
+
+.infoHeader > div,
+h1 {
   /* text-transform: capitalize; */
 
   font-size: 1.7rem;
@@ -34,19 +42,19 @@
   text-transform: capitalize;
   letter-spacing: 1px;
   margin: none;
-  padding: none;
 }
 
-.ItemInfo h1 > span {
+.infoHeader span {
   color: rgb(253, 189, 78);
 }
 
 .ItemInfo img {
   max-width: 100px;
   max-height: 100px;
+  margin-right: 1rem;
 
   image-rendering: optimizeSpeed;
-  background-color: rgb(186, 186, 186);
+  /* background-color: rgb(186, 186, 186); */
   border: 1px solid lightgray;
 }
 
@@ -89,6 +97,18 @@
   border: 1px solid grey;
   color: grey;
   cursor: pointer;
+  width: 45%;
+}
+
+.buttons #back:hover {
+  /* background-color: rgba(255, 206, 90, 0.168); */
+  border: 1px solid rgb(255, 178, 90);
+  color: rgb(255, 178, 90);
+}
+
+.buttons #delete:hover {
+  border: 1px solid rgb(255, 98, 90);
+  color: rgb(255, 90, 90);
 }
 
 .fullNutrientsContainer {
@@ -115,14 +135,15 @@
 .nutrientName {
   padding: 0.25rem;
   padding-left: 0.5rem;
-  background-color: rgb(255, 206, 90);
+  background-color: rgb(253, 189, 78);
+
   /* border-radius: 1rem 0rem 0rem 1rem; */
 }
 
 .nutrientAmount {
   padding: 0.25rem;
   padding-right: 0.5rem;
-  background-color: rgb(255, 206, 90);
+  background-color: rgb(253, 189, 78);
 
   /* border-radius: 0rem 1rem 1rem 0rem; */
 }

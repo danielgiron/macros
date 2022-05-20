@@ -141,11 +141,13 @@ function ItemInfo(props) {
   return (
     <div className="ItemInfo">
       <div className="leftSide">
-        <h1>
-          {item.food_name}
-          <span> (Item Info) </span>
-        </h1>
-        <img src={item.photo.thumb} />
+        <div className="infoHeader">
+          <img src={item.photo.thumb} alt={`${item.food_name}`} />
+          <div>
+            <div>{item.food_name}</div>
+            <span> Item Info </span>
+          </div>
+        </div>
 
         <div className="itemValues">{fieldDivs}</div>
         <div className="buttons">
