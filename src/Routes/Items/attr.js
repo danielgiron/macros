@@ -1,4 +1,4 @@
-const attr = [];
+export const attr = [];
 attr[203] = { name: "Protein", unit: "g" };
 attr[204] = { name: "Total Fat", unit: "g" };
 attr[205] = { name: "Carbohydrate", unit: "g" };
@@ -149,4 +149,4 @@ attr[695] = { name: "Fatty acids, total trans-polyenoic", unit: "g" };
 // attr[858] = { name: "0.919444444444444", unit: "g" };
 // attr[859] = { name: "18:1-11t (18:1t n-7)", unit: "g" };
 
-module.exports = attr;
+// module.exports = attr;

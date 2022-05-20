@@ -1,6 +1,6 @@
 import { seedString } from "./seedData";
-import { useNavigate } from "react-router-dom";
 import ItemEntry from "./ItemEntry";
+import { attr } from "./attr";
 import { v4 as uuidv4 } from "uuid";
 
 //////////////////////////////////////////////////////  ITEMSEARCH COMPONENT
@@ -63,7 +63,7 @@ export function processReturn(api_return) {
   return newItem;
 }
 
-export function generateFieldDivs(fieldsArray, onChange_confirm) {
+export function generateFieldDivs(fieldsArray, onChange) {
   const confirmationFieldDivs = fieldsArray.map((field) => {
     let input;
     if (field.type === "text") {
@@ -72,7 +72,7 @@ export function generateFieldDivs(fieldsArray, onChange_confirm) {
           id={field.fieldname}
           name={field.fieldname}
           type={field.type}
-          onChange={onChange_confirm}
+          onChange={onChange}
           value={field.value}
           required={field.required}
         />
@@ -89,13 +89,12 @@ export function generateFieldDivs(fieldsArray, onChange_confirm) {
         <select
           id={field.fieldname}
           name={field.fieldname}
-          defaultValue="Miscellaneous"
+          defaultValue={
+            field.fieldDefault ? field.fieldDefault : "Miscellaneous"
+          }
           required={true}
           style={{ border: "1px solid orange" }}
         >
-          {/* <option value={null} selected disabled hidden>
-            Select One
-          </option> */}
           {options}
         </select>
       );
@@ -156,6 +155,38 @@ export function generateCategories(collection) {
   return categories;
 }
 
-const seedString_JSON = JSON.parse(seedString);
+// const seedString_JSON = JSON.parse(seedString);
 
-export const seedData = seedString_JSON;
+// export const seedData = seedString_JSON;
+
+//////////////////////////////////////////////////////// ITEMINFO.js
+export function getItemById(id) {
+  let itemInQuestion = JSON.parse(localStorage.getItem("collection"));
+
+  itemInQuestion = itemInQuestion.filter((item) => {
+    return item.id == id;
+  });
+  itemInQuestion = itemInQuestion[0];
+  return itemInQuestion;
+}
+
+export function getFullNutrients(item) {
+  const attrList = attr;
+  let fullNutrients = [];
+  item.full_nutrients.map((n) => {
+    if (attrList[n.attr_id]) {
+      // console.log(
+      //   `${attrList[n.attr_id].name}: ${n.value.toFixed(2)}${
+      //     attr[n.attr_id].unit
+      //   }`
+      // )
+
+      fullNutrients.push({
+        name: attrList[n.attr_id].name,
+        amount: n.value.toFixed(2),
+        unit: attr[n.attr_id].unit,
+      });
+    }
+  });
+  return fullNutrients;
+}

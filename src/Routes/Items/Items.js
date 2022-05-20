@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import ItemSearch from "./ItemSearch";
 import Collection from "./Collection";
 import "./Items.css";
-import { seedData } from "./itemUtils";
+import { seedData } from "./seedData";
 
 function Items(props) {
   const [collection, setCollection] = useState([]);

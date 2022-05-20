@@ -1,0 +1,128 @@
+.ItemInfo {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+
+  width: calc(100% - 2rem);
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  /* padding: 2rem; */
+  overflow-y: scroll;
+}
+
+.ItemInfo > div {
+  width: 50%;
+  /* border: 1px solid red; */
+  /* height: 100%; */
+}
+
+.leftSide {
+  background-color: rgba(255, 255, 255, 0.268);
+  padding: 0rem 1rem;
+  padding-bottom: 1rem;
+  min-width: 308px;
+  overflow-y: scroll;
+}
+
+.ItemInfo h1 {
+  /* text-transform: capitalize; */
+
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin: none;
+  padding: none;
+}
+
+.ItemInfo h1 > span {
+  color: rgb(253, 189, 78);
+}
+
+.ItemInfo img {
+  max-width: 100px;
+  max-height: 100px;
+
+  image-rendering: optimizeSpeed;
+  background-color: rgb(186, 186, 186);
+  border: 1px solid lightgray;
+}
+
+.ItemInfo .confirmationField {
+  width: calc(100% - 1rem);
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.431);
+}
+
+.ItemInfo .confirmationField label,
+.ItemInfo .confirmationField select,
+.ItemInfo .confirmationField input {
+  font-size: 1rem;
+}
+
+.ItemInfo input,
+.ItemInfo select,
+.ItemInfo label {
+  font-size: 1.3rem;
+  pointer-events: none;
+  border: none !important;
+  background-color: transparent !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  appearance: none;
+}
+
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons button {
+  background-color: transparent;
+  padding: 0.5rem;
+  border: 1px solid grey;
+  color: grey;
+  cursor: pointer;
+}
+
+.fullNutrientsContainer {
+  height: 100%;
+  min-width: 200px;
+
+  overflow-y: scroll;
+}
+
+.fullNutrients {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem 0.8rem;
+  /* height: min-content; */
+  /* padding: 2rem 0rem; */
+  padding-bottom: 1.5rem;
+
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: grey;
+}
+
+.nutrientName {
+  padding: 0.25rem;
+  padding-left: 0.5rem;
+  background-color: rgb(255, 206, 90);
+  /* border-radius: 1rem 0rem 0rem 1rem; */
+}
+
+.nutrientAmount {
+  padding: 0.25rem;
+  padding-right: 0.5rem;
+  background-color: rgb(255, 206, 90);
+
+  /* border-radius: 0rem 1rem 1rem 0rem; */
+}

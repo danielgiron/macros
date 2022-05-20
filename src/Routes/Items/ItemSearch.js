@@ -125,7 +125,7 @@ function ItemSearch(props) {
       type: "select",
       options: ["Baked Goods", "Dairy", "Meat", "Produce", "Miscellaneous"],
       label: "Category",
-      value: null,
+      // value: null,
       required: true,
       pattern: null,
     },
@@ -161,17 +161,6 @@ function ItemSearch(props) {
     confirmationForm = <div className="confirmationForm">Nothing here yet</div>;
   }
 
-  // <div classname="confirmationContainer">
-  //   <div className="confirmationForm">
-  //     ...
-  //     <div className="confirmationField">
-  //       <label>...</label>
-  //       <input />
-  //     </div>
-  //    ...
-  //   </div>
-  // </div>
-
   return (
     <div className="ItemSearch">
       <div className="searchContainer">{formComponent}</div>
@@ -181,3 +170,14 @@ function ItemSearch(props) {
 }
 
 export default ItemSearch;
+
+// <div classname="confirmationContainer">
+//   <div className="confirmationForm">
+//     ...
+//     <div className="confirmationField">
+//       <label>...</label>
+//       <input />
+//     </div>
+//    ...
+//   </div>
+// </div>

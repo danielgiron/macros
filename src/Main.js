@@ -21,6 +21,7 @@ function Main(props) {
           <Route path="/items" element={<Items />} />
           <Route path="/recipes" element={<Recipes />} />
           <Route path="/tracker" element={<Tracker />} />
+          <Route path="*" element={<div>Error Page Not Found :/</div>} />
         </Routes>
       </div>
     </div>
