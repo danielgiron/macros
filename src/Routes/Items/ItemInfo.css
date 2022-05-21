@@ -5,7 +5,7 @@
   justify-content: space-between;
   gap: 1rem;
 
-  width: calc(100% - 2rem);
+  width: calc(100%);
   box-sizing: border-box;
   font-size: 1.3rem;
   /* padding: 2rem; */
@@ -13,9 +13,9 @@
 }
 
 .leftSide {
-  background-color: rgba(255, 255, 255, 0.268);
-  padding: 0rem 1rem;
-  padding-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.816);
+  padding: 0rem 1rem 1rem 1rem;
+  /* padding-bottom: 1rem; */
   min-width: 308px;
   overflow-y: scroll;
 }
@@ -61,7 +61,7 @@ h1 {
 .ItemInfo .confirmationField {
   width: calc(100% - 1rem);
   padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.431);
+  background-color: rgba(238, 238, 238, 0.483);
 }
 
 .ItemInfo .confirmationField label,

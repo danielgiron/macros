@@ -19,13 +19,11 @@ function Items(props) {
   useEffect(() => {
     const savedData = JSON.parse(localStorage.getItem("collection"));
     setCollection(savedData);
-    // console.log("from didMount: collection -> ", collection);
   }, []);
 
   useEffect(() => {
-    // const oldCollection = localStorage.getItem("collection");
     localStorage.setItem("collection", JSON.stringify(collection));
-    console.log("from didUpdate: collection -> ", collection);
+    // console.log("from didUpdate: collection -> ", collection);
   }, [collection]);
 
   return (

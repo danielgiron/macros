@@ -33,6 +33,7 @@ export async function getFoodItem(query) {
 }
 
 export function processReturn(api_return) {
+  console.log(api_return);
   const {
     food_name,
     full_nutrients,
@@ -44,7 +45,7 @@ export function processReturn(api_return) {
     serving_qty,
     serving_unit,
     serving_weight_grams,
-    tags,
+    alt_measures,
   } = api_return;
 
   const newItem = {
@@ -58,6 +59,7 @@ export function processReturn(api_return) {
     serving_qty,
     serving_unit: serving_unit.replace('"', " inch"),
     serving_weight_grams,
+    alt_measures,
     id: uuidv4(),
   };
   return newItem;
