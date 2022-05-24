@@ -1,0 +1,11 @@
+.SelectableItem {
+  background-color: white;
+  padding: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.Selected {
+  background-color: gold;
+}

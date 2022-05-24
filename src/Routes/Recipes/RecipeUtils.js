@@ -1,3 +1,5 @@
+import RecipeEntry from "./RecipeEntry";
+
 export function getQuickFormFields(quickValues) {
   return [
     {
@@ -99,3 +101,12 @@ export function generateInput(props) {
 
   return input;
 }
+
+export function generateRecipeEntries(recipes) {
+  const recipeEntries = recipes.map((recipe) => {
+    return <RecipeEntry key={recipe.id} recipe={recipe} />;
+  });
+  return recipeEntries;
+}
+
+/////////////////////////////////////////// NEWRECIPE.JS

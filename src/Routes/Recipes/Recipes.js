@@ -1,21 +1,37 @@
-//import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import QuickForm from "./QuickForm";
 import "./Recipes.css";
+import { generateRecipeEntries } from "./RecipeUtils";
 
 function Recipes(props) {
+  // // localStorage.setItem("recipes", JSON.stringify([]));
+  const navigate = useNavigate();
+
   const [recipes, setRecipes] = useState([]);
-  // localStorage.setItem("recipes", JSON.stringify([]));
+
+  // function handleClear(e) {
+  //   setRecipes([]);
+  // }
+
+  // function handleSeed(e) {
+  //   setRecipes(seedData);
+  // }
 
   useEffect(() => {
-    const savedRecipes = JSON.parse(localStorage.getItem("recipes"));
-    setRecipes([...recipes, ...savedRecipes]);
+    const savedData = JSON.parse(localStorage.getItem("recipes"));
+    setRecipes(savedData);
   }, []);
 
   useEffect(() => {
     localStorage.setItem("recipes", JSON.stringify(recipes));
-    console.log("New Recipe:", recipes);
+    // console.log("from didUpdate: recipes -> ", recipes);
   }, [recipes]);
+
+  // console.log("From Recipes.js: ", recipes);
+  function newRecipeClick(e) {
+    navigate("/recipes/new");
+  }
 
   return (
     <div className="Recipes">
@@ -35,11 +51,12 @@ function Recipes(props) {
         </div>
         <div className="NewRecipe">
           <div className="sectionTitle">New Recipe</div>
+          <button onClick={newRecipeClick}>New Recipe</button>
         </div>
       </div>
       <div className="rightSide">
         <div className="sectionTitle">Your Recipes</div>
-        <div className="RecipesContainer">List of Recipes</div>
+        <div className="RecipesContainer">{generateRecipeEntries(recipes)}</div>
       </div>
     </div>
   );

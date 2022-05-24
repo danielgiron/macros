@@ -1,0 +1,78 @@
+.rightSide .RecipesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: 0.5rem;
+  /* padding: 0.25rem; */
+
+  height: calc(100%);
+  width: calc(100% - 2rem);
+  /* margin: 1rem; */
+  /* background-color: rgb(243, 243, 243); */
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 1rem;
+  overflow-y: scroll;
+}
+
+.RecipeEntry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border: 1px solid lightgrey;
+  width: calc(100% - 2px);
+  /* height: 300px !important; */
+}
+
+.RecipeEntry:first-child {
+  border-top: none;
+}
+/* .RecipeEntry:last-child {
+  border-bottom: none;
+} */
+
+.RecipeEntry .RecipeName {
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  text-transform: capitalize;
+  width: 30%;
+  /* background-color: lightgray; */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.RecipeEntry .RecipeMacros {
+  width: 30%;
+  margin: 0.5rem 0rem;
+
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.RecipeEntry .Macro {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.RecipeEntry button {
+  padding: 0.5rem;
+  background-color: transparent;
+  color: grey;
+  border: 1px solid gold;
+}
+
+.RecipeEntry button:hover {
+  /* padding: 0.5rem; */
+  background-color: gold;
+  color: black;
+  border: 1px solid gold;
+}

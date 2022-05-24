@@ -1,0 +1,27 @@
+.NewRecipe {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+}
+
+.NewRecipePanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.ItemSelectContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: flex-start;
+  align-items: flex-start; */
+  gap: 0.25rem;
+  overflow-y: scroll !important;
+}
