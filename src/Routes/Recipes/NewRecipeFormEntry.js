@@ -1,23 +1,21 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
-// import './NewRecipeFormEntry.css'
+import "./NewRecipeFormEntry.css";
+import { measures } from "./RecipeUtils";
 
 function NewRecipeFormEntry(props) {
-  // DONT RELY ON ALT_MEASURES, USE YOUR OWN MEASURES
-  // [{measure: "cup", gramWeight:244}, {measure:"tbsp", gramWeight:5}...]
   const { item } = props;
 
-  const options = item.alt_measures.map((measure, index) => {
+  const options = measures.map((measure, index) => {
     return (
-      <option key={index} value={measure.measure}>
-        {measure.measure}
+      <option key={index} value={measure.gram_weight}>
+        {measure.name}
       </option>
     );
   });
 
   const [quantity, setQuantity] = useState(0);
   const [measure, setMeasure] = useState(options[0].props.value);
-  const [gramAmount, updateGramAmount] = useState(0);
 
   function onChange_NumberInput(e) {
     setQuantity(e.target.value);
@@ -27,19 +25,44 @@ function NewRecipeFormEntry(props) {
     setMeasure(e.target.value);
   }
 
-  useEffect(() => {
-    console.log(`${item.food_name} quantity: `, quantity, measure);
-  }, [quantity, measure]);
+  // useEffect(() => {
+  //   console.log(`${item.food_name} quantity: `, quantity, measure);
+  // }, [quantity, measure]);
 
   return (
     <div key={item.id} className="NewRecipeFormEntry">
-      <div className="EntryName">{item.food_name}</div>
-      <div>
-        <label htmlFor="amount">Amount</label>
-        <input onChange={onChange_NumberInput} type="Number" />
+      <label className="EntryName" htmlFor={`${item.food_name}_amount`}>
+        {item.food_name}
+      </label>
+
+      <div className="data">
+        <input
+          id={`${item.food_name}_amount`}
+          onChange={onChange_NumberInput}
+          type="Number"
+          placeholder="Qty"
+          required={true}
+        />
         <select onChange={onChange_SelectInput} defaultValue={options[0]}>
           {options}
         </select>
+        <input
+          type="hidden"
+          className="FormEntryValue_hiddenInput"
+          value={JSON.stringify({
+            name: item.food_name,
+            id: item.id,
+            quantity: +quantity,
+            measure_weight: +measure,
+            serving_weight_grams: +item.serving_weight_grams,
+            macrosPerGram: {
+              calories: item.nf_calories / item.serving_weight_grams,
+              protein: item.nf_protein / item.serving_weight_grams,
+              fat: item.nf_total_fat / item.serving_weight_grams,
+              carb: item.nf_total_carbohydrate / item.serving_weight_grams,
+            },
+          })}
+        />
       </div>
     </div>
   );

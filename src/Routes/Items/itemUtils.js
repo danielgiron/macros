@@ -177,12 +177,6 @@ export function getFullNutrients(item) {
   let fullNutrients = [];
   item.full_nutrients.map((n) => {
     if (attrList[n.attr_id]) {
-      // console.log(
-      //   `${attrList[n.attr_id].name}: ${n.value.toFixed(2)}${
-      //     attr[n.attr_id].unit
-      //   }`
-      // )
-
       fullNutrients.push({
         name: attrList[n.attr_id].name,
         amount: n.value.toFixed(2),

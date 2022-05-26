@@ -1,4 +1,6 @@
 import RecipeEntry from "./RecipeEntry";
+import SelectableItem from "./SelectableItem";
+import { v4 as uuidv4 } from "uuid";
 
 export function getQuickFormFields(quickValues) {
   return [
@@ -110,3 +112,137 @@ export function generateRecipeEntries(recipes) {
 }
 
 /////////////////////////////////////////// NEWRECIPE.JS
+
+export const measures = [
+  { name: "g", gram_weight: 1 },
+  { name: "oz", gram_weight: 28.35 },
+  { name: "tbsp", gram_weight: 12.5 },
+  { name: "tsp", gram_weight: 4.2 },
+  { name: "cup", gram_weight: 128 },
+  { name: "lb", gram_weight: 453.6 },
+  { name: "serving", gram_weight: null },
+];
+
+export function getCategorizedCollection(
+  collection,
+  selectedItems,
+  setSelectedItems
+) {
+  const DairyItems = collection.filter((item) => {
+    return item.category === "Dairy";
+  });
+  const BakedGoodsItems = collection.filter((item) => {
+    return item.category === "BakedGoods";
+  });
+  const MeatItems = collection.filter((item) => {
+    return item.category === "Meat";
+  });
+  const MiscellaneousItems = collection.filter((item) => {
+    return item.category === "Miscellaneous";
+  });
+  const ProduceItems = collection.filter((item) => {
+    return item.category === "Produce";
+  });
+
+  const DairyCollection = DairyItems.map((item) => {
+    return (
+      <SelectableItem
+        key={item.id}
+        item={item}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
+    );
+  });
+  const BakedGoodsCollection = BakedGoodsItems.map((item) => {
+    return (
+      <SelectableItem
+        key={item.id}
+        item={item}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
+    );
+  });
+  const MeatCollection = MeatItems.map((item) => {
+    return (
+      <SelectableItem
+        key={item.id}
+        item={item}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
+    );
+  });
+  const MiscellaneousCollection = MiscellaneousItems.map((item) => {
+    return (
+      <SelectableItem
+        key={item.id}
+        item={item}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
+    );
+  });
+  const ProduceCollection = ProduceItems.map((item) => {
+    return (
+      <SelectableItem
+        key={item.id}
+        item={item}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
+    );
+  });
+
+  const categories = {
+    Dairy: DairyCollection,
+    BakedGoods: BakedGoodsCollection,
+    Meat: MeatCollection,
+    Miscellaneous: MiscellaneousCollection,
+    Produce: ProduceCollection,
+  };
+
+  return categories;
+}
+
+export function compileNewRecipe(RecipeName, NServings, items) {
+  let totalCalories = 0;
+  let totalProtein = 0;
+  let totalCarb = 0;
+  let totalFat = 0;
+  for (let item of items) {
+    if (item.measure_weight) {
+      totalCalories +=
+        item.macrosPerGram.calories * item.quantity * item.measure_weight;
+      totalProtein +=
+        item.macrosPerGram.protein * item.quantity * item.measure_weight;
+      totalCarb +=
+        item.macrosPerGram.carb * item.quantity * item.measure_weight;
+      totalFat += item.macrosPerGram.fat * item.quantity * item.measure_weight;
+    } else {
+      // the case in which the selected measure (i.e. "tsp", "cup", etc.) is "serving"
+      totalCalories +=
+        item.macrosPerGram.calories * item.quantity * item.serving_weight_grams;
+      totalProtein +=
+        item.macrosPerGram.protein * item.quantity * item.serving_weight_grams;
+      totalCarb +=
+        item.macrosPerGram.carb * item.quantity * item.serving_weight_grams;
+      totalFat +=
+        item.macrosPerGram.fat * item.quantity * item.serving_weight_grams;
+    }
+  }
+
+  const newRecipe = {
+    recipeName: RecipeName,
+    totalCalories,
+    totalProtein,
+    totalCarb,
+    totalFat,
+    category: "Miscellaneous",
+    servings: +NServings,
+    id: uuidv4(),
+    items: items,
+    steps: [],
+  };
+}

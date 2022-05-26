@@ -6,6 +6,9 @@ import "./Items.css";
 import { seedData } from "./seedData";
 
 function Items(props) {
+  if (!localStorage.getItem("collection")) {
+    localStorage.setItem("collection", JSON.stringify([]));
+  }
   const [collection, setCollection] = useState([]);
 
   function handleClear(e) {

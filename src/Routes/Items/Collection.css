@@ -61,7 +61,7 @@
   width: calc(100% - 2rem);
 }
 
-.CategoryContainer {
+.Items .CategoryContainer {
   display: flex;
   flex-direction: column;
 

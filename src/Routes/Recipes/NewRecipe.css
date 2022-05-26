@@ -3,6 +3,7 @@
   flex-direction: row;
   height: 100%;
   width: 100%;
+  gap: 0.5rem;
   background-color: transparent;
 }
 
@@ -12,16 +13,103 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 100%;
-  border: 1px solid red;
+  height: calc(100% - 0.5rem);
+  padding: 0.25rem;
+  max-width: 275px !important;
+
+  /* border: 1px solid red; */
+  background-color: rgba(255, 255, 255, 0.276);
+}
+
+.PanelDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  background-color: white;
+  margin-bottom: 0.5rem;
+}
+
+.PanelDescription .SectionHeader {
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.PanelDescription span {
+  font-size: 0.9rem;
+  width: calc(100% - 1rem);
 }
 
 .ItemSelectContainer {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* justify-content: flex-start;
-  align-items: flex-start; */
+  flex-direction: column;
+
   gap: 0.25rem;
   overflow-y: scroll !important;
+}
+
+/* .ItemSelectContainer > * {
+  width: 100%;
+} */
+
+.NewRecipe .CategoryContainer {
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.543);
+}
+
+.NewRecipe .CategoryContainer .CategoryName {
+  font-weight: 500;
+}
+
+.ItemsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: calc(100% - 0.75rem);
+  /* width: 100%; */
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+/*************** MIDDLE COLUMN: NewRecipeFormEntries.css ************/
+
+/*************** Last Column, Optional Steps and Notes *************/
+
+.NewRecipe .LastColumn {
+  justify-content: space-between;
+}
+
+.NewRecipe .LastColumn .CompletionBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(100% - 1rem);
+  /* padding: 0.5rem; */
+  background-color: transparent;
+}
+
+.NewRecipe .LastColumn .CompletionBox button {
+  width: 100%;
+  border: 1px solid rgb(253, 176, 32);
+  padding: 0.5rem;
+  margin: 0.5rem;
+  color: white;
+  background-color: rgb(253, 176, 32);
+}
+
+.NewRecipe .LastColumn .CompletionBox button:hover {
+  filter: brightness(1.2);
 }

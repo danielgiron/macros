@@ -5,7 +5,8 @@ import "./Recipes.css";
 import { generateRecipeEntries } from "./RecipeUtils";
 
 function Recipes(props) {
-  // // localStorage.setItem("recipes", JSON.stringify([]));
+  // localStorage.setItem("recipes", JSON.stringify([]));
+
   const navigate = useNavigate();
 
   const [recipes, setRecipes] = useState([]);

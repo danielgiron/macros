@@ -20,7 +20,9 @@ function SelectableItem(props) {
   return (
     <div
       onClick={toggleSelected}
-      className={`SelectableItem ${isSelected && "Selected"}`}
+      className={`SelectableItem ${isSelected ? "Selected" : ""} ${
+        item.category
+      }`}
     >
       <span>{item.food_name}</span>
     </div>

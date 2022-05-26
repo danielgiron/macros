@@ -1,11 +1,40 @@
+.Dairy {
+  background-color: rgb(194, 224, 236);
+  border: 1px solid rgb(194, 224, 236);
+}
+.BakedGoods {
+  background-color: rgb(254, 213, 65);
+  border: 1px solid rgb(254, 213, 65);
+}
+.Meat {
+  background-color: rgb(251, 120, 100);
+  border: 1px solid rgb(251, 120, 100);
+}
+.Produce {
+  background-color: rgb(190, 253, 123);
+  border: 1px solid rgb(190, 253, 123);
+}
+.Miscellaneous {
+  background-color: rgb(196, 138, 255);
+  border: 1px solid rgb(196, 138, 255);
+}
+
 .SelectableItem {
-  background-color: white;
+  /* background-color: white; */
   padding: 0.25rem;
   font-size: 0.8rem;
   font-weight: 400;
   cursor: pointer;
+  text-transform: capitalize;
+}
+
+.SelectableItem:not(.Selected):hover {
+  filter: brightness(1.15);
 }
 
 .Selected {
-  background-color: gold;
+  /* border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.018);
+  color: rgb(255, 255, 255); */
+  filter: brightness(0.75);
 }

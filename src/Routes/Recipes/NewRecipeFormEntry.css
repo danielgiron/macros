@@ -1,0 +1,59 @@
+.NewRecipeFormEntries {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.NewRecipeFormEntry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.25rem 0rem;
+  width: calc(100% - 2px);
+  /* background-color: blue; */
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.543);
+}
+
+.NewRecipeFormEntry .EntryName {
+  width: calc(100%);
+  padding-left: 0.25rem;
+
+  font-size: 0.8rem;
+  text-transform: capitalize;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.NewRecipeFormEntry .data {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.NewRecipeFormEntry input {
+  height: 22px;
+  width: 50px;
+  text-align: center;
+  border: none;
+  /* border-left: 1px solid lightgrey; */
+  color: grey;
+}
+
+.NewRecipeFormEntry select {
+  height: 24px;
+  border: none;
+
+  border-left: 1px solid lightgrey;
+
+  color: grey;
+}
