@@ -1,9 +1,13 @@
+.QuickFormContainer {
+  background-color: red;
+}
+
 .QuickForm {
   /* background-color: red; */
   display: flex;
   flex-direction: row;
-  width: calc(100% + 0.2rem);
-  height: 100%;
+  width: calc(100% - 0.5rem);
+  height: calc(100% + 0.25rem);
   gap: 0.3rem;
   transform: translateX(0rem);
 }
@@ -21,6 +25,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+#second {
+  margin-bottom: 0.45rem;
 }
 
 #QuickFormTitle {
@@ -79,7 +87,7 @@
 .QuickForm select {
   width: calc(100% - 0px);
 
-  height: 55%;
+  height: calc(55% + 0px);
   border: 1px solid lightgrey;
   font-size: 0.8rem;
   padding-left: 0.25rem;
@@ -102,6 +110,8 @@
   border: 1px solid rgb(249, 185, 65);
   color: rgb(249, 185, 65);
   font-weight: 500;
+  /* height: 36px !important;
+  margin-top: 3px; */
   background-color: transparent !important;
 }
 

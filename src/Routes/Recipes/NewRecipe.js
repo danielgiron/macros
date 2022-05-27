@@ -25,6 +25,7 @@ function NewRecipe(props) {
   });
 
   function handleSubmit(e) {
+    // e.preventDefault();
     const QtyValues = document.querySelectorAll(".FormEntryValue_hiddenInput");
     const RecipeName = document.querySelector("#RecipeName");
     const NServings = document.querySelector("#RecipeServings");
@@ -40,40 +41,38 @@ function NewRecipe(props) {
 
     // console.log(newRecipe);
     recipes.push(newRecipe);
-    localStorage.setItem("recipes", JSON.stringify(recipes));
+    console.log(recipes);
+    localStorage.setItem("recipes", JSON.stringify([...recipes]));
   }
 
   return (
     <div className="NewRecipe">
-      <div className="NewRecipePanel">
-        <div className="ItemSelectContainer">
-          <div className="PanelDescription">
-            <div className="SectionHeader">Select Ingredients</div>
-            <span>
-              First, pick out the ingredients you would like to add to this
-              recipe
-            </span>
-          </div>
-          <div className="CategoryContainer">
-            <div className="CategoryName">Baked Goods</div>
-            <div className="ItemsContainer">{categories.BakedGoods}</div>
-          </div>
-          <div className="CategoryContainer">
-            <div className="CategoryName">Dairy</div>
-            <div className="ItemsContainer">{categories.Dairy}</div>
-          </div>
-          <div className="CategoryContainer">
-            <div className="CategoryName">Meats</div>
-            <div className="ItemsContainer">{categories.Meat}</div>
-          </div>
-          <div className="CategoryContainer">
-            <div className="CategoryName">Produce</div>
-            <div className="ItemsContainer">{categories.Produce}</div>
-          </div>
-          <div className="CategoryContainer">
-            <div className="CategoryName">Miscellaneous</div>
-            <div className="ItemsContainer">{categories.Miscellaneous}</div>
-          </div>
+      <div className="NewRecipePanel ItemSelectPanel">
+        <div className="PanelDescription">
+          <div className="SectionHeader">Select Ingredients</div>
+          <span>
+            First, pick out the ingredients you would like to add to this recipe
+          </span>
+        </div>
+        <div className="CategoryContainer">
+          <div className="CategoryName">Baked Goods</div>
+          <div className="ItemsContainer">{categories.BakedGoods}</div>
+        </div>
+        <div className="CategoryContainer">
+          <div className="CategoryName">Dairy</div>
+          <div className="ItemsContainer">{categories.Dairy}</div>
+        </div>
+        <div className="CategoryContainer">
+          <div className="CategoryName">Meats</div>
+          <div className="ItemsContainer">{categories.Meat}</div>
+        </div>
+        <div className="CategoryContainer">
+          <div className="CategoryName">Produce</div>
+          <div className="ItemsContainer">{categories.Produce}</div>
+        </div>
+        <div className="CategoryContainer">
+          <div className="CategoryName">Miscellaneous</div>
+          <div className="ItemsContainer">{categories.Miscellaneous}</div>
         </div>
       </div>
       <form action="/recipes" method="GET">
@@ -84,7 +83,13 @@ function NewRecipe(props) {
               Next, decide how much of each ingredient this recipe will need
             </span>
           </div>
-          <div className="NewRecipeFormEntries">{NewRecipeFormEntries}</div>
+          <div className="NewRecipeFormEntries">
+            {NewRecipeFormEntries.length === 0 ? (
+              <span className="lilMessage">(Select items first)</span>
+            ) : (
+              NewRecipeFormEntries
+            )}
+          </div>
         </div>
         <div className="NewRecipePanel LastColumn">
           <div>
@@ -95,9 +100,10 @@ function NewRecipe(props) {
                 notes
               </span>
             </div>
-            <div>Coming Soon</div>
+            <span className="lilMessage">(Coming soon)</span>
           </div>
           <div className="CompletionBox">
+            <div className="SectionHeader">Lastly</div>
             <div className="nameInput">
               <label htmlFor="RecipeName">Recipe Name:</label>
               <input

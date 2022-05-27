@@ -6,6 +6,14 @@ import { generateRecipeEntries } from "./RecipeUtils";
 
 function Recipes(props) {
   // localStorage.setItem("recipes", JSON.stringify([]));
+  // console.log(JSON.parse(localStorage.getItem("recipes")));
+  if (!localStorage.getItem("collection")) {
+    localStorage.setItem("collection", JSON.stringify([]));
+  }
+
+  if (!localStorage.getItem("recipes")) {
+    localStorage.setItem("recipes", JSON.stringify([]));
+  }
 
   const navigate = useNavigate();
 
@@ -26,7 +34,7 @@ function Recipes(props) {
 
   useEffect(() => {
     localStorage.setItem("recipes", JSON.stringify(recipes));
-    // console.log("from didUpdate: recipes -> ", recipes);
+    // console.log("from didUpdate: recipes: ", recipes);
   }, [recipes]);
 
   // console.log("From Recipes.js: ", recipes);
@@ -40,16 +48,16 @@ function Recipes(props) {
         <div className="PageInfo">
           <div className="sectionTitle">Recipes</div>
           <p>
-            On this page you can create new recipes and view their nutrional
-            composition. You can then add these recipes to your daily eating
-            logs on the Tracker page
+            On this page you can create new recipes and view their nutritional
+            composition. You may then add these recipes to your daily eating log
+            on the Tracker page
           </p>
         </div>
-        <div className="QuickAdd">
-          <div className="QuickFormContainer">
-            <QuickForm recipes={recipes} setRecipes={setRecipes} />
-          </div>
+
+        <div className="QuickFormContainer">
+          <QuickForm recipes={recipes} setRecipes={setRecipes} />
         </div>
+
         <div className="NewRecipe">
           <div className="sectionTitle">New Recipe</div>
           <button onClick={newRecipeClick}>New Recipe</button>

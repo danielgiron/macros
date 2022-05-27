@@ -30,8 +30,24 @@ function QuickForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(quickValues);
-    props.setRecipes([...props.recipes, { ...quickValues }]);
+    // console.log(quickValues);
+
+    const newRecipe = {
+      recipeName: quickValues.recipeName,
+      totalCalories: +quickValues.totalCalories,
+      totalProtein: +quickValues.totalProtein,
+      totalCarb: +quickValues.totalCarb,
+      totalFat: +quickValues.totalFat,
+      category: quickValues.category,
+      servings: +quickValues.servings,
+      id: uuidv4(),
+      //the following values below are not populated for QuickAdd Recipes
+      items: [],
+      steps: [],
+    };
+
+    props.setRecipes([...props.recipes, newRecipe]);
+
     setQuickValues({
       recipeName: "",
       totalCalories: "",

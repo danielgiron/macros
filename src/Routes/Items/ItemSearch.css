@@ -39,6 +39,11 @@
 
 .searchContainer form button {
   width: 100%;
+  background-color: #efefef;
+}
+
+.searchContainer form button:hover {
+  filter: brightness(1.1);
 }
 
 /**************** RIGHT SIDE OF ItemSearch ************/
@@ -90,8 +95,12 @@
 .confirmationForm button {
   margin-top: 1rem;
   width: 100%;
+  background-color: #f9b941;
 }
 
+.confirmationForm button:hover {
+  filter: brightness(1.1);
+}
 /********************************************/
 
 .ItemSearch button {

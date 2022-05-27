@@ -245,4 +245,6 @@ export function compileNewRecipe(RecipeName, NServings, items) {
     items: items,
     steps: [],
   };
+
+  return newRecipe;
 }

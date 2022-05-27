@@ -32,7 +32,7 @@
   margin-bottom: 0.5rem;
 }
 
-.PanelDescription .SectionHeader {
+.NewRecipe .SectionHeader {
   font-weight: 500;
   font-size: 1.1rem;
   letter-spacing: 1px;
@@ -44,11 +44,14 @@
   width: calc(100% - 1rem);
 }
 
-.ItemSelectContainer {
+.ItemSelectPanel {
   display: flex;
   flex-direction: column;
 
   gap: 0.25rem;
+
+  width: 100%;
+
   overflow-y: scroll !important;
 }
 
@@ -76,11 +79,16 @@
   margin-top: 0.25rem;
 }
 
-form {
+.NewRecipe form {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   gap: 0.5rem;
+  width: 100%;
+}
+
+.NewRecipe .Quantities {
+  width: 50%;
 }
 
 /*************** MIDDLE COLUMN: NewRecipeFormEntries.css ************/
@@ -89,6 +97,7 @@ form {
 
 .NewRecipe .LastColumn {
   justify-content: space-between;
+  width: 50%;
 }
 
 .NewRecipe .LastColumn .CompletionBox {
@@ -96,18 +105,38 @@ form {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  gap: 0.25rem;
   width: calc(100% - 1rem);
-  /* padding: 0.5rem; */
-  background-color: transparent;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+.NewRecipe .CompletionBox .SectionHeader {
+  width: 100%;
+}
+
+.NewRecipe .CompletionBox .nameInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  width: 100%;
+}
+.NewRecipe .CompletionBox .servingsInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  width: 100%;
 }
 
 .NewRecipe .LastColumn .CompletionBox button {
   width: 100%;
-  border: 1px solid rgb(253, 176, 32);
+  border: 1px solid #f9b941;
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin-top: 0.5rem;
   color: white;
-  background-color: rgb(253, 176, 32);
+  background-color: #f9b941;
 }
 
 .NewRecipe .LastColumn .CompletionBox button:hover {

@@ -41,7 +41,7 @@
 } */
 
 .RecipeEntry .RecipeName {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 500;
 
   text-transform: capitalize;
@@ -72,12 +72,12 @@
   padding: 0.5rem;
   background-color: transparent;
   color: grey;
-  border: 1px solid gold;
+  border: 1px solid #f9b941;
 }
 
 .RecipeEntry button:hover {
   /* padding: 0.5rem; */
-  background-color: gold;
+  background-color: #f9b941;
   color: black;
-  border: 1px solid gold;
+  border: 1px solid #f9b941;
 }
