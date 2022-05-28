@@ -93,9 +93,9 @@
 }
 
 .Recipes .leftSide .NewRecipe button {
-  border: 1px solid #f9b941;
-  background-color: #f9b941;
-  width: calc(100% - 2rem);
+  border: 1px solid rgb(255, 201, 101);
+  background-color: rgb(255, 201, 101);
+  width: calc(100% - 0rem);
 }
 .Recipes .leftSide .NewRecipe button:hover {
   filter: brightness(1.1);

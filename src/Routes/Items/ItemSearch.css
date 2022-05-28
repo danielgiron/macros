@@ -20,6 +20,13 @@
   margin: 0.5rem;
 }
 
+.ItemSearch button {
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  /* background-color: rgb(255, 201, 101) !important; */
+}
+
 /**************** LEFT SIDE OF ItemSearch ************/
 
 .searchContainer {
@@ -39,7 +46,7 @@
 
 .searchContainer form button {
   width: 100%;
-  background-color: #efefef;
+  background-color: rgb(255, 201, 101);
 }
 
 .searchContainer form button:hover {
@@ -95,7 +102,7 @@
 .confirmationForm button {
   margin-top: 1rem;
   width: 100%;
-  background-color: #f9b941;
+  background-color: rgb(220, 220, 220) !important;
 }
 
 .confirmationForm button:hover {
@@ -103,14 +110,8 @@
 }
 /********************************************/
 
-.ItemSearch button {
-  border: none;
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
 .ItemSearch button:hover {
-  background-color: rgb(247, 192, 89);
+  filter: brightness(1.1);
 }
 
 .ItemSearch h1 {

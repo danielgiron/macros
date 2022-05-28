@@ -157,10 +157,6 @@ export function generateCategories(collection) {
   return categories;
 }
 
-// const seedString_JSON = JSON.parse(seedString);
-
-// export const seedData = seedString_JSON;
-
 //////////////////////////////////////////////////////// ITEMINFO.js
 export function getItemById(id) {
   let itemInQuestion = JSON.parse(localStorage.getItem("collection"));

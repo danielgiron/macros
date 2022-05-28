@@ -75,7 +75,7 @@ function NewRecipe(props) {
           <div className="ItemsContainer">{categories.Miscellaneous}</div>
         </div>
       </div>
-      <form action="/recipes" method="GET">
+      <form action="/recipes" method="GET" onSubmit={handleSubmit}>
         <div className="NewRecipePanel Quantities">
           <div className="PanelDescription">
             <div className="SectionHeader">Specify Quantities</div>
@@ -122,7 +122,7 @@ function NewRecipe(props) {
                 required={true}
               />
             </div>
-            <button onClick={handleSubmit}>Done</button>
+            <button>Done</button>
           </div>
         </div>
       </form>

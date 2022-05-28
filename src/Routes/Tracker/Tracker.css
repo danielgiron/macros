@@ -1,8 +1,222 @@
 .Tracker {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; */
+
+  overflow-y: scroll;
+}
+
+.FirstSection {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: left;
+  background-color: white;
+  width: calc(100% - 2rem);
+  height: min-content;
+  padding: 1rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
+
+.Tracker .SectionHeader {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.Tracker .Big.SectionHeader {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+/*************************************  TODAYS LOG  *********************************/
+/*****************  (Smaller) Graphs  *******************/
+
+.Tracker .FirstSection .Graphs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(100% - 0rem);
+  height: 200px;
+  background-color: red;
+  gap: 1rem;
+  /* padding: 1rem; padding around graphs */
+}
+
+.Tracker .FirstSection .Graphs > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: pink;
+  height: 100%;
+}
+
+/*****************  Set Goals  *******************/
+
+.Tracker .SetGoals {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: blue;
+  padding: 1rem;
+}
+
+.Tracker .SetGoals .SetGoalsForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  background-color: turquoise;
+}
+.Tracker .SetGoals .SetGoalsForm > .SetGoalsFormInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  flex-grow: 1;
+  background-color: paleturquoise;
+
+  height: 100%;
+}
+
+/*****************  Add Meals  *******************/
+
+.Tracker .TodaysMealsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: orange;
+  padding: 1rem;
+  width: calc(100% - 2rem);
+}
+
+.Tracker .TodaysMealsContainer .AddMealSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  width: calc(100% - 2rem);
+  background-color: yellow;
+}
+
+/******************************  (Big) LineGraph  *******************************/
+
+.Tracker .SecondSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
+  width: calc(100% - 0rem);
+  padding: 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+}
+
+.SecondSection .BigLineGraphContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(100% - 0rem);
+}
+
+.SecondSection .BigLineGraphContainer .BigLineGraph {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: calc(80% - 1rem);
+  background-color: aquamarine;
+}
+
+.SecondSection .BigLineGraphContainer .GraphControls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: calc(20% - 1rem);
+  background-color: lightblue;
+}
+
+.GraphControls .GraphControlsButton {
+  padding: 1rem;
+  width: 80%;
+}
+
+/*****************************  PreviousLogs  *****************************/
+
+.Tracker .ThirdSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: calc(100% - 0rem);
+  padding: 1rem;
+  background-color: white;
+}
+
+.ThirdSection .PreviousLogsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  width: calc(100% - 2rem);
+}
+
+.PreviousLogsContainer > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  height: 200px;
+  background-color: blueviolet;
+}
+
+.PreviousLogsContainer .PieChartContainer,
+.PreviousLogsContainer .BarChartContainer {
+  justify-content: center;
+}
+
+.PreviousLogsContainer .PreviousLogs {
+  gap: 0.5rem;
+  overflow-y: scroll;
+}
+
+.PreviousLogs .logEntry {
+  background-color: lavender;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.ItemsConsumedContainer {
+  gap: 0.5rem;
+  overflow-y: scroll;
+}
+
+.ItemsConsumedContainer .ItemEntry {
+  background-color: lavender;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+/* .PreviousLogsContainer .PreviousLogs { */
+/* background-color: royalblue;
+} */
