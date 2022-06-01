@@ -1,4 +1,6 @@
-export function newTodaysLog(previousTodaysLog) {
+export function newTodaysLog(
+  previousTodaysLog = { goals: { calories: 0, protein: 0, carbs: 0, fat: 0 } }
+) {
   return {
     date: new Date().toDateString(),
     mealsEaten: [],
@@ -40,6 +42,26 @@ export function prepareLogs() {
     console.log("Today's log exists. Completing function call.");
   } else {
     console.log("Date has changed, new 'todaysLog' needed. Updating logs...");
+
+    let calories = 0;
+    let protein = 0;
+    let carbs = 0;
+    let fat = 0;
+
+    for (let meal of todaysLog.mealsEaten) {
+      calories += meal.mealCalories;
+      protein += meal.mealProtein;
+      carbs += meal.mealCarbs;
+      fat += meal.mealFat;
+    }
+
+    todaysLog.macrosConsumed = {
+      calories,
+      protein,
+      carbs,
+      fat,
+    };
+
     previousLogs.push(todaysLog);
     todaysLog = newTodaysLog(todaysLog);
     localStorage.setItem("previousLogs", JSON.stringify(previousLogs));

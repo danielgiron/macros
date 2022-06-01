@@ -1,5 +1,7 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
+import AddMeal from "./AddMeal";
+import BarGraph from "./BarGraph";
 // import './TodaysLog.css'
 
 function TodaysLog(props) {
@@ -11,20 +13,38 @@ function TodaysLog(props) {
     fat: +todaysLog.goals.fat || 0,
   });
 
-  const [macrosConsumed, setMacrosConsumed] = useState({
-    calories: +todaysLog.macrosConsumed.calories || 0,
-    protein: +todaysLog.macrosConsumed.protein || 0,
-    carbs: +todaysLog.macrosConsumed.carbs || 0,
-    fat: +todaysLog.macrosConsumed.fat || 0,
-  });
   const [mealsEaten, setMealsEaten] = useState(todaysLog.mealsEaten || []);
 
   useEffect(() => {
-    todaysLog.macrosConsumed = macrosConsumed;
+    todaysLog.macrosConsumed = { calories: 0, protein: 0, carbs: 0, fat: 0 };
     todaysLog.goals = goals;
     todaysLog.mealsEaten = mealsEaten;
+
+    // mealsEaten.map((meal) => {
+    //   setMacrosConsumed({
+    //     calories: macrosConsumed.calories + meal.mealCalories,
+    //     protein: macrosConsumed.protein + meal.mealProtein,
+    //     carbs: macrosConsumed.carbs + meal.mealCarbs,
+    //     fat: macrosConsumed.fat + meal.mealFat,
+    //   });
+    // });
+
     localStorage.setItem("todaysLog", JSON.stringify(todaysLog));
-  }, [goals, macrosConsumed, mealsEaten]);
+  }, [goals, mealsEaten]);
+
+  useEffect(() => {
+    console.log("Meals eaten: ", mealsEaten);
+    // console.log("TodaysLog Meals eaten: ", todaysLog.mealsEaten);
+  }, [mealsEaten]);
+
+  // mealsEaten.map((meal) => {
+  //   setMacrosConsumed({
+  //     calories: macrosConsumed.calories + meal.mealCalories,
+  //     protein: macrosConsumed.protein + meal.mealProtein,
+  //     carbs: macrosConsumed.carbs + meal.mealCarbs,
+  //     fat: macrosConsumed.fat + meal.mealFat,
+  //   });
+  // });
 
   function handleGoalChange(e) {
     const { name, value } = e.target;
@@ -35,7 +55,9 @@ function TodaysLog(props) {
       <div className="Big SectionHeader">Today</div>
       <div className="Graphs">
         <div className="PieChart">Pie</div>
-        <div className="BarChart">Bar</div>
+        <div className="BarChart">
+          <BarGraph mealsEaten={mealsEaten} goals={goals} />
+        </div>
       </div>
       <div className="SetGoals">
         <div className="SectionHeader">Set Goals</div>
@@ -82,15 +104,7 @@ function TodaysLog(props) {
           </div>
         </div>
       </div>
-      <div className="TodaysMealsContainer">
-        <div className="SectionHeader">Add Meal</div>
-        <div className="AddMealSection">
-          <button className="AddMealButton">+</button>
-          <div className="Meal">Meal 1</div>
-          <div className="Meal">Meal 2</div>
-          <div className="Meal">Meal 3</div>
-        </div>
-      </div>
+      <AddMeal mealsEaten={mealsEaten} setMealsEaten={setMealsEaten} />
     </div>
   );
 }

@@ -1,0 +1,16 @@
+#chart {
+  height: 180px;
+  width: 200px;
+}
+
+.c3-event-rect,
+.guageContainer > svg {
+  height: min-content;
+}
+.c3-chart-arc text {
+  display: none;
+}
+
+/* .c3-legend-item {
+  display: none;
+} */
