@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import c3 from "c3";
 import "c3/c3.css";
-import "./BarChart.css";
+import "./PieGraph.css";
 
-function BarChart(props) {
-  const { data } = props;
+function PieGraph(props) {
+  const { name, data } = props;
   React.useEffect(() => {
     c3.generate({
-      bindto: "#chart",
+      bindto: `#${name}`,
       data: {
         columns: [
           ["protein", data[0]],
@@ -22,7 +22,8 @@ function BarChart(props) {
         type: "donut",
       },
     });
-  }, []);
-  return <div id="chart" />;
+  }, [data]);
+
+  return <div className="PieGraph" id={`${name}`} />;
 }
-export default BarChart;
+export default PieGraph;

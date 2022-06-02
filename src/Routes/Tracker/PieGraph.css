@@ -1,6 +1,6 @@
-#chart {
-  height: 180px;
-  width: 200px;
+.PieGraph {
+  height: 150px !important;
+  width: 200px !important;
 }
 
 .c3-event-rect,

@@ -1,7 +1,8 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import AddMeal from "./AddMeal";
-import BarGraph from "./BarGraph";
+import PieGraphPanel from "./PieGraphPanel";
+import BarGraph from "./PieGraphPanel";
 // import './TodaysLog.css'
 
 function TodaysLog(props) {
@@ -20,15 +21,6 @@ function TodaysLog(props) {
     todaysLog.goals = goals;
     todaysLog.mealsEaten = mealsEaten;
 
-    // mealsEaten.map((meal) => {
-    //   setMacrosConsumed({
-    //     calories: macrosConsumed.calories + meal.mealCalories,
-    //     protein: macrosConsumed.protein + meal.mealProtein,
-    //     carbs: macrosConsumed.carbs + meal.mealCarbs,
-    //     fat: macrosConsumed.fat + meal.mealFat,
-    //   });
-    // });
-
     localStorage.setItem("todaysLog", JSON.stringify(todaysLog));
   }, [goals, mealsEaten]);
 
@@ -36,15 +28,6 @@ function TodaysLog(props) {
     console.log("Meals eaten: ", mealsEaten);
     // console.log("TodaysLog Meals eaten: ", todaysLog.mealsEaten);
   }, [mealsEaten]);
-
-  // mealsEaten.map((meal) => {
-  //   setMacrosConsumed({
-  //     calories: macrosConsumed.calories + meal.mealCalories,
-  //     protein: macrosConsumed.protein + meal.mealProtein,
-  //     carbs: macrosConsumed.carbs + meal.mealCarbs,
-  //     fat: macrosConsumed.fat + meal.mealFat,
-  //   });
-  // });
 
   function handleGoalChange(e) {
     const { name, value } = e.target;
@@ -54,10 +37,10 @@ function TodaysLog(props) {
     <div className="FirstSection TodaysLog">
       <div className="Big SectionHeader">Today</div>
       <div className="Graphs">
-        <div className="PieChart">Pie</div>
-        <div className="BarChart">
-          <BarGraph mealsEaten={mealsEaten} goals={goals} />
+        <div className="PieChart">
+          <PieGraphPanel mealsEaten={mealsEaten} goals={goals} />
         </div>
+        <div className="BarChart"></div>
       </div>
       <div className="SetGoals">
         <div className="SectionHeader">Set Goals</div>

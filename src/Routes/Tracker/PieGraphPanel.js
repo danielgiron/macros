@@ -1,13 +1,13 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
-import BarChart from "./BarChart.js";
 import d3 from "d3";
 import c3 from "c3";
 import "c3/c3.css";
+import PieGraph from "./PieGraph.js";
 
 // import './BarGraph.css'
 
-function BarGraph(props) {
+function PieGraphPanel(props) {
   const { mealsEaten, goals } = props;
 
   let calories = 0;
@@ -22,20 +22,11 @@ function BarGraph(props) {
     fat += meal.mealFat;
   }
 
-  //   console.log("calories: ", calories);
-  //   console.log("protein: ", protein);
-  //   console.log("carbs: ", carbs);
-  //   console.log("fat: ", fat);
-  //   console.log("Meals: ", mealsEaten);
-
   return (
-    <div className="BarGraph">
-      <BarChart data={[33, 33, 33]} />
-      {/* <div>Calories: {calories}</div>
-      <div>Protein: {protein}</div>
-      <div>Carbs: {carbs}</div>
-      <div>Fat: {fat}</div> */}
+    <div className="PieGraphPanel">
+      <div className="SectionHeader">Calorie Composition</div>
+      <PieGraph name="TodayPie" data={[protein * 4, carbs * 4, fat * 9]} />
     </div>
   );
 }
-export default BarGraph;
+export default PieGraphPanel;
