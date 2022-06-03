@@ -173,7 +173,7 @@ export default ItemSearch;
 //   <div className="confirmationForm">
 //     ...
 //     <div className="confirmationField">
-//       <label>...</label>
+//       <label></label>
 //       <input />
 //     </div>
 //    ...

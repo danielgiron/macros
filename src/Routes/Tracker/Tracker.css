@@ -242,38 +242,7 @@
   margin-bottom: 1rem;
 }
 
-.SecondSection .BigLineGraphContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: calc(100% - 0rem);
-}
-
-.SecondSection .BigLineGraphContainer .BigLineGraph {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  width: calc(80% - 0rem);
-  background-color: rgba(255, 255, 255, 0.311);
-}
-
-.SecondSection .BigLineGraphContainer .GraphControls {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  width: calc(20% - 0rem);
-  background-color: rgb(255, 255, 255);
-}
-
-.GraphControls .GraphControlsButton {
-  padding: 1rem;
-  width: 80%;
-}
+/*********** For TimeSeriesGraph styles, go to TimeseriesGraph.css *********/
 
 /*****************************  PreviousLogs  *****************************/
 

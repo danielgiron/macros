@@ -1,6 +1,7 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import PreviousLogs from "./PreviousLogs";
+import TSGContainer from "./TSGContainer";
 import TodaysLog from "./TodaysLog";
 import "./Tracker.css";
 import { prepareLogs } from "./TrackerUtils";
@@ -17,18 +18,13 @@ function Tracker(props) {
   return (
     <div className="Tracker">
       <TodaysLog todaysLog={todaysLog} />
+
       <div className="SecondSection">
         <div className="Big SectionHeader">Macro Trends</div>
-        <div className="BigLineGraphContainer">
-          <div className="BigLineGraph">Graph</div>
-          <div className="GraphControls">
-            <button className="GraphControlsButton">Week</button>
-            <button className="GraphControlsButton">Month</button>
-            <button className="GraphControlsButton">Year</button>
-            <button className="GraphControlsButton">All</button>
-          </div>
-        </div>
+
+        <TSGContainer />
       </div>
+
       <div className="ThirdSection">
         <div className="Big SectionHeader">Previous Logs</div>
         <div className="PreviousLogsContainer">
