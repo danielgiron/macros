@@ -5,7 +5,7 @@
   align-items: center;
   height: 400px;
   width: calc(20% - 0rem);
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.711);
 }
 
 .GraphControls .GraphControlsButton {
@@ -18,7 +18,8 @@
   flex-direction: row;
 
   background-color: rgba(255, 255, 255, 0.148);
-  /* color: #ffe789; */
+  /* border: 1px solid white; */
+  /* color: #ffae00; */
 
   width: 100%;
 }
@@ -29,4 +30,5 @@
   /* background-color: #ffffff; */
   margin-right: 1rem;
   /* height: 100%; */
+  /* mix-blend-mode: screen; */
 }

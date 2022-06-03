@@ -25,7 +25,7 @@ function TimeSeriesGraph(props) {
           ["Fat", 410, 230, 420, 350, 210, 340],
         ],
         colors: {
-          Calories: "#ffc965",
+          Calories: "#ffae00",
           Protein: "#ff6f65",
           Carbs: "#65afff",
           Fat: "#c765ff",
