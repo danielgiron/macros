@@ -1,14 +1,9 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
-import d3 from "d3";
-import c3 from "c3";
-import "c3/c3.css";
 import PieGraph from "./PieGraph.js";
 
-// import './BarGraph.css'
-
 function PieGraphPanel(props) {
-  const { mealsEaten, goals } = props;
+  const { mealsEaten } = props;
 
   let calories = 0;
   let protein = 0;

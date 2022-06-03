@@ -37,7 +37,11 @@ function NewRecipe(props) {
       }
     }
 
-    const newRecipe = compileNewRecipe(RecipeName.value, NServings, items);
+    const newRecipe = compileNewRecipe(
+      RecipeName.value,
+      +NServings.value,
+      items
+    );
 
     // console.log(newRecipe);
     recipes.push(newRecipe);

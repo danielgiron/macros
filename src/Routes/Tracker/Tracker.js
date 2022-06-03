@@ -1,5 +1,6 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
+import PreviousLogs from "./PreviousLogs";
 import TodaysLog from "./TodaysLog";
 import "./Tracker.css";
 import { prepareLogs } from "./TrackerUtils";
@@ -11,7 +12,7 @@ function Tracker(props) {
 
   const { todaysLog, previousLogs } = prepareLogs();
   console.log("todaysLog: ", todaysLog);
-  console.log("previousLogs: ", previousLogs);
+  // console.log("previousLogs: ", previousLogs);
 
   return (
     <div className="Tracker">
@@ -31,30 +32,7 @@ function Tracker(props) {
       <div className="ThirdSection">
         <div className="Big SectionHeader">Previous Logs</div>
         <div className="PreviousLogsContainer">
-          <div className="PreviousLogs">
-            <div className="logEntry">Previous Day</div>
-            <div className="logEntry">Previous Day</div>
-            <div className="logEntry">Previous Day</div>
-            <div className="logEntry">Previous Day</div>
-            <div className="logEntry">Previous Day</div>
-            <div className="logEntry">Previous Day</div>
-            <div className="logEntry">Previous Day</div>
-          </div>
-          <div className="PieChartContainer">
-            <span>Pie Chart</span>
-          </div>
-          <div className="BarChartContainer">
-            <span>Bar Chart</span>
-          </div>
-          <div className="ItemsConsumedContainer">
-            <div className="ItemEntry">Food Item</div>
-            <div className="ItemEntry">Food Item</div>
-            <div className="ItemEntry">Food Item</div>
-            <div className="ItemEntry">Food Item</div>
-            <div className="ItemEntry">Food Item</div>
-            <div className="ItemEntry">Food Item</div>
-            <div className="ItemEntry">Food Item</div>
-          </div>
+          <PreviousLogs previousLogs={previousLogs} />
         </div>
       </div>
     </div>

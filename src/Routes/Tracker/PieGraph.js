@@ -15,9 +15,9 @@ function PieGraph(props) {
           ["fat", data[2]],
         ],
         colors: {
-          protein: "#fa3737",
-          carbs: "#3771fa",
-          fat: "#fa9537",
+          protein: "#ff6f65",
+          carbs: "#65afff",
+          fat: "#c765ff",
         },
         type: "donut",
       },

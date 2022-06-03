@@ -136,8 +136,6 @@ function ItemSearch(props) {
     const inputData = new FormData(e.target);
     const confirmedItem = Object.fromEntries(inputData.entries());
 
-    // console.log("From confirm: ", confirmedItem);
-    // STILL NEED TO NORMALIZE ITEM ENTRY (IN GRAMS)
     props.setCollection([
       ...props.collection,
       { ...foodData, ...confirmedItem },

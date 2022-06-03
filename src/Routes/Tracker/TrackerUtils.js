@@ -11,10 +11,10 @@ export function newTodaysLog(
       fat: 0,
     },
     goals: {
-      calories: +previousTodaysLog.goals.calories || 0,
-      protein: +previousTodaysLog.goals.protein || 0,
-      carbs: +previousTodaysLog.goals.carbs || 0,
-      fat: +previousTodaysLog.goals.fat || 0,
+      calories: +previousTodaysLog.goals.calories || 1,
+      protein: +previousTodaysLog.goals.protein || 1,
+      carbs: +previousTodaysLog.goals.carbs || 1,
+      fat: +previousTodaysLog.goals.fat || 1,
     },
     previousLogDate: previousTodaysLog.date || null,
   };
@@ -56,10 +56,10 @@ export function prepareLogs() {
     }
 
     todaysLog.macrosConsumed = {
-      calories,
-      protein,
-      carbs,
-      fat,
+      calories: calories.toFixed(2),
+      protein: protein.toFixed(2),
+      carbs: carbs.toFixed(2),
+      fat: fat.toFixed(2),
     };
 
     previousLogs.push(todaysLog);
@@ -69,4 +69,25 @@ export function prepareLogs() {
   }
 
   return { todaysLog, previousLogs };
+}
+
+////////////////////////////////// PreviousLogs.js /////////////////////////////////////
+
+export function generateLogList(previousLogs, activeLog, setActiveLog) {
+  const logList = previousLogs.map((log, index) => {
+    return (
+      <div
+        className={`logEntry ${activeLog === log ? "Active" : ""}`}
+        key={index}
+        onClick={() => {
+          setActiveLog(log);
+          console.log("Previous Log Selected: ", log);
+        }}
+      >
+        {log.date}
+      </div>
+    );
+  });
+
+  return logList;
 }

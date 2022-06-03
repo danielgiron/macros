@@ -1,9 +1,7 @@
-//import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import AddMeal from "./AddMeal";
 import PieGraphPanel from "./PieGraphPanel";
-import BarGraph from "./PieGraphPanel";
-// import './TodaysLog.css'
+import GoalsGraph from "./GoalsGraph";
 
 function TodaysLog(props) {
   const { todaysLog } = props;
@@ -15,19 +13,27 @@ function TodaysLog(props) {
   });
 
   const [mealsEaten, setMealsEaten] = useState(todaysLog.mealsEaten || []);
+  // const [macrosConsumed, setMacrosConsumed] = useState({
+  //   calories: 0,
+  //   protein: 0,
+  //   carbs: 0,
+  //   fat: 0,
+  // });
+
+  // for (let meal of mealsEaten) {
+  //   macrosConsumed.calories += meal.mealCalories;
+  //   macrosConsumed.protein += meal.mealProtein;
+  //   macrosConsumed.carbs += meal.mealCarbs;
+  //   macrosConsumed.fat += meal.mealFat;
+  // }
 
   useEffect(() => {
-    todaysLog.macrosConsumed = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+    // todaysLog.macrosConsumed = { calories: 0, protein: 0, carbs: 0, fat: 0 };
     todaysLog.goals = goals;
     todaysLog.mealsEaten = mealsEaten;
 
     localStorage.setItem("todaysLog", JSON.stringify(todaysLog));
   }, [goals, mealsEaten]);
-
-  useEffect(() => {
-    console.log("Meals eaten: ", mealsEaten);
-    // console.log("TodaysLog Meals eaten: ", todaysLog.mealsEaten);
-  }, [mealsEaten]);
 
   function handleGoalChange(e) {
     const { name, value } = e.target;
@@ -38,9 +44,17 @@ function TodaysLog(props) {
       <div className="Big SectionHeader">Today</div>
       <div className="Graphs">
         <div className="PieChart">
-          <PieGraphPanel mealsEaten={mealsEaten} goals={goals} />
+          <PieGraphPanel mealsEaten={mealsEaten} />
         </div>
-        <div className="BarChart"></div>
+        <div className="BarChart">
+          <div className="SectionHeader">Goals</div>
+
+          <GoalsGraph
+            mealsEaten={mealsEaten}
+            goals={goals}
+            isVertical={false}
+          />
+        </div>
       </div>
       <div className="SetGoals">
         <div className="SectionHeader">Set Goals</div>
@@ -56,7 +70,7 @@ function TodaysLog(props) {
             />
           </div>
           <div className="SetGoalsFormInput Protein">
-            <label htmlFor="proteinGoalInput">Protein</label>
+            <label htmlFor="proteinGoalInput">Protein(g)</label>
             <input
               onChange={handleGoalChange}
               id="proteinGoalInput"
@@ -66,7 +80,7 @@ function TodaysLog(props) {
             />
           </div>
           <div className="SetGoalsFormInput Carbs">
-            <label htmlFor="carbsGoalInput">Carbs</label>
+            <label htmlFor="carbsGoalInput">Carbs(g)</label>
             <input
               onChange={handleGoalChange}
               id="carbsGoalInput"
@@ -76,7 +90,7 @@ function TodaysLog(props) {
             />
           </div>
           <div className="SetGoalsFormInput Fat">
-            <label htmlFor="fatGoalInput">Fat</label>
+            <label htmlFor="fatGoalInput">Fat(g)</label>
             <input
               onChange={handleGoalChange}
               id="fatGoalInput"

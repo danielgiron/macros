@@ -10,11 +10,15 @@
   /* border-bottom: 1px solid grey; */
 }
 
-.Header-Links a {
-  margin: 0rem 1rem;
-  text-transform: lowercase;
-  text-decoration: none;
-  color: white;
+.Header-Date {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.Header-Date span {
+  color: #ffffff89;
+  font-weight: 300;
 }
 
 .Header h1 {

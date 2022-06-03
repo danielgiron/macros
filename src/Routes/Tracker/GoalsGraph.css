@@ -1,0 +1,67 @@
+.GoalsGraph {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  width: calc(100% - 1rem);
+}
+
+.MacroBar {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 80%;
+  height: 1.5rem;
+  background-color: lightgrey;
+  border: 1px solid white;
+  cursor: default;
+  z-index: 0;
+}
+
+.MacroBar:hover {
+  transform: scale(1.02);
+}
+
+.GoalsGraph .MacroName {
+  color: white;
+  font-weight: 600;
+  padding-left: 0.5rem;
+}
+
+.GoalsGraph .BarProgress {
+  mix-blend-mode: overlay;
+}
+
+.GoalsGraph .BarValue {
+  /* color: white; */
+  padding-right: 0.5rem;
+}
+
+.Bar {
+  position: absolute;
+  color: #00000000;
+  pointer-events: none;
+  z-index: -1;
+  height: 100%;
+}
+
+.Calories .Bar {
+  background-color: #ffc965;
+}
+
+.Protein .Bar {
+  background-color: #ff6f65;
+}
+
+.Carbs .Bar {
+  background-color: #65afff;
+}
+
+.Fat .Bar {
+  background-color: #c765ff;
+}

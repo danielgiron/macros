@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: left;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   width: calc(100% - 2rem);
   height: min-content;
   padding: 1rem;
@@ -51,10 +51,14 @@
   /* padding: 1rem; padding around graphs */
 }
 
+.Tracker .Graphs .SectionHeader {
+  margin-top: 1rem;
+}
+
 .Tracker .FirstSection .Graphs > * {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
   width: 100%;
@@ -144,8 +148,14 @@
   justify-content: center;
   background-color: rgb(255, 201, 101);
   height: 50px;
-  padding: 0rem 20px;
+  /* max-width: 50px; */
+  padding: 0rem 25px;
   cursor: default;
+
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  /* overflow: hidden; */
+  white-space: nowrap;
 }
 
 .AddMealPopUp {
@@ -191,6 +201,7 @@
 
 .ItemSelectable,
 .RecipeSelectable {
+  text-transform: capitalize;
   background-color: rgb(255, 201, 101);
   padding: 0.5rem;
   cursor: pointer;
@@ -205,7 +216,7 @@
   top: 0;
   right: 0;
   border: none;
-  background-color: red;
+  background-color: rgba(255, 255, 255, 0.355);
   cursor: pointer;
   display: none;
 }
@@ -218,7 +229,7 @@
   display: none;
 }
 
-/******************************  (Big) LineGraph  *******************************/
+/*********************************************  (Big) LineGraph  *******************************/
 
 .Tracker .SecondSection {
   display: flex;
@@ -227,7 +238,7 @@
   /* align-items: center; */
   width: calc(100% - 2rem);
   padding: 1rem;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   margin-bottom: 1rem;
 }
 
@@ -246,7 +257,7 @@
   align-items: center;
   height: 400px;
   width: calc(80% - 0rem);
-  background-color: aquamarine;
+  background-color: rgba(255, 255, 255, 0.311);
 }
 
 .SecondSection .BigLineGraphContainer .GraphControls {
@@ -256,7 +267,7 @@
   align-items: center;
   height: 400px;
   width: calc(20% - 0rem);
-  background-color: lightblue;
+  background-color: rgb(255, 255, 255);
 }
 
 .GraphControls .GraphControlsButton {
@@ -276,6 +287,20 @@
   background-color: white;
 }
 
+/* .PreviousLogs {
+  width: 100% !important;
+} */
+
+.ThirdSection .PreviousLogsContainer .SectionHeader {
+  font-size: 1.1rem;
+  /* letter-spacing: normal; */
+  text-align: center;
+  width: calc(100% - 1rem);
+  font-weight: 400;
+  background-color: white;
+  padding: 0.5rem;
+}
+
 .ThirdSection .PreviousLogsContainer {
   display: flex;
   flex-direction: row;
@@ -289,39 +314,74 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem 0.5rem;
   width: 100%;
   height: 200px;
-  background-color: blueviolet;
+
+  background-color: rgb(255, 196, 101);
 }
 
 .PreviousLogsContainer .PieChartContainer,
 .PreviousLogsContainer .BarChartContainer {
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.PreviousLogsContainer .PreviousLogs {
-  gap: 0.5rem;
+.PreviousLogsContainer .LogList {
+  /* display: flex; */
+
   overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-.PreviousLogs .logEntry {
-  background-color: lavender;
+.LogList .logEntry {
+  background-color: rgba(255, 255, 255, 0.672);
   padding: 0.5rem;
+  width: calc(100%);
+  /* height: 80px !important; */
+  text-align: left;
+  cursor: pointer;
+  color: rgb(56, 56, 56);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.LogList .logEntry:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-left: 2px solid gold;
+}
+
+.LogList .logEntry.Active {
+  color: black;
+  background-color: white;
+  border-left: 3px solid orange;
+  /* box-sizing: border-box; */
   width: 100%;
 }
 
 .ItemsConsumedContainer {
-  gap: 0.5rem;
+  width: 100%;
+  height: 150px;
   overflow-y: scroll;
 }
 
 .ItemsConsumedContainer .ItemEntry {
-  background-color: lavender;
+  background-color: rgba(255, 255, 255, 0.672);
   padding: 0.5rem;
-  width: 100%;
-}
+  width: calc(100%);
 
-/* .PreviousLogsContainer .PreviousLogs { */
-/* background-color: royalblue;
-} */
+  text-align: left;
+  cursor: default;
+  color: rgb(56, 56, 56);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
