@@ -132,10 +132,4 @@
   padding-left: 2rem;
 }
 
-.Recipes .rightSide .sectionTitle::after {
-  height: 3px;
-  width: 3px;
-  content: "";
-}
-
 /* For more styling, look in RecipeEntry.css */
