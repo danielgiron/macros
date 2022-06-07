@@ -92,6 +92,17 @@
   height: min-content;
 }
 
+.NewRecipe .sectionTitle {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.NewRecipe p {
+  /* background-color: red; */
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .Recipes .leftSide .NewRecipe button {
   border: 1px solid rgb(255, 201, 101);
   background-color: rgb(255, 201, 101);
@@ -112,6 +123,19 @@
   height: 100%;
 
   background-color: white;
+}
+
+.Recipes .rightSide .sectionTitle {
+  /* font-size: 1.6rem; */
+  font-weight: 600;
+  margin: 1rem;
+  padding-left: 2rem;
+}
+
+.Recipes .rightSide .sectionTitle::after {
+  height: 3px;
+  width: 3px;
+  content: "";
 }
 
 /* For more styling, look in RecipeEntry.css */

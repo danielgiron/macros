@@ -7,12 +7,6 @@ function Collection(props) {
 
   const categories = generateCategories(collection);
 
-  function copyJSON() {
-    const copyJSON = document.createElement("div");
-    copyJSON.value = JSON.stringify(collection);
-    navigator.clipboard.writeText(copyJSON.value);
-  }
-
   return (
     <div className="CollectionComponent">
       <div className="sectionHeader">
@@ -20,7 +14,6 @@ function Collection(props) {
         <div className="DataButtons">
           <button onClick={props.handleClear}>Clear Data</button>
           <button onClick={props.handleSeed}>Seed Sample Data</button>
-          <button onClick={copyJSON}>Copy JSON</button>
         </div>
       </div>
       <div className="CollectionContainer">

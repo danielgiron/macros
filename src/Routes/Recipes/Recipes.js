@@ -27,6 +27,12 @@ function Recipes(props) {
   //   setRecipes(seedData);
   // }
 
+  function deleteRecipe(recipe) {
+    const newRecipes = recipes.filter((r) => r.id !== recipe.id);
+    setRecipes(newRecipes);
+    localStorage.setItem("recipes", JSON.stringify(newRecipes));
+  }
+
   useEffect(() => {
     const savedData = JSON.parse(localStorage.getItem("recipes"));
     setRecipes(savedData);
@@ -60,12 +66,19 @@ function Recipes(props) {
 
         <div className="NewRecipe">
           <div className="sectionTitle">New Recipe</div>
+          <p>
+            Use this form to create a recipe and obtain nutritional info about
+            it and all of its ingredients
+          </p>
           <button onClick={newRecipeClick}>New Recipe</button>
         </div>
       </div>
       <div className="rightSide">
         <div className="sectionTitle">Your Recipes</div>
-        <div className="RecipesContainer">{generateRecipeEntries(recipes)}</div>
+
+        <div className="RecipesContainer">
+          {generateRecipeEntries(recipes, deleteRecipe)}
+        </div>
       </div>
     </div>
   );

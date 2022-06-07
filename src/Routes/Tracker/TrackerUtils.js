@@ -71,6 +71,65 @@ export function prepareLogs() {
   return { todaysLog, previousLogs };
 }
 
+/////////////////////////////////   TimeSeriesGraph  ///////////////////////////////////
+
+export function formatDate(date) {
+  const months = {
+    Jan: "01",
+    Feb: "02",
+    Mar: "03",
+    Apr: "04",
+    May: "05",
+    Jun: "06",
+    Jul: "07",
+    Aug: "08",
+    Sep: "09",
+    Oct: "10",
+    Nov: "11",
+    Dec: "12",
+  };
+
+  const month = months[date.split(" ")[1]];
+  const day = date.split(" ")[2];
+  const year = date.split(" ")[3];
+  return `${year}-${month}-${day}`;
+}
+
+export function populateColumns(timeFrame, previousLogs) {
+  // Data that will be passed into <TimeSeriesGraph /> to generate the graph
+  let columns = [["x"], ["Calories"], ["Protein"], ["Carbs"], ["Fat"]];
+
+  try {
+    for (let index = 0; index < timeFrame; index++) {
+      columns[0].push(formatDate(previousLogs[index].date));
+      columns[1].push(
+        (previousLogs[index].macrosConsumed.calories /
+          previousLogs[index].goals.calories) *
+          100
+      );
+      columns[2].push(
+        (previousLogs[index].macrosConsumed.protein /
+          previousLogs[index].goals.protein) *
+          100
+      );
+      columns[3].push(
+        (previousLogs[index].macrosConsumed.carbs /
+          previousLogs[index].goals.carbs) *
+          100
+      );
+      columns[4].push(
+        (previousLogs[index].macrosConsumed.fat /
+          previousLogs[index].goals.fat) *
+          100
+      );
+    }
+  } catch {
+    console.log("Not enough data to fill time frame");
+  }
+
+  return columns;
+}
+
 ////////////////////////////////// PreviousLogs.js /////////////////////////////////////
 
 export function generateLogList(previousLogs, activeLog, setActiveLog) {

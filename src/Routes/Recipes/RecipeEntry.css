@@ -68,6 +68,14 @@
   width: 100%;
 }
 
+.RecipeEntry .Buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  /* background-color: red; */
+}
+
 .RecipeEntry button {
   padding: 0.5rem;
   background-color: transparent;
@@ -80,4 +88,16 @@
   background-color: rgb(255, 201, 101);
   color: black;
   border: 1px solid rgb(255, 201, 101);
+}
+
+.RecipeEntry .deleteButton {
+  /* background-color: red; */
+  border: 1px solid lightgray;
+  padding: 0.15rem 0.5rem;
+}
+
+.RecipeEntry .deleteButton:hover {
+  background-color: rgb(255, 101, 101);
+  border: 1px solid rgb(255, 101, 101);
+  color: white;
 }

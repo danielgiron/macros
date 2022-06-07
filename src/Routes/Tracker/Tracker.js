@@ -22,7 +22,7 @@ function Tracker(props) {
       <div className="SecondSection">
         <div className="Big SectionHeader">Macro Trends</div>
 
-        <TSGContainer />
+        <TSGContainer previousLogs={previousLogs} />
       </div>
 
       <div className="ThirdSection">

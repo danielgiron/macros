@@ -104,9 +104,15 @@ export function generateInput(props) {
   return input;
 }
 
-export function generateRecipeEntries(recipes) {
+export function generateRecipeEntries(recipes, deleteRecipe) {
   const recipeEntries = recipes.map((recipe) => {
-    return <RecipeEntry key={recipe.id} recipe={recipe} />;
+    return (
+      <RecipeEntry
+        key={recipe.id}
+        recipe={recipe}
+        deleteRecipe={deleteRecipe}
+      />
+    );
   });
   return recipeEntries;
 }
@@ -213,6 +219,7 @@ export function compileNewRecipe(RecipeName, NServings, items) {
   let totalFat = 0;
   for (let item of items) {
     if (item.measure_weight) {
+      // the case in which the selected measure is  "tsp", "cup", etc.
       totalCalories +=
         item.macrosPerGram.calories * item.quantity * item.measure_weight;
       totalProtein +=
@@ -221,7 +228,7 @@ export function compileNewRecipe(RecipeName, NServings, items) {
         item.macrosPerGram.carb * item.quantity * item.measure_weight;
       totalFat += item.macrosPerGram.fat * item.quantity * item.measure_weight;
     } else {
-      // the case in which the selected measure (i.e. "tsp", "cup", etc.) is "serving"
+      // the case in which the selected measure is "serving"
       totalCalories +=
         item.macrosPerGram.calories * item.quantity * item.serving_weight_grams;
       totalProtein +=

@@ -25,7 +25,15 @@ function RecipeEntry(props) {
           <span>{recipe.totalFat.toFixed(2)}</span>
         </div>
       </div>
-      <button>More Info</button>
+      <div className="Buttons">
+        <button>More Info</button>
+        <button
+          className="deleteButton"
+          onClick={() => props.deleteRecipe(recipe)}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }
