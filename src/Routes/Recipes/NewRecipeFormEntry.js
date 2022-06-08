@@ -44,7 +44,7 @@ function NewRecipeFormEntry(props) {
           placeholder="Qty"
           required={true}
         />
-        <select onChange={onChange_SelectInput} defaultValue={options[0]}>
+        <select onChange={onChange_SelectInput} defaultValue={"serving"}>
           {options}
         </select>
         <input

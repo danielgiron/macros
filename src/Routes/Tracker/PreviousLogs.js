@@ -18,6 +18,7 @@ function PreviousLogs(props) {
 
   const logList = generateLogList(previousLogs, activeLog, setActiveLog);
   let ItemsConsumed;
+  let goals;
 
   if (activeLog) {
     ItemsConsumed = activeLog.mealsEaten.map((meal, index) => {
@@ -32,6 +33,65 @@ function PreviousLogs(props) {
     carbs = activeLog.macrosConsumed.carbs;
     fat = activeLog.macrosConsumed.fat;
     calories = activeLog.macrosConsumed.calories;
+
+    const macroProgress = {
+      calories: Math.round(
+        (activeLog.macrosConsumed.calories / activeLog.goals.calories) * 100
+      ),
+      protein: Math.round(
+        (activeLog.macrosConsumed.protein / activeLog.goals.protein) * 100
+      ),
+      carbs: Math.round(
+        (activeLog.macrosConsumed.carbs / activeLog.goals.carbs) * 100
+      ),
+      fat: Math.round(
+        (activeLog.macrosConsumed.fat / activeLog.goals.fat) * 100
+      ),
+    };
+
+    goals = (
+      <div className="GoalsContainer">
+        <div className="Macro Calories">
+          <div className="MacroLabel">Calories</div>
+          <div
+            className="MacroPercent"
+            style={{ width: `${macroProgress.calories}%` }}
+          >
+            {" "}
+          </div>
+        </div>
+
+        <div className="Macro Protein">
+          <div className="MacroLabel">Protein</div>
+          <div
+            className="MacroPercent"
+            style={{ width: `${macroProgress.protein}%` }}
+          >
+            {" "}
+          </div>
+        </div>
+
+        <div className="Macro Carb">
+          <div className="MacroLabel">Carb</div>
+          <div
+            className="MacroPercent"
+            style={{ width: `${macroProgress.carbs}%` }}
+          >
+            {" "}
+          </div>
+        </div>
+
+        <div className="Macro Fat">
+          <div className="MacroLabel">Fat</div>
+          <div
+            className="MacroPercent"
+            style={{ width: `${macroProgress.fat}%` }}
+          >
+            {" "}
+          </div>
+        </div>
+      </div>
+    );
   } else {
     ItemsConsumed = "Select a log to view items consumed.";
   }
@@ -48,7 +108,7 @@ function PreviousLogs(props) {
       </div>
       <div className="BarChartContainer">
         <div className="SectionHeader">Goals</div>
-        {/* <GoalsGraph /> */}
+        {goals}
       </div>
       <div className="ItemsConsumedContainer">
         <div className="SectionHeader">Meals</div>

@@ -1,10 +1,8 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
-import c3 from "c3";
-import "c3/c3.css";
+
 import TimeSeriesGraph from "./TimeSeriesGraph";
-import { seedLogs } from "./LogSeedData";
-import { formatDate, populateColumns } from "./TrackerUtils";
+import { seedLogs } from "./SeedLogs";
 
 // import "./TSGContainer.css";
 
@@ -13,44 +11,42 @@ function TSGContainer(props) {
 
   const [timeFrame, setTimeFrame] = useState(7);
 
-  // 'columns' is an array containing arrays of data to be passed into <TimeSeriesGraph />
-  let columns = populateColumns(timeFrame, previousLogs);
-  console.log("Time frame: ", timeFrame);
-
-  useEffect(() => {
-    columns = populateColumns(timeFrame, previousLogs);
-  }, [timeFrame]);
-  //   console.log(columns);
-
   function handleTimeFrameChange(numDays) {
     setTimeFrame(numDays);
+    // console.log(`Set time-frame to ${numDays} days`);
   }
+
+  // const seedLogs_reversed = seedLogs.reverse();
 
   return (
     <div className="TSGContainer">
-      <TimeSeriesGraph columns={columns} />
+      <TimeSeriesGraph timeFrame={timeFrame} logs={seedLogs} />
+
       <div className="GraphControls">
+        <label>Time Frame</label>
         <button
           onClick={() => handleTimeFrameChange(7)}
-          className="GraphControlsButton"
+          className={`GraphControlsButton ${timeFrame === 7 ? "active" : ""}`}
         >
           7-Day
         </button>
         <button
+          onClick={() => handleTimeFrameChange(14)}
+          className={`GraphControlsButton ${timeFrame === 14 ? "active" : ""}`}
+        >
+          14-Day
+        </button>
+        <button
           onClick={() => handleTimeFrameChange(30)}
-          className="GraphControlsButton"
+          className={`GraphControlsButton ${timeFrame === 30 ? "active" : ""}`}
         >
           30-Day
         </button>
         <button
-          onClick={() => handleTimeFrameChange(365)}
-          className="GraphControlsButton"
-        >
-          Year
-        </button>
-        <button
           onClick={() => handleTimeFrameChange(Number.MAX_SAFE_INTEGER)}
-          className="GraphControlsButton"
+          className={`GraphControlsButton ${
+            timeFrame === Number.MAX_SAFE_INTEGER ? "active" : ""
+          }`}
         >
           All
         </button>

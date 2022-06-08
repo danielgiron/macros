@@ -4,8 +4,14 @@ import c3 from "c3";
 import "c3/c3.css";
 import "./TimeSeriesGraph.css";
 
+import { populateColumns } from "./TrackerUtils";
+
 function TimeSeriesGraph(props) {
-  const { columns } = props;
+  const { timeFrame, logs } = props;
+
+  // 'columns' is an array of arrays, where each array is a column of data for the graph
+  const columns = populateColumns(timeFrame, logs);
+
   useEffect(() => {
     let chart = c3.generate({
       data: {
@@ -23,13 +29,19 @@ function TimeSeriesGraph(props) {
       axis: {
         x: {
           type: "timeseries",
+          // tick: {
+          //   format: "%m/%d/%Y",
+          // },
           tick: {
-            format: "%m/%d/%Y",
+            format: "%m/%d",
+            // rotate: 20,
+            multiline: false,
           },
+          height: 35,
         },
       },
     });
-  }, []);
+  }, [timeFrame, logs]);
 
   return <div id="TimeSeriesGraph"></div>;
 }

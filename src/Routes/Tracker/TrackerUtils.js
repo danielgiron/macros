@@ -16,7 +16,6 @@ export function newTodaysLog(
       carbs: +previousTodaysLog.goals.carbs || 1,
       fat: +previousTodaysLog.goals.fat || 1,
     },
-    previousLogDate: previousTodaysLog.date || null,
   };
 }
 
@@ -95,39 +94,30 @@ export function formatDate(date) {
   return `${year}-${month}-${day}`;
 }
 
-export function populateColumns(timeFrame, previousLogs) {
+export function populateColumns(timeFrame, logs) {
   // Data that will be passed into <TimeSeriesGraph /> to generate the graph
   let columns = [["x"], ["Calories"], ["Protein"], ["Carbs"], ["Fat"]];
 
   try {
-    for (let index = 0; index < timeFrame; index++) {
-      columns[0].push(formatDate(previousLogs[index].date));
+    for (let index = logs.length - 1; columns[0].length < timeFrame; index--) {
+      columns[0].push(formatDate(logs[index].date));
       columns[1].push(
-        (previousLogs[index].macrosConsumed.calories /
-          previousLogs[index].goals.calories) *
-          100
+        (logs[index].macrosConsumed.calories / logs[index].goals.calories) * 100
       );
       columns[2].push(
-        (previousLogs[index].macrosConsumed.protein /
-          previousLogs[index].goals.protein) *
-          100
+        (logs[index].macrosConsumed.protein / logs[index].goals.protein) * 100
       );
       columns[3].push(
-        (previousLogs[index].macrosConsumed.carbs /
-          previousLogs[index].goals.carbs) *
-          100
+        (logs[index].macrosConsumed.carbs / logs[index].goals.carbs) * 100
       );
       columns[4].push(
-        (previousLogs[index].macrosConsumed.fat /
-          previousLogs[index].goals.fat) *
-          100
+        (logs[index].macrosConsumed.fat / logs[index].goals.fat) * 100
       );
     }
   } catch {
     console.log("Not enough data to fill time frame");
   }
 
-  console.log(columns.length);
   return columns;
 }
 

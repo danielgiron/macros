@@ -13,22 +13,22 @@ function TodaysLog(props) {
   });
 
   const [mealsEaten, setMealsEaten] = useState(todaysLog.mealsEaten || []);
-  // const [macrosConsumed, setMacrosConsumed] = useState({
-  //   calories: 0,
-  //   protein: 0,
-  //   carbs: 0,
-  //   fat: 0,
-  // });
-
-  // for (let meal of mealsEaten) {
-  //   macrosConsumed.calories += meal.mealCalories;
-  //   macrosConsumed.protein += meal.mealProtein;
-  //   macrosConsumed.carbs += meal.mealCarbs;
-  //   macrosConsumed.fat += meal.mealFat;
-  // }
+  const macrosConsumed = {
+    calories: 0,
+    protein: 0,
+    carbs: 0,
+    fat: 0,
+  };
 
   useEffect(() => {
-    // todaysLog.macrosConsumed = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+    todaysLog.macrosConsumed = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+    for (let meal of mealsEaten) {
+      macrosConsumed.calories += meal.mealCalories;
+      macrosConsumed.protein += meal.mealProtein;
+      macrosConsumed.carbs += meal.mealCarbs;
+      macrosConsumed.fat += meal.mealFat;
+    }
+    todaysLog.macrosConsumed = macrosConsumed;
     todaysLog.goals = goals;
     todaysLog.mealsEaten = mealsEaten;
 

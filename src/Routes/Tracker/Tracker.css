@@ -287,13 +287,15 @@
   width: 100%;
   height: 200px;
 
-  background-color: rgb(255, 196, 101);
+  background-color: #efefef;
 }
 
 .PreviousLogsContainer .PieChartContainer,
 .PreviousLogsContainer .BarChartContainer {
   justify-content: flex-start;
 }
+
+/*****************************  PreviousLogsContainer  *****************************/
 
 .PreviousLogsContainer .LogList {
   /* display: flex; */
@@ -333,6 +335,73 @@
   color: white;
 }
 
+/*****************************  Goals Container  *****************************/
+
+.PreviousLogsContainer .GoalsContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* background-color: red; */
+  width: 100%;
+  height: 100%;
+  gap: 0.5rem;
+}
+
+.PreviousLogsContainer .GoalsContainer .Macro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 23%;
+  overflow-x: hidden;
+}
+
+.PreviousLogsContainer .GoalsContainer .MacroLabel {
+  font-weight: 400;
+  color: black;
+  z-index: 2;
+}
+
+.GoalsContainer .Macro {
+  background-color: lightgrey;
+}
+
+.GoalsContainer .Macro.Calories .MacroPercent {
+  background-color: #ffc965;
+}
+
+.GoalsContainer .Macro.Protein .MacroPercent {
+  background-color: #ff6f65;
+}
+
+.GoalsContainer .Macro.Carb .MacroPercent {
+  background-color: #65afff;
+}
+
+.GoalsContainer .Macro.Fat .MacroPercent {
+  background-color: #c765ff;
+}
+
+.PreviousLogsContainer .GoalsContainer .MacroPercent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  color: transparent;
+  pointer-events: none;
+  filter: brightness(1.1);
+
+  /* mix-blend-mode: color-burn; */
+  /* z-index: 0; */
+}
+
+/*****************************  LogList  *****************************/
+
 .LogList .logEntry {
   background-color: rgba(255, 255, 255, 0.672);
   padding: 0.5rem;
@@ -361,6 +430,8 @@
   /* box-sizing: border-box; */
   width: 100%;
 }
+
+/*****************************  Meals Consumed  *****************************/
 
 .ItemsConsumedContainer {
   width: 100%;
