@@ -1,0 +1,148 @@
+.RecipeInfo {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  width: calc(100% - 2rem);
+  gap: 1rem;
+}
+
+.RecipeInfo .SectionHeader {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.RecipeInfo .Big.SectionHeader {
+  font-size: 2rem;
+  text-transform: capitalize;
+  width: calc(100%);
+  text-align: center;
+  padding: 1.5rem 0rem;
+  margin-top: 1rem;
+  background-color: rgba(255, 253, 251, 0.912);
+}
+
+.RecipeInfo .Big.SectionHeader span {
+  color: #ffc965;
+}
+
+.RecipeInfoGraphics {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 1rem;
+  /* background-color: blue; */
+  width: 100%;
+}
+
+.RecipeInfoGraphics .SectionHeader {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+
+.RecipeInfoGraphics .Pie {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.518);
+  width: 100%;
+}
+
+.RecipeInfoGraphics .MacroPills {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.518);
+  width: 100%;
+}
+
+.RecipeInfo .MacroPill {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 3rem;
+  width: calc(80% - 6rem);
+  height: 25px;
+  border: 1px solid white;
+}
+
+.MacroPill:hover {
+  transform: scale(1.01);
+}
+
+.MacroPill.Calories {
+  background-color: #ffc965;
+}
+.MacroPill.Protein {
+  background-color: #ff6f65;
+}
+.MacroPill.Carb {
+  background-color: #65afff;
+}
+.MacroPill.Fat {
+  background-color: #c765ff;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.518);
+  border: 1px solid white;
+  text-align: left;
+}
+
+table .ItemName {
+  background-color: rgba(255, 255, 255, 0.799);
+  text-transform: capitalize;
+}
+
+thead {
+  /* border-bottom: 1px solid grey; */
+  background-color: rgba(255, 255, 255, 0.565);
+}
+
+td,
+th {
+  padding: 0.25rem;
+  padding-left: 1rem;
+}
+
+tr {
+  font-weight: 400;
+  border-bottom: 1px solid white;
+}
+
+.RecipeInfo .Buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.RecipeInfo .Buttons button {
+  padding: 0.5rem;
+  border: 1px solid white;
+  color: gray;
+  background-color: transparent;
+  width: 30%;
+  cursor: pointer;
+}
+
+.RecipeInfo .Buttons .back:hover {
+  background-color: #ffc965;
+  border: 1px solid #ffc965;
+  color: #000;
+}
+
+.RecipeInfo .Buttons .delete:hover {
+  background-color: #ff6f65;
+  border: 1px solid #ff6f65;
+  color: white;
+}

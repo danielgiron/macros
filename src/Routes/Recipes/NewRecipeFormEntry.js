@@ -15,7 +15,7 @@ function NewRecipeFormEntry(props) {
   });
 
   const [quantity, setQuantity] = useState(0);
-  const [measure, setMeasure] = useState(options[0].props.value);
+  const [measure, setMeasure] = useState();
 
   function onChange_NumberInput(e) {
     setQuantity(e.target.value);
@@ -23,6 +23,7 @@ function NewRecipeFormEntry(props) {
 
   function onChange_SelectInput(e) {
     setMeasure(e.target.value);
+    console.log(measure);
   }
 
   // useEffect(() => {

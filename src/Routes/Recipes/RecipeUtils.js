@@ -255,3 +255,14 @@ export function compileNewRecipe(RecipeName, NServings, items) {
 
   return newRecipe;
 }
+
+/////////////////////////////////// RECIPE INFO JS /////////////////////////////
+
+export function findRecipeByID(id, recipes) {
+  for (let recipe of recipes) {
+    if (recipe.id == id) {
+      // console.log("FOUND:", recipe);
+      return recipe;
+    }
+  }
+}

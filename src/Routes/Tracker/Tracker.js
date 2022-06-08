@@ -13,7 +13,7 @@ function Tracker(props) {
 
   const { todaysLog, previousLogs } = prepareLogs();
   console.log("todaysLog: ", todaysLog);
-  // console.log("previousLogs: ", previousLogs);
+  console.log("previousLogs: ", previousLogs);
 
   return (
     <div className="Tracker">
@@ -22,11 +22,17 @@ function Tracker(props) {
       <div className="SecondSection">
         <div className="Big SectionHeader">Macro Trends</div>
 
-        <TSGContainer previousLogs={previousLogs} />
+        <TSGContainer previousLogs={previousLogs.reverse()} />
       </div>
 
       <div className="ThirdSection">
-        <div className="Big SectionHeader">Previous Logs</div>
+        <div className="Big SectionHeader" id="PreviousLogs">
+          Previous Logs
+          <div className="Buttons">
+            <button>Clear Data</button>
+            <button>Seed Data</button>
+          </div>
+        </div>
         <div className="PreviousLogsContainer">
           <PreviousLogs previousLogs={previousLogs} />
         </div>

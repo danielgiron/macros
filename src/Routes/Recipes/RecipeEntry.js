@@ -1,8 +1,10 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./RecipeEntry.css";
 
 function RecipeEntry(props) {
+  const navigate = useNavigate();
   const recipe = props.recipe;
   return (
     <div className="RecipeEntry">
@@ -26,7 +28,13 @@ function RecipeEntry(props) {
         </div>
       </div>
       <div className="Buttons">
-        <button>More Info</button>
+        <button
+          onClick={() => {
+            navigate(`${recipe.id}`);
+          }}
+        >
+          More Info
+        </button>
         <button
           className="deleteButton"
           onClick={() => props.deleteRecipe(recipe)}

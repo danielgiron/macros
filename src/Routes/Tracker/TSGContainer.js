@@ -14,7 +14,12 @@ function TSGContainer(props) {
   const [timeFrame, setTimeFrame] = useState(7);
 
   // 'columns' is an array containing arrays of data to be passed into <TimeSeriesGraph />
-  const columns = populateColumns(timeFrame, previousLogs);
+  let columns = populateColumns(timeFrame, previousLogs);
+  console.log("Time frame: ", timeFrame);
+
+  useEffect(() => {
+    columns = populateColumns(timeFrame, previousLogs);
+  }, [timeFrame]);
   //   console.log(columns);
 
   function handleTimeFrameChange(numDays) {

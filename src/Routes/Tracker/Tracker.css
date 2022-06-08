@@ -301,6 +301,36 @@
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
+
+  /* background-color: red; */
+}
+
+#PreviousLogs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#PreviousLogs .Buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+  /* width: 100%; */
+}
+
+#PreviousLogs button {
+  border: 1px solid lightgrey;
+  color: grey;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#PreviousLogs button:hover {
+  background-color: rgb(255, 201, 101);
+  border: 1px solid rgb(255, 201, 101);
+  color: white;
 }
 
 .LogList .logEntry {

@@ -7,6 +7,7 @@ import GoalsGraph from "./GoalsGraph";
 
 function PreviousLogs(props) {
   const { previousLogs } = props;
+  // const logsReversed = previousLogs.reverse();
   //   previousLogs = previousLogs.reverse();
 
   const [activeLog, setActiveLog] = useState();
@@ -39,7 +40,7 @@ function PreviousLogs(props) {
     <>
       <div className="PreviousLogs">
         <div className="SectionHeader">Select Log</div>
-        <div className="LogList">{logList.reverse()}</div>
+        <div className="LogList">{logList}</div>
       </div>
       <div className="PieChartContainer">
         <div className="SectionHeader">Calorie Composition</div>

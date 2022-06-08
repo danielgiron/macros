@@ -127,6 +127,7 @@ export function populateColumns(timeFrame, previousLogs) {
     console.log("Not enough data to fill time frame");
   }
 
+  console.log(columns.length);
   return columns;
 }
 
