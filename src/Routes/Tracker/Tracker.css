@@ -9,6 +9,10 @@
   overflow-y: scroll;
 }
 
+.Tracker li {
+  list-style: none;
+}
+
 .FirstSection {
   position: relative;
 
@@ -297,14 +301,10 @@
 
 /*****************************  PreviousLogsContainer  *****************************/
 
-.PreviousLogsContainer .LogList {
-  /* display: flex; */
-
+.PreviousLogs .LogList {
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
-
-  /* background-color: red; */
 }
 
 #PreviousLogs {

@@ -126,7 +126,7 @@ export function populateColumns(timeFrame, logs) {
 export function generateLogList(previousLogs, activeLog, setActiveLog) {
   const logList = previousLogs.map((log, index) => {
     return (
-      <div
+      <li
         className={`logEntry ${activeLog === log ? "Active" : ""}`}
         key={index}
         onClick={() => {
@@ -135,7 +135,7 @@ export function generateLogList(previousLogs, activeLog, setActiveLog) {
         }}
       >
         {log.date}
-      </div>
+      </li>
     );
   });
 

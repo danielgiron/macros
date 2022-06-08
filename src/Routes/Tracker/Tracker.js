@@ -5,6 +5,7 @@ import TSGContainer from "./TSGContainer";
 import TodaysLog from "./TodaysLog";
 import "./Tracker.css";
 import { prepareLogs } from "./TrackerUtils";
+import { seedLogs } from "./SeedLogs";
 
 function Tracker(props) {
   // FOR TESTING PURPOSES:
@@ -15,6 +16,13 @@ function Tracker(props) {
   console.log("todaysLog: ", todaysLog);
   console.log("previousLogs: ", previousLogs);
 
+  const [useSeedData, setUseSeedData] = useState(false);
+
+  let previousLogsData = previousLogs.slice().reverse();
+  if (useSeedData) {
+    previousLogsData = seedLogs.slice().reverse();
+  }
+
   return (
     <div className="Tracker">
       <TodaysLog todaysLog={todaysLog} />
@@ -22,19 +30,25 @@ function Tracker(props) {
       <div className="SecondSection">
         <div className="Big SectionHeader">Macro Trends</div>
 
-        <TSGContainer previousLogs={previousLogs.reverse()} />
+        <TSGContainer previousLogs={previousLogs} />
       </div>
 
       <div className="ThirdSection">
         <div className="Big SectionHeader" id="PreviousLogs">
           Previous Logs
           <div className="Buttons">
-            <button>Clear Data</button>
-            <button>Seed Data</button>
+            {/* <button>Clear Data</button> */}
+            <button
+              onClick={() => {
+                setUseSeedData(!useSeedData);
+              }}
+            >
+              Use {useSeedData ? "My" : "Seed"} Data
+            </button>
           </div>
         </div>
         <div className="PreviousLogsContainer">
-          <PreviousLogs previousLogs={previousLogs} />
+          <PreviousLogs previousLogs={previousLogsData} />
         </div>
       </div>
     </div>

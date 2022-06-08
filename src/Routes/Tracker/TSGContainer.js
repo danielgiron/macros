@@ -1,26 +1,26 @@
-//import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 
 import TimeSeriesGraph from "./TimeSeriesGraph";
 import { seedLogs } from "./SeedLogs";
 
-// import "./TSGContainer.css";
-
 function TSGContainer(props) {
   const { previousLogs } = props;
 
   const [timeFrame, setTimeFrame] = useState(7);
+  const [useSeedData, setUseSeedData] = useState(false);
 
   function handleTimeFrameChange(numDays) {
     setTimeFrame(numDays);
-    // console.log(`Set time-frame to ${numDays} days`);
   }
 
-  // const seedLogs_reversed = seedLogs.reverse();
+  let data = previousLogs;
+  if (useSeedData) {
+    data = seedLogs;
+  }
 
   return (
     <div className="TSGContainer">
-      <TimeSeriesGraph timeFrame={timeFrame} logs={seedLogs} />
+      <TimeSeriesGraph timeFrame={timeFrame} logs={data} />
 
       <div className="GraphControls">
         <label>Time Frame</label>
@@ -49,6 +49,14 @@ function TSGContainer(props) {
           }`}
         >
           All
+        </button>
+        <hr />
+        <button
+          onClick={() => {
+            setUseSeedData(!useSeedData);
+          }}
+        >
+          Use {useSeedData ? "My" : "Seed"} Data
         </button>
       </div>
     </div>
