@@ -23,9 +23,9 @@ function PreviousLogs(props) {
   if (activeLog) {
     ItemsConsumed = activeLog.mealsEaten.map((meal, index) => {
       return (
-        <div key={index} className="ItemEntry">
+        <li key={index} className="ItemEntry">
           {meal.mealName}
-        </div>
+        </li>
       );
     });
 
