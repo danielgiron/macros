@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import RecipeSelectable from "./RecipeSelectable";
 import ItemSelectable from "./ItemSelectable";
+import { ItemSelects } from "./TrackerUtils";
 // import "./AddMealPopUp.css";
 
 function AddMealPopUp(props) {
@@ -24,16 +25,13 @@ function AddMealPopUp(props) {
     );
   });
 
-  const itemSelects = collection.map((item) => {
-    return (
-      <ItemSelectable
-        key={item.id}
-        item={item}
-        mealsToAdd={mealsToAdd}
-        setMealsToAdd={setMealsToAdd}
-      />
-    );
-  });
+  const {
+    DairySelects,
+    MeatSelects,
+    BakedGoodsSelects,
+    MiscellaneousSelects,
+    ProduceSelects,
+  } = ItemSelects(collection, mealsToAdd, setMealsToAdd);
 
   return (
     <div className={`AddMealPopUp ${isHidden ? "isHidden" : ""}`}>
@@ -42,9 +40,28 @@ function AddMealPopUp(props) {
       <div className="RecipeSelectablesContainer">{recipeSelects}</div>
 
       <div className="SectionHeader">By Item</div>
-      <div className="ItemSelectablesContainer">{itemSelects}</div>
+      <div className="ItemSelectablesContainer">
+        <div className="SectionHeader">Baked Goods</div>
+        {BakedGoodsSelects}
+      </div>
+      <div className="ItemSelectablesContainer">
+        <div className="SectionHeader">Dairy</div>
+        {DairySelects}
+      </div>
+      <div className="ItemSelectablesContainer">
+        <div className="SectionHeader">Meats</div>
+        {MeatSelects}
+      </div>
+      <div className="ItemSelectablesContainer">
+        <div className="SectionHeader">Produce</div>
+        {ProduceSelects}
+      </div>
+      <div className="ItemSelectablesContainer">
+        <div className="SectionHeader">Miscellaneous</div>
+        {MiscellaneousSelects}
+      </div>
 
-      <button onClick={closeAddPopUp}>Close</button>
+      <button onClick={closeAddPopUp}>Close and Add Selected Items</button>
     </div>
   );
 }

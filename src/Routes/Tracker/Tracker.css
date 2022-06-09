@@ -14,7 +14,7 @@
 }
 
 .FirstSection {
-  position: relative;
+  /* position: relative; */
 
   display: flex;
   flex-direction: column;
@@ -150,7 +150,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(255, 201, 101);
+  background-color: #ffc965;
   height: 50px;
   /* max-width: 50px; */
   padding: 0rem 25px;
@@ -162,10 +162,24 @@
   white-space: nowrap;
 }
 
+#AddMealButton {
+  font-weight: 700;
+  color: #ffc965;
+  border: 2px solid #ffc965;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#AddMealButton:hover {
+  background-color: #ffc965;
+  color: white;
+}
+
 .AddMealPopUp {
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.73);
+  border-bottom: 2px solid #efefef;
   -webkit-backdrop-filter: blur(3px);
   -moz-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
@@ -173,15 +187,26 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2;
   overflow-y: scroll;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  font-size: 0.9rem;
   /* top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); */
+}
+
+.AddMealPopUp .Big.SectionHeader {
+  margin: 2rem;
+}
+
+.AddMealPopUp .SectionHeader {
+  width: 90%;
 }
 
 .AddMealPopUp .RecipeSelectablesContainer {
@@ -190,8 +215,12 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  width: 100%;
+  width: 90%;
   gap: 0.5rem;
+  margin: 1rem 0rem;
+
+  background-color: #efefef;
+  padding: 0.5rem;
 }
 .AddMealPopUp .ItemSelectablesContainer {
   /* background-color: white; */
@@ -199,14 +228,36 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  width: 100%;
+  width: 90%;
   gap: 0.5rem;
+  margin: 1rem 0rem;
+  background-color: #efefef;
+  padding: 0.5rem;
+}
+
+.ItemSelectablesContainer .SectionHeader {
+  width: 100%;
+}
+
+.AddMealPopUp button {
+  margin: 1rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 2rem;
+  background-color: transparent;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.AddMealPopUp button:hover {
+  background-color: #ffc965;
+  border: 1px solid #ffc965;
+  color: white;
 }
 
 .ItemSelectable,
 .RecipeSelectable {
   text-transform: capitalize;
-  background-color: rgb(255, 201, 101);
+  background-color: #ffc965;
   padding: 0.5rem;
   cursor: pointer;
 }

@@ -86,7 +86,7 @@ function AddMeal(props) {
     <div className="TodaysMealsContainer">
       <div className="SectionHeader">Add Meal</div>
       <div className="AddMealSection">
-        <button onClick={openAddPopUp} className="AddMealButton">
+        <button onClick={openAddPopUp} id="AddMealButton">
           +
         </button>
         {eatenMealEntries}

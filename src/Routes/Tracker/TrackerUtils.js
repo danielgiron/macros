@@ -1,3 +1,5 @@
+import ItemSelectable from "./ItemSelectable";
+
 export function newTodaysLog(
   previousTodaysLog = { goals: { calories: 0, protein: 0, carbs: 0, fat: 0 } }
 ) {
@@ -68,6 +70,81 @@ export function prepareLogs() {
   }
 
   return { todaysLog, previousLogs };
+}
+
+export function ItemSelects(collection, mealsToAdd, setMealsToAdd) {
+  const DairySelects = collection.map((item) => {
+    if (item.category === "Dairy") {
+      return (
+        <ItemSelectable
+          key={item.id}
+          item={item}
+          mealsToAdd={mealsToAdd}
+          setMealsToAdd={setMealsToAdd}
+        />
+      );
+    }
+  });
+
+  const ProduceSelects = collection.map((item) => {
+    if (item.category === "Produce") {
+      return (
+        <ItemSelectable
+          key={item.id}
+          item={item}
+          mealsToAdd={mealsToAdd}
+          setMealsToAdd={setMealsToAdd}
+        />
+      );
+    }
+  });
+
+  const MeatSelects = collection.map((item) => {
+    if (item.category === "Meat") {
+      return (
+        <ItemSelectable
+          key={item.id}
+          item={item}
+          mealsToAdd={mealsToAdd}
+          setMealsToAdd={setMealsToAdd}
+        />
+      );
+    }
+  });
+
+  const MiscellaneousSelects = collection.map((item) => {
+    if (item.category === "Miscellaneous") {
+      return (
+        <ItemSelectable
+          key={item.id}
+          item={item}
+          mealsToAdd={mealsToAdd}
+          setMealsToAdd={setMealsToAdd}
+        />
+      );
+    }
+  });
+
+  const BakedGoodsSelects = collection.map((item) => {
+    if (item.category === "BakedGoods") {
+      return (
+        <ItemSelectable
+          key={item.id}
+          item={item}
+          mealsToAdd={mealsToAdd}
+          setMealsToAdd={setMealsToAdd}
+        />
+      );
+    }
+  });
+
+  return {
+    DairySelects,
+    ProduceSelects,
+    MeatSelects,
+    MiscellaneousSelects,
+    BakedGoodsSelects,
+  };
 }
 
 /////////////////////////////////   TimeSeriesGraph  ///////////////////////////////////
