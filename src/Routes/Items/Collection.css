@@ -1,3 +1,7 @@
+* {
+  list-style: none;
+}
+
 .CollectionComponent {
   width: 100%;
   height: min-content;
@@ -39,8 +43,8 @@
 }
 
 .DataButtons button:hover {
-  background-color: rgb(247, 192, 89);
-  border: 1px solid rgb(247, 192, 89);
+  background-color: #f7c059;
+  border: 1px solid #f7c059;
   color: white;
 }
 
@@ -94,13 +98,20 @@
   height: 1.5rem;
 
   cursor: pointer;
+
+  text-transform: capitalize;
+}
+
+.Item:hover {
+  filter: brightness(1.1);
 }
 
 .Dairy {
   background-color: rgb(194, 224, 236);
 }
 .BakedGoods {
-  background-color: rgb(254, 207, 65);
+  background-color: #fbc662 !important;
+  border: 0px solid #fbc662 !important;
 }
 .Meat {
   background-color: rgb(251, 120, 100);

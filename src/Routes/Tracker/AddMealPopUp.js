@@ -61,7 +61,9 @@ function AddMealPopUp(props) {
         {MiscellaneousSelects}
       </div>
 
-      <button onClick={closeAddPopUp}>Close and Add Selected Items</button>
+      <button onClick={closeAddPopUp}>
+        Close and Add Selected Items ({mealsToAdd.length})
+      </button>
     </div>
   );
 }

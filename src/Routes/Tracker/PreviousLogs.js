@@ -52,7 +52,7 @@ function PreviousLogs(props) {
     goals = (
       <div className="GoalsContainer">
         <div className="Macro Calories">
-          <div className="MacroLabel">Calories</div>
+          <div className="MacroLabel">Calories • {macroProgress.calories}%</div>
           <div
             className="MacroPercent"
             style={{ width: `${macroProgress.calories}%` }}
@@ -62,7 +62,7 @@ function PreviousLogs(props) {
         </div>
 
         <div className="Macro Protein">
-          <div className="MacroLabel">Protein</div>
+          <div className="MacroLabel">Protein • {macroProgress.protein}%</div>
           <div
             className="MacroPercent"
             style={{ width: `${macroProgress.protein}%` }}
@@ -72,7 +72,7 @@ function PreviousLogs(props) {
         </div>
 
         <div className="Macro Carb">
-          <div className="MacroLabel">Carb</div>
+          <div className="MacroLabel">Carb • {macroProgress.carbs}%</div>
           <div
             className="MacroPercent"
             style={{ width: `${macroProgress.carbs}%` }}
@@ -82,7 +82,7 @@ function PreviousLogs(props) {
         </div>
 
         <div className="Macro Fat">
-          <div className="MacroLabel">Fat</div>
+          <div className="MacroLabel">Fat • {macroProgress.fat}%</div>
           <div
             className="MacroPercent"
             style={{ width: `${macroProgress.fat}%` }}

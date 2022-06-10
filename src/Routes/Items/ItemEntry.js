@@ -6,7 +6,7 @@ function ItemEntry(props) {
   const item = props.item;
   let navigate = useNavigate();
   return (
-    <div
+    <li
       onClick={() => {
         navigate(`/items/${item.id}`);
       }}
@@ -15,7 +15,7 @@ function ItemEntry(props) {
       collection={props.collection}
     >
       {item.food_name}
-    </div>
+    </li>
   );
 }
 export default ItemEntry;

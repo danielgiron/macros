@@ -164,13 +164,14 @@
 
 #AddMealButton {
   font-weight: 700;
-  color: #ffc965;
-  border: 2px solid #ffc965;
+  color: #dadada;
+  border: 2px solid #dadada;
   background-color: transparent;
   cursor: pointer;
 }
 
 #AddMealButton:hover {
+  border: 2px solid #ffc965;
   background-color: #ffc965;
   color: white;
 }
@@ -414,6 +415,7 @@
 
 .PreviousLogsContainer .GoalsContainer .MacroLabel {
   font-weight: 400;
+  font-size: 0.9rem;
   color: black;
   z-index: 2;
 }

@@ -18,12 +18,12 @@ function Collection(props) {
       </div>
       <div className="CollectionContainer">
         <div className="CategoryContainer ">
-          <div className="CategoryTitle">Dairy</div>
-          <div className="CategoryItems">{categories.Dairy}</div>
-        </div>
-        <div className="CategoryContainer ">
           <div className="CategoryTitle">Baked Goods</div>
           <div className="CategoryItems">{categories.BakedGoods}</div>
+        </div>
+        <div className="CategoryContainer ">
+          <div className="CategoryTitle">Dairy</div>
+          <div className="CategoryItems">{categories.Dairy}</div>
         </div>
         <div className="CategoryContainer ">
           <div className="CategoryTitle">Meats</div>
