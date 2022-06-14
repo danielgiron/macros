@@ -129,11 +129,16 @@ function ItemInfo(props) {
     );
   });
 
+  let imgDiv = "";
+  if (item.photo) {
+    imgDiv = <img src={item.photo.thumb} alt={`${item.food_name}`} />;
+  }
+
   return (
     <div className="ItemInfo">
       <div className="leftSide">
         <div className="infoHeader">
-          <img src={item.photo.thumb} alt={`${item.food_name}`} />
+          {imgDiv}
           <div>
             <div>{item.food_name}</div>
             <span> Item Info </span>

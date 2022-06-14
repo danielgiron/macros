@@ -53,6 +53,15 @@
   filter: brightness(1.1);
 }
 
+.searchContainer #newEmptyItemButton {
+  background-color: transparent;
+  border: none;
+  color: grey;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+}
+
 /**************** RIGHT SIDE OF ItemSearch ************/
 
 .confirmationContainer {

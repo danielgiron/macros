@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Field from "./Field.js";
 import "./ItemSearch.css";
-import { getFoodItem, processReturn, generateFieldDivs } from "./itemUtils";
+import {
+  getFoodItem,
+  newEmptyItem,
+  processReturn,
+  generateFieldDivs,
+} from "./itemUtils";
 
 function ItemSearch(props) {
   // used to update Item Search form input
@@ -52,6 +57,13 @@ function ItemSearch(props) {
     }
   };
 
+  const handleManualItemEntry = (e) => {
+    const newItem = newEmptyItem();
+    console.log(newItem);
+    setFoodData(newItem);
+    setConfirmationValues(newItem);
+  };
+
   const fieldComponents = fields.map((field) => {
     return (
       <Field
@@ -64,11 +76,16 @@ function ItemSearch(props) {
   });
 
   const formComponent = (
-    <form onSubmit={handleSubmit}>
-      <h1>Item Search</h1>
-      {fieldComponents}
-      <button>Submit</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <h1>Item Search</h1>
+        {fieldComponents}
+        <button>Search</button>
+      </form>
+      <button id="newEmptyItemButton" onClick={handleManualItemEntry}>
+        To manually enter new item, click here
+      </button>
+    </>
   );
 
   const confirmationForm_fields = [
@@ -120,6 +137,14 @@ function ItemSearch(props) {
       required: true,
       pattern: null,
     },
+    // {
+    //   fieldname: "serving_size", // item.serving_qty + " " + item.serving_unit
+    //   type: "text",
+    //   label: "Serving Size",
+    //   value: confirmationValues.serving_size,
+    //   required: true,
+    //   pattern: null,
+    // },
     {
       fieldname: "category",
       type: "select",

@@ -65,6 +65,24 @@ export function processReturn(api_return) {
   return newItem;
 }
 
+export function newEmptyItem() {
+  const newItem = {
+    food_name: "New Item",
+    full_nutrients: [],
+    nf_calories: 0,
+    nf_protein: 0,
+    nf_total_carbohydrate: 0,
+    nf_total_fat: 0,
+    // photo: "",
+    serving_qty: 0,
+    serving_unit: "",
+    serving_weight_grams: 0,
+    alt_measures: [],
+    id: uuidv4(),
+  };
+  return newItem;
+}
+
 export function generateFieldDivs(fieldsArray, onChange) {
   const confirmationFieldDivs = fieldsArray.map((field) => {
     let input;
