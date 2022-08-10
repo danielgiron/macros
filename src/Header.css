@@ -24,3 +24,31 @@
 .Header h1 {
   color: white;
 }
+
+@media (max-width: 900px) {
+  .Header {
+    width: calc(100vw - 2rem);
+  }
+
+  .Header-Date {
+    font-size: 1.1rem;
+  }
+
+  .Header h1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .Header {
+    width: calc(100vw - 2rem);
+  }
+
+  .Header-Date {
+    font-size: 0.9rem;
+  }
+
+  .Header h1 {
+    font-size: 1rem;
+  }
+}

@@ -15,6 +15,9 @@ function ItemSearch(props) {
   const [foodData, setFoodData] = useState({});
   // used to store user modified values of food data
   const [confirmationValues, setConfirmationValues] = useState({});
+  // used for mobile view, swapping between search form and confirmation form
+  const [searchResults_Mobile_Hidden, setSearchResults_Mobile_Hidden] =
+    useState(false);
 
   const fields = [
     {
@@ -49,7 +52,9 @@ function ItemSearch(props) {
     try {
       api_return = await getFoodItem(input.food);
       const newItem = processReturn(api_return);
-      console.log(newItem);
+      // console.log(newItem);
+      setSearchResults_Mobile_Hidden(true);
+
       setFoodData({ ...newItem });
       setConfirmationValues({ ...newItem });
     } catch {
@@ -62,6 +67,7 @@ function ItemSearch(props) {
     console.log(newItem);
     setFoodData(newItem);
     setConfirmationValues(newItem);
+    setSearchResults_Mobile_Hidden(true);
   };
 
   const fieldComponents = fields.map((field) => {
@@ -78,7 +84,7 @@ function ItemSearch(props) {
   const formComponent = (
     <>
       <form onSubmit={handleSubmit}>
-        <h1>Item Search</h1>
+        <div className="title">Item Search</div>
         {fieldComponents}
         <button>Search</button>
       </form>
@@ -158,6 +164,7 @@ function ItemSearch(props) {
 
   function handleConfirmSubmit(e) {
     e.preventDefault();
+    setSearchResults_Mobile_Hidden(false);
     const inputData = new FormData(e.target);
     const confirmedItem = Object.fromEntries(inputData.entries());
 
@@ -170,15 +177,25 @@ function ItemSearch(props) {
     setConfirmationValues({});
     setFormValues({});
   }
+  function handleConfirmCancel(e) {
+    e.preventDefault();
+    setSearchResults_Mobile_Hidden(false);
+    setFoodData({});
+    setConfirmationValues({});
+    setFormValues({});
+  }
 
   let confirmationForm;
   if (foodData.food_name) {
     confirmationForm = (
-      <form onSubmit={handleConfirmSubmit} className="confirmationForm">
-        <h1>Confirm Item</h1>
-        {generateFieldDivs(confirmationForm_fields, onChange_confirm)}
-        <button>Confirm</button>
-      </form>
+      <>
+        <form onSubmit={handleConfirmSubmit} className="confirmationForm">
+          <h1>Confirm Item</h1>
+          {generateFieldDivs(confirmationForm_fields, onChange_confirm)}
+          <button>Confirm</button>
+        </form>
+        <button onClick={handleConfirmCancel}>Cancel</button>
+      </>
     );
   } else {
     confirmationForm = <div className="confirmationForm">Nothing here yet</div>;
@@ -186,21 +203,22 @@ function ItemSearch(props) {
 
   return (
     <div className="ItemSearch">
-      <div className="searchContainer">{formComponent}</div>
-      <div className="confirmationContainer">{confirmationForm}</div>
+      <div
+        className={`searchContainer ${
+          searchResults_Mobile_Hidden ? "Hidden" : ""
+        }`}
+      >
+        {formComponent}
+      </div>
+      <div
+        className={`confirmationContainer ${
+          !searchResults_Mobile_Hidden ? "Hidden" : ""
+        }`}
+      >
+        {confirmationForm}
+      </div>
     </div>
   );
 }
 
 export default ItemSearch;
-
-// <div classname="confirmationContainer">
-//   <div className="confirmationForm">
-//     ...
-//     <div className="confirmationField">
-//       <label></label>
-//       <input />
-//     </div>
-//    ...
-//   </div>
-// </div>

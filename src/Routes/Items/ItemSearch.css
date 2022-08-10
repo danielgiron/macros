@@ -134,3 +134,75 @@
   padding: none;
   line-height: 0.5;
 }
+
+@media (max-width: 900px) {
+  .ItemSearch {
+    flex-direction: column;
+    gap: none;
+    height: auto !important;
+    width: calc(100% - 2rem);
+    /* background-color: white; */
+  }
+
+  .ItemSearch .searchContainer {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(234, 233, 233);
+    flex: none;
+  }
+
+  .ItemSearch .searchContainer .title {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  .ItemSearch .searchContainer form {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* padding: 1.5rem; */
+    /* margin: 0.5rem; */
+  }
+
+  .ItemSearch .searchContainer .Field {
+    width: calc(70%);
+    margin: 1rem 0rem;
+  }
+
+  .ItemSearch .confirmationContainer {
+    flex: none;
+    height: auto;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ItemSearch .confirmationContainer .confirmationForm {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 200px;
+
+    background-color: blue;
+  }
+
+  .ItemSearch .searchContainer.Hidden {
+    display: none;
+  }
+
+  .ItemSearch .confirmationContainer.Hidden {
+    display: none;
+  }
+
+  .ItemSearch button {
+    width: calc(85%) !important;
+  }
+}
