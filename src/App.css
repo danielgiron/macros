@@ -144,6 +144,8 @@
   }
 
   .Navbar {
+    position: fixed;
+    bottom: 0;
     flex-direction: row;
     /* justify-content: space-evenly; */
     width: 100%;
