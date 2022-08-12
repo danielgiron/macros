@@ -6,6 +6,7 @@ import { setValues, changeBG } from "./background";
 
 import "./App.css";
 import Header from "./Header";
+// import Navbar from "./Navbar";
 import Main from "./Main";
 
 function App() {

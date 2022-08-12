@@ -1,11 +1,114 @@
 .App {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+
+  display: grid;
+  justify-content: center;
+  /* align-items: center; */
+  grid-template-rows: auto 1fr;
+}
+
+/* Header Component Styles */
+
+.Header {
+  position: relative;
+  width: calc(100%);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+}
+
+.Header-Date {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.Header-Date span {
+  color: #ffffff89;
+  font-weight: 300;
+}
+
+.Header h1 {
+  color: white;
+}
+
+/* Main Component Styles */
+
+.Main {
+  width: 85vw;
+  height: 600px;
+  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
+  background-color: rgba(255, 238, 227, 0.696);
+
+  -webkit-box-shadow: 0px 19px 37px 18px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 19px 37px 18px rgba(0, 0, 0, 0.2);
 }
+
+.Main .Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  position: absolute;
+  right: 0;
+  width: calc(100% - 5rem);
+  height: 100%;
+
+  background-color: rgba(255, 238, 227, 0.696);
+
+  -webkit-backdrop-filter: blur(100px);
+  backdrop-filter: blur(100px);
+}
+
+/* Navbar Component Styles */
+
+.Navbar {
+  position: absolute;
+  height: 100%;
+  width: 5rem;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: space-between;
+
+  background-color: rgb(37, 37, 37);
+  border-right: 1px solid rgb(255, 130, 41);
+
+  -webkit-box-shadow: 2px 0px 23px 6px rgba(0, 0, 0, 0.31);
+  box-shadow: 2px 0px 20px 6px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+
+.Navbar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+
+  /* background-color: lightgrey; */
+  border-bottom: 1px solid rgb(23, 23, 23);
+
+  text-decoration: none;
+  color: rgb(243, 243, 243);
+  font-weight: 300;
+}
+
+.Navbar a:hover {
+  background-color: rgb(62, 62, 62);
+}
+
+/* Background */
 
 .colorMesh {
   position: absolute;
@@ -16,4 +119,107 @@
   background-color: rgb(209, 113, 44);
   background-color: rgba(0, 0, 0, 0.579);
   z-index: -100;
+}
+
+@media (min-width: 901px) {
+  .App {
+    align-items: center;
+  }
+}
+
+/* MAX-WIDTH: 900 PX */
+
+@media (max-width: 900px) {
+  .Header {
+    width: calc(100vw - 2rem);
+    margin-left: 1rem;
+  }
+
+  .Header-Date {
+    font-size: 1.1rem;
+  }
+
+  .Header h1 {
+    font-size: 1.3rem;
+  }
+
+  .Navbar {
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    width: 100%;
+    height: 4rem;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  .Navbar a {
+    font-size: 0.9rem;
+    height: 100%;
+    /* width: 100%; */
+    flex: auto;
+    /* text-transform: uppercase; */
+  }
+
+  .Main {
+    width: 100vw;
+    height: unset;
+
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .Main .Content {
+    width: 100%;
+    height: calc(100% - 0rem);
+    justify-content: flex-start;
+
+    /* margin-bottom: 15rem; */
+  }
+
+  .Main .Content > div:last-child {
+    padding-bottom: 5rem;
+  }
+}
+
+/* MAX-WIDTH: 350 PX */
+
+@media (max-width: 350px) {
+  .Header {
+    width: calc(100vw - 1rem);
+    margin-left: 0.5rem;
+  }
+
+  .Header-Date {
+    font-size: 0.9rem;
+  }
+
+  .Header h1 {
+    font-size: 1rem;
+  }
+
+  .Navbar {
+    width: 100%;
+    height: 3rem;
+    bottom: 0;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .Navbar a {
+    font-size: 0.8rem;
+    height: 100%;
+  }
+
+  .Main {
+    width: 100vw;
+  }
+
+  .Main-content {
+    width: 100%;
+    height: calc(100% - 0rem);
+  }
+
+  .Main-content > div:last-child {
+    padding-bottom: 3rem;
+  }
 }

@@ -1,7 +1,4 @@
-//import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./Header.css";
+import React from "react";
 
 function Header(props) {
   const weekday = [
