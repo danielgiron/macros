@@ -35,6 +35,7 @@ function ItemSearch(props) {
   const onChange_search = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
+
   const onChange_confirm = (e) => {
     setConfirmationValues({
       ...confirmationValues,
@@ -80,19 +81,6 @@ function ItemSearch(props) {
       />
     );
   });
-
-  const formComponent = (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div className="title">Item Search</div>
-        {fieldComponents}
-        <button>Search</button>
-      </form>
-      <button id="newEmptyItemButton" onClick={handleManualItemEntry}>
-        To manually enter new item, click here
-      </button>
-    </>
-  );
 
   const confirmationForm_fields = [
     {
@@ -177,28 +165,13 @@ function ItemSearch(props) {
     setConfirmationValues({});
     setFormValues({});
   }
+
   function handleConfirmCancel(e) {
     e.preventDefault();
     setSearchResults_Mobile_Hidden(false);
     setFoodData({});
     setConfirmationValues({});
     setFormValues({});
-  }
-
-  let confirmationForm;
-  if (foodData.food_name) {
-    confirmationForm = (
-      <>
-        <form onSubmit={handleConfirmSubmit} className="confirmationForm">
-          <h1>Confirm Item</h1>
-          {generateFieldDivs(confirmationForm_fields, onChange_confirm)}
-          <button>Confirm</button>
-        </form>
-        <button onClick={handleConfirmCancel}>Cancel</button>
-      </>
-    );
-  } else {
-    confirmationForm = <div className="confirmationForm">Nothing here yet</div>;
   }
 
   return (
@@ -208,14 +181,36 @@ function ItemSearch(props) {
           searchResults_Mobile_Hidden ? "Hidden" : ""
         }`}
       >
-        {formComponent}
+        <form onSubmit={handleSubmit}>
+          <div className="title">Item Search</div>
+          {fieldComponents}
+          <button>Search</button>
+        </form>
+        <button id="newEmptyItemButton" onClick={handleManualItemEntry}>
+          To manually enter new item, click here
+        </button>
       </div>
       <div
         className={`confirmationContainer ${
           !searchResults_Mobile_Hidden ? "Hidden" : ""
         }`}
       >
-        {confirmationForm}
+        {foodData?.food_name ? (
+          <>
+            <form onSubmit={handleConfirmSubmit} className="confirmationForm">
+              <h1>Confirm Item</h1>
+              {generateFieldDivs(confirmationForm_fields, onChange_confirm)}
+              <div className="buttons">
+                <button type="button" onClick={handleConfirmCancel}>
+                  Cancel
+                </button>
+                <button type="submit">Confirm</button>
+              </div>
+            </form>
+          </>
+        ) : (
+          <div className="confirmationForm">Nothing here yet</div>
+        )}
       </div>
     </div>
   );

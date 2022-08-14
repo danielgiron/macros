@@ -102,11 +102,28 @@
   background-color: rgb(244, 244, 244);
 }
 
+.confirmationField select {
+  width: calc(50% + 5px);
+  /* -webkit-appearance: none; */
+}
+
 .confirmationField input:hover,
 .confirmationField select:hover {
   border: 1px solid rgb(245, 217, 213);
   background-color: rgb(245, 225, 213);
   color: rgb(108, 57, 2);
+}
+
+.confirmationForm .buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: calc(100% - 0rem);
+  height: min-content;
 }
 
 .confirmationForm button {
@@ -139,8 +156,10 @@
   .ItemSearch {
     flex-direction: column;
     gap: none;
-    height: auto !important;
+    height: 240px;
     width: calc(100% - 2rem);
+    margin: 1rem;
+    padding: 0;
     /* background-color: white; */
   }
 
@@ -148,11 +167,11 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 200px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(234, 233, 233);
+    /* background-color: rgb(234, 233, 233); */
     flex: none;
   }
 
@@ -177,32 +196,75 @@
     margin: 1rem 0rem;
   }
 
+  .searchContainer button {
+    width: calc(80%) !important;
+  }
+
   .ItemSearch .confirmationContainer {
     flex: none;
-    height: auto;
+    height: 100%;
     width: 100%;
-    padding: 0;
-    margin: 0;
+    padding: 0rem;
+    margin: 0rem;
+  }
+
+  .ItemSearch .confirmationContainer h1 {
+    display: none;
   }
 
   .ItemSearch .confirmationContainer .confirmationForm {
     width: 100%;
     padding: 0;
     margin: 0;
-    height: 200px;
-
-    background-color: blue;
+    height: auto;
   }
 
+  .confirmationField {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 2rem);
+    min-width: unset;
+    margin: 0.15rem 0rem;
+  }
+
+  .confirmationField input,
+  .confirmationField select {
+    width: 35%;
+    border: 1px solid rgb(231, 231, 231);
+    background-color: rgb(244, 244, 244);
+  }
+
+  .confirmationField select {
+    width: calc(35% + 5px);
+    /* -webkit-appearance: none; */
+  }
+
+  .confirmationField input:hover,
+  .confirmationField select:hover {
+    border: 1px solid rgb(245, 217, 213);
+    background-color: rgb(245, 225, 213);
+    color: rgb(108, 57, 2);
+  }
+
+  .confirmationForm .buttons {
+    width: calc(100% - 2rem);
+  }
+
+  .confirmationForm .buttons button {
+    margin: 0.5rem 0rem;
+  }
+
+  .confirmationForm button:hover {
+    filter: brightness(1.1);
+  }
+  /* used in toggling which view is displayed on mobile displays */
   .ItemSearch .searchContainer.Hidden {
     display: none;
   }
 
   .ItemSearch .confirmationContainer.Hidden {
     display: none;
-  }
-
-  .ItemSearch button {
-    width: calc(85%) !important;
   }
 }
