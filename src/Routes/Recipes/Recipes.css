@@ -47,11 +47,9 @@
   /* height: 100%; */
   width: 100%;
   min-width: none;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
   background-color: white;
 }
 
@@ -133,3 +131,50 @@
 }
 
 /* For more styling, look in RecipeEntry.css */
+
+@media (max-width: 900px) {
+  .Recipes {
+    height: auto;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: unset;
+    align-items: unset;
+    gap: 1rem;
+  }
+
+  .Recipes .leftSide {
+    height: calc(100% - 2rem);
+    width: 100%;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .Recipes .sectionTitle {
+    color: black;
+    width: 100%;
+    /* background-color: aqua; */
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    /* margin: 0.5rem; */
+  }
+
+  .Recipes .leftSide > div:first-child > .sectionTitle {
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding-bottom: 0.25rem !important;
+  }
+
+  .Recipes .leftSide > div {
+    /* height: 100%; */
+    width: 100%;
+    min-width: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background-color: white;
+  }
+}

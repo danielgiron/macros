@@ -142,3 +142,6 @@
 .NewRecipe .LastColumn .CompletionBox button:hover {
   filter: brightness(1.2);
 }
+
+@media (max-width: 900px) {
+}

@@ -117,3 +117,12 @@
   font-weight: 500;
   background-color: rgba(249, 185, 65, 0.89) !important;
 }
+
+@media (max-width: 900px) {
+  #QuickFormTitle div:first-child {
+    font-size: 5vw;
+  }
+  #QuickFormTitle div:last-child {
+    font-size: 7vw;
+  }
+}

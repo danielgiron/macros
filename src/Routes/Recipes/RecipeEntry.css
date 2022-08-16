@@ -101,3 +101,36 @@
   border: 1px solid rgb(255, 101, 101);
   color: white;
 }
+@media (max-width: 900px) {
+  .Recipes > .rightSide {
+    min-width: unset;
+  }
+
+  .rightSide .RecipesContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 0.5rem;
+    /* padding: 0.25rem; */
+
+    height: calc(100%);
+    width: calc(100% - 1rem);
+    min-width: undet;
+    /* margin: 1rem; */
+    /* background-color: rgb(243, 243, 243); */
+    border-top: none;
+    border-bottom: none;
+    margin-bottom: 1rem;
+    overflow-y: scroll;
+  }
+
+  .RecipeEntry {
+    width: calc(100% - 1rem);
+  }
+
+  .RecipeEntry:first-child {
+    border-top: 1px solid lightgray;
+  }
+}
