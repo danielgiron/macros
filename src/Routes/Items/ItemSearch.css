@@ -64,7 +64,7 @@
 
 /**************** RIGHT SIDE OF ItemSearch ************/
 
-.confirmationContainer {
+.ItemSearch .confirmationContainer {
   height: 250px;
   margin-right: 1rem;
 
@@ -76,7 +76,7 @@
   background-color: white;
 }
 
-.confirmationForm {
+.ItemSearch .confirmationForm {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -95,20 +95,20 @@
   margin: 0.15rem 0rem;
 }
 
-.confirmationField input,
-.confirmationField select {
+.ItemSearch .confirmationField input,
+.ItemSearch .confirmationField select {
   width: 50%;
   border: 1px solid rgb(231, 231, 231);
   background-color: rgb(244, 244, 244);
 }
 
-.confirmationField select {
+.ItemSearch .confirmationField select {
   width: calc(50% + 5px);
   /* -webkit-appearance: none; */
 }
 
-.confirmationField input:hover,
-.confirmationField select:hover {
+.ItemSearch .confirmationField input:hover,
+.ItemSearch .confirmationField select:hover {
   border: 1px solid rgb(245, 217, 213);
   background-color: rgb(245, 225, 213);
   color: rgb(108, 57, 2);
