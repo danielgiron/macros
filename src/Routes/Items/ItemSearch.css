@@ -155,8 +155,8 @@
 @media (max-width: 900px) {
   .ItemSearch {
     flex-direction: column;
-    gap: none;
-    height: 260px;
+    gap: 0;
+    height: 270px;
     width: calc(100% - 2rem);
     margin: 1rem;
     padding: 0;

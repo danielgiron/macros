@@ -17,7 +17,7 @@
   background-color: white;
 }
 
-.sectionHeader {
+.CollectionComponent .sectionHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -25,7 +25,7 @@
   width: calc(100% - 2rem);
 }
 
-.DataButtons {
+.CollectionComponent .sectionHeader .DataButtons {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
@@ -78,7 +78,7 @@
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 1px;
-  margin: 0.25rem 0.5rem;
+  margin: 0.5rem 0.5rem 0rem 0.5rem;
 }
 
 .CategoryItems {
@@ -121,4 +121,34 @@
 }
 .Miscellaneous {
   background-color: rgb(196, 138, 255);
+}
+
+@media (max-width: 900px) {
+  .CollectionComponent .sectionHeader h1 {
+    font-size: 1.2rem;
+    letter-spacing: 0;
+  }
+
+  .CollectionComponent .sectionHeader .DataButtons button {
+    font-weight: 600;
+    font-size: 0.5rem;
+    padding: 0.3rem;
+  }
+
+  .CategoryTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 0.5rem 0.5rem 0rem 0.5rem;
+  }
+
+  .CategoryItems {
+    gap: 0.3rem;
+  }
+
+  .Item {
+    padding: 0.25rem 0.5rem;
+    height: 1.25rem;
+    font-size: 0.9rem;
+  }
 }

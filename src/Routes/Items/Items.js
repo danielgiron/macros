@@ -34,8 +34,7 @@ function Items(props) {
       <div className="Page-Info">
         <div className="Title">Items</div>
         <div className="Description">
-          On this page you can add new items to your collection and view their
-          nutritional details
+          Add new items to your collection and view their nutritional details
         </div>
       </div>
 

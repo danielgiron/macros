@@ -10,9 +10,7 @@
   overflow-x: hidden;
 }
 
-/****************   PAGE INFO  *******************/
-
-.Page-Info {
+.Items .Page-Info {
   width: 100%;
   /* height: 100px; */
   /* margin: 0.5rem; */
@@ -25,7 +23,7 @@
   background-color: white;
 }
 
-.Title {
+.Items .Page-Info .Title {
   /* margin: 1rem; */
   font-weight: 600;
   font-size: 1.5rem;
@@ -34,13 +32,13 @@
   margin-left: 1rem;
 }
 
-.Description {
+.Items .Page-Info .Description {
   font-size: 0.9rem;
   margin-left: 1rem;
 }
 
-/****************   ItemSearch  *******************/
-
-/* FOr styling on ItemSearch component, look in ./ItemSearch.css */
-
-/****************   COLLECTION *******************/
+@media (max-width: 900px) {
+  .Items .Page-Info .Title {
+    font-size: 1.2rem;
+  }
+}

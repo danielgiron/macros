@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
 import React from "react";
-import "./ItemEntry.css";
 
 function ItemEntry(props) {
   const item = props.item;
