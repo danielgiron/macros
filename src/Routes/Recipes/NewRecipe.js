@@ -55,23 +55,53 @@ function NewRecipe(props) {
         </div>
         <div className="CategoryContainer">
           <div className="CategoryName">Baked Goods</div>
-          <div className="ItemsContainer">{categories.BakedGoods}</div>
+          <div className="ItemsContainer">
+            {categories.BakedGoods.length > 0 ? (
+              categories.BakedGoods
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
         <div className="CategoryContainer">
           <div className="CategoryName">Dairy</div>
-          <div className="ItemsContainer">{categories.Dairy}</div>
+          <div className="ItemsContainer">
+            {categories.Dairy.length > 0 ? (
+              categories.Dairy
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
         <div className="CategoryContainer">
           <div className="CategoryName">Meats</div>
-          <div className="ItemsContainer">{categories.Meat}</div>
+          <div className="ItemsContainer">
+            {categories.Meat.length > 0 ? (
+              categories.Meat
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
         <div className="CategoryContainer">
           <div className="CategoryName">Produce</div>
-          <div className="ItemsContainer">{categories.Produce}</div>
+          <div className="ItemsContainer">
+            {categories.Produce.length > 0 ? (
+              categories.Produce
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
         <div className="CategoryContainer">
           <div className="CategoryName">Miscellaneous</div>
-          <div className="ItemsContainer">{categories.Miscellaneous}</div>
+          <div className="ItemsContainer">
+            {categories.Miscellaneous.length > 0 ? (
+              categories.Miscellaneous
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
       </div>
 

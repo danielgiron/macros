@@ -8,7 +8,7 @@
   background-color: transparent;
 }
 
-.PanelDescription {
+.NewRecipe .PanelDescription {
   position: sticky;
   top: 0;
   z-index: 5;
@@ -29,12 +29,12 @@
   text-transform: uppercase;
 }
 
-.PanelDescription span {
+.NewRecipe .PanelDescription span {
   font-size: 0.9rem;
   width: calc(100% - 1rem);
 }
 
-.ItemSelectPanel {
+.NewRecipe .ItemSelectPanel {
   grid-area: firstCol;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@
   font-weight: 500;
 }
 
-.ItemsContainer {
+.NewRecipe .ItemsContainer {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -161,12 +161,12 @@
     background-color: transparent;
   }
 
-  .Panel {
+  .NewRecipe .Panel {
     background-color: rgba(255, 255, 255, 0.502);
     padding: 0.5rem;
   }
 
-  .PanelDescription {
+  .NewRecipe .PanelDescription {
     position: relative;
     width: calc(100% - 2rem) !important;
     /* margin-bottom: 0.5rem; */
