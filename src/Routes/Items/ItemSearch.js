@@ -204,7 +204,9 @@ function ItemSearch(props) {
                 <button type="button" onClick={handleConfirmCancel}>
                   Cancel
                 </button>
-                <button type="submit">Confirm</button>
+                <button id="ConfirmButton" type="submit">
+                  Confirm
+                </button>
               </div>
             </form>
           </>

@@ -132,6 +132,10 @@
   background-color: rgb(220, 220, 220) !important;
 }
 
+.ItemSearch .confirmationForm #ConfirmButton {
+  background-color: rgb(255, 201, 101) !important;
+}
+
 .confirmationForm button:hover {
   filter: brightness(1.1);
 }
@@ -198,6 +202,7 @@
 
   .searchContainer button {
     width: calc(80%) !important;
+    margin: 0.5rem !important;
   }
 
   .ItemSearch .confirmationContainer {

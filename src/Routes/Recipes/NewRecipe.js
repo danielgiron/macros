@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import NewRecipeFormEntry from "./NewRecipeFormEntry";
 import { compileNewRecipe, getCategorizedCollection } from "./RecipeUtils";
 
@@ -9,10 +9,6 @@ function NewRecipe(props) {
 
   let collection = JSON.parse(localStorage.getItem("collection"));
   let recipes = JSON.parse(localStorage.getItem("recipes"));
-
-  useEffect(() => {
-    console.log("mounted");
-  }, []);
 
   const categories = getCategorizedCollection(
     collection,
@@ -43,15 +39,14 @@ function NewRecipe(props) {
       items
     );
 
-    // console.log(newRecipe);
     recipes.push(newRecipe);
-    console.log(recipes);
+
     localStorage.setItem("recipes", JSON.stringify([...recipes]));
   }
 
   return (
     <div className="NewRecipe">
-      <div className="NewRecipePanel ItemSelectPanel">
+      <div className="ItemSelectPanel Panel">
         <div className="PanelDescription">
           <div className="SectionHeader">Select Ingredients</div>
           <span>
@@ -79,8 +74,9 @@ function NewRecipe(props) {
           <div className="ItemsContainer">{categories.Miscellaneous}</div>
         </div>
       </div>
+
       <form action="/recipes" method="GET" onSubmit={handleSubmit}>
-        <div className="NewRecipePanel Quantities">
+        <div className="QuantitiesPanel Panel">
           <div className="PanelDescription">
             <div className="SectionHeader">Specify Quantities</div>
             <span>
@@ -89,13 +85,14 @@ function NewRecipe(props) {
           </div>
           <div className="NewRecipeFormEntries">
             {NewRecipeFormEntries.length === 0 ? (
-              <span className="lilMessage">(Select items first)</span>
+              <span className="placeholder">(Select items first)</span>
             ) : (
               NewRecipeFormEntries
             )}
           </div>
         </div>
-        <div className="NewRecipePanel LastColumn">
+
+        <div className="LastPanel Panel">
           <div>
             <div className="PanelDescription">
               <div className="SectionHeader">Steps / Notes</div>
@@ -104,7 +101,7 @@ function NewRecipe(props) {
                 notes
               </span>
             </div>
-            <span className="lilMessage">(Coming soon)</span>
+            <span className="placeholder">(Coming soon)</span>
           </div>
           <div className="CompletionBox">
             <div className="SectionHeader">Lastly</div>

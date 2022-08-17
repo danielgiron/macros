@@ -49,8 +49,8 @@ function RecipeInfo(props) {
   return (
     <div className="RecipeInfo">
       <div className="Big SectionHeader">
-        {recipe.recipeName}
-        <span> | Recipe Info</span>
+        <div>{recipe.recipeName}</div>
+        <span> Recipe Info</span>
       </div>
 
       <div className="RecipeInfoGraphics">

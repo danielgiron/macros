@@ -45,7 +45,6 @@
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  background-color: rgba(255, 238, 227, 0.696);
 
   -webkit-box-shadow: 0px 19px 37px 18px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 19px 37px 18px rgba(0, 0, 0, 0.2);
@@ -64,8 +63,8 @@
 
   background-color: rgba(255, 238, 227, 0.696);
 
-  -webkit-backdrop-filter: blur(100px);
-  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
 }
 
 /* Navbar Component Styles */
@@ -172,6 +171,9 @@
     width: 100%;
     height: calc(100% - 0rem);
     justify-content: flex-start;
+    background-color: #ffffff89;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 
   .Main .Content > div:last-child {
@@ -220,4 +222,20 @@
   .Main-content > div:last-child {
     padding-bottom: 3rem;
   }
+}
+
+/* MISCELLANEOUS */
+
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #7c7c7c;
+  font-style: italic;
+  padding: 1rem;
+}
+
+input {
+  outline: none !important;
 }

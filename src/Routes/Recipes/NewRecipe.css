@@ -1,27 +1,17 @@
 .NewRecipe {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "firstCol form";
   height: 100%;
   width: 100%;
   gap: 0.5rem;
   background-color: transparent;
 }
 
-.NewRecipePanel {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: calc(100% - 0.5rem);
-  padding: 0.25rem;
-  max-width: 275px !important;
-
-  /* border: 1px solid red; */
-  background-color: rgba(255, 255, 255, 0.276);
-}
-
 .PanelDescription {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -29,7 +19,7 @@
   padding: 0.5rem;
   gap: 0.5rem;
   background-color: white;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 
 .NewRecipe .SectionHeader {
@@ -45,19 +35,13 @@
 }
 
 .ItemSelectPanel {
+  grid-area: firstCol;
   display: flex;
   flex-direction: column;
-
   gap: 0.25rem;
-
   width: 100%;
-
-  overflow-y: scroll !important;
+  overflow-y: scroll;
 }
-
-/* .ItemSelectContainer > * {
-  width: 100%;
-} */
 
 .NewRecipe .CategoryContainer {
   padding: 0.5rem;
@@ -73,34 +57,42 @@
   flex-direction: row;
   justify-content: flex-start;
   width: calc(100% - 0.75rem);
-  /* width: 100%; */
   gap: 0.25rem;
   flex-wrap: wrap;
   margin-top: 0.25rem;
 }
 
 .NewRecipe form {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  grid-area: form;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "secondCol thirdCol";
+  justify-content: start;
   gap: 0.5rem;
   width: 100%;
 }
 
-.NewRecipe .Quantities {
-  width: 50%;
+/*************** MIDDLE COLUMN, entries in NewRecipeFormEntries.css ************/
+
+.NewRecipe .QuantitiesPanel {
+  grid-area: secondCol;
 }
 
-/*************** MIDDLE COLUMN: NewRecipeFormEntries.css ************/
+.NewRecipe .QuantitiesPanel .PanelDescription {
+  width: calc(100% - 1rem) !important;
+}
 
 /*************** Last Column, Optional Steps and Notes *************/
 
-.NewRecipe .LastColumn {
+.NewRecipe .LastPanel {
+  grid-area: thirdCol;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  width: 50%;
+  width: 100%;
 }
 
-.NewRecipe .LastColumn .CompletionBox {
+.NewRecipe .LastPanel .CompletionBox {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -119,18 +111,32 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.9rem;
   width: 100%;
+  padding: 0.25rem;
 }
 .NewRecipe .CompletionBox .servingsInput {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.9rem;
   width: 100%;
+  padding: 0.25rem;
 }
 
-.NewRecipe .LastColumn .CompletionBox button {
+.NewRecipe .CompletionBox input {
+  width: calc(70%);
+  padding: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.NewRecipe .CompletionBox label {
+  width: calc(30%);
+}
+
+.NewRecipe .LastPanel .CompletionBox button {
   width: 100%;
   border: 1px solid #f9b941;
   padding: 0.5rem;
@@ -139,9 +145,51 @@
   background-color: #f9b941;
 }
 
-.NewRecipe .LastColumn .CompletionBox button:hover {
+.NewRecipe .LastPanel .CompletionBox button:hover {
   filter: brightness(1.2);
 }
 
 @media (max-width: 900px) {
+  .NewRecipe {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 100%;
+    grid-template-areas: "firstCol" "form";
+    height: min-content;
+    width: 100%;
+    gap: 1rem;
+    background-color: transparent;
+  }
+
+  .Panel {
+    background-color: rgba(255, 255, 255, 0.502);
+    padding: 0.5rem;
+  }
+
+  .PanelDescription {
+    position: relative;
+    width: calc(100% - 2rem) !important;
+    /* margin-bottom: 0.5rem; */
+  }
+
+  .NewRecipe .CategoryContainer {
+    width: calc(100% - 2rem);
+  }
+
+  .NewRecipe form {
+    grid-area: form;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 100%;
+    grid-template-areas: "secondCol" "thirdCol";
+    justify-content: start;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .NewRecipe .LastPanel .CompletionBox {
+    width: calc(100% - 2rem);
+  }
+
+  /* .NewRecipe form {} */
 }
