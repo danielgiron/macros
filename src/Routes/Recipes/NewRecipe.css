@@ -76,6 +76,7 @@
 
 .NewRecipe .QuantitiesPanel {
   grid-area: secondCol;
+  overflow: hidden;
 }
 
 .NewRecipe .QuantitiesPanel .PanelDescription {
@@ -164,6 +165,7 @@
   .NewRecipe .Panel {
     background-color: rgba(255, 255, 255, 0.502);
     padding: 0.5rem;
+    overflow-x: hidden;
   }
 
   .NewRecipe .PanelDescription {
@@ -190,6 +192,8 @@
   .NewRecipe .LastPanel .CompletionBox {
     width: calc(100% - 2rem);
   }
+}
 
-  /* .NewRecipe form {} */
+.NewRecipe .LastPanel .placeholder {
+  width: calc(100% - 3rem) !important;
 }

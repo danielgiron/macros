@@ -131,7 +131,7 @@ function NewRecipe(props) {
                 notes
               </span>
             </div>
-            <span className="placeholder">(Coming soon)</span>
+            <div className="placeholder">(Coming soon)</div>
           </div>
           <div className="CompletionBox">
             <div className="SectionHeader">Lastly</div>
