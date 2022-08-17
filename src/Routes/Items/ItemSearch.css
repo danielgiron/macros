@@ -44,6 +44,10 @@
   width: 100%;
 }
 
+.searchContainer input {
+  font-size: 0.9rem;
+}
+
 .searchContainer form button {
   width: 100%;
   background-color: rgb(255, 201, 101);
