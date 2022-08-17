@@ -19,23 +19,53 @@ function Collection(props) {
       <div className="CollectionContainer">
         <div className="CategoryContainer ">
           <div className="CategoryTitle">Baked Goods</div>
-          <div className="CategoryItems">{categories.BakedGoods}</div>
+          <div className="CategoryItems">
+            {categories.BakedGoods.length > 0 ? (
+              categories.BakedGoods
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
         <div className="CategoryContainer ">
           <div className="CategoryTitle">Dairy</div>
-          <div className="CategoryItems">{categories.Dairy}</div>
+          <div className="CategoryItems">
+            {categories.Dairy.length > 0 ? (
+              categories.Dairy
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
         <div className="CategoryContainer ">
           <div className="CategoryTitle">Meats</div>
-          <div className="CategoryItems">{categories.Meat}</div>
+          <div className="CategoryItems">
+            {categories.Meat.length > 0 ? (
+              categories.Meat
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
         <div className="CategoryContainer ">
           <div className="CategoryTitle">Produce</div>
-          <div className="CategoryItems">{categories.Produce}</div>
+          <div className="CategoryItems">
+            {categories.Produce.length > 0 ? (
+              categories.Produce
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
         <div className="CategoryContainer ">
           <div className="CategoryTitle">Miscellaneous</div>
-          <div className="CategoryItems">{categories.Miscellaneous}</div>
+          <div className="CategoryItems">
+            {categories.Miscellaneous.length > 0 ? (
+              categories.Miscellaneous
+            ) : (
+              <div className="placeholder">No Items Yet</div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -19,14 +19,6 @@ function Recipes(props) {
 
   const [recipes, setRecipes] = useState([]);
 
-  // function handleClear(e) {
-  //   setRecipes([]);
-  // }
-
-  // function handleSeed(e) {
-  //   setRecipes(seedData);
-  // }
-
   function deleteRecipe(recipe) {
     const newRecipes = recipes.filter((r) => r.id !== recipe.id);
     setRecipes(newRecipes);
@@ -77,7 +69,11 @@ function Recipes(props) {
         <div className="sectionTitle">Your Recipes</div>
 
         <div className="RecipesContainer">
-          {generateRecipeEntries(recipes, deleteRecipe)}
+          {recipes.length > 0 ? (
+            generateRecipeEntries(recipes, deleteRecipe)
+          ) : (
+            <div className="placeholder">You have no recipes yet</div>
+          )}
         </div>
       </div>
     </div>
