@@ -13,8 +13,8 @@ function Tracker(props) {
   // localStorage.removeItem("todaysLog");
 
   const { todaysLog, previousLogs } = prepareLogs();
-  console.log("todaysLog: ", todaysLog);
-  console.log("previousLogs: ", previousLogs);
+  // console.log("todaysLog: ", todaysLog);
+  // console.log("previousLogs: ", previousLogs);
 
   const [useSeedData, setUseSeedData] = useState(false);
 

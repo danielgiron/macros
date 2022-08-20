@@ -37,28 +37,54 @@ function AddMealPopUp(props) {
     <div className={`AddMealPopUp ${isHidden ? "isHidden" : ""}`}>
       <div className="Big SectionHeader">Select Meals to Add</div>
       <div className="SectionHeader">By Recipe</div>
-      <div className="RecipeSelectablesContainer">{recipeSelects}</div>
+      <div className="RecipeSelectablesContainer">
+        {recipes.length > 0 ? (
+          recipeSelects
+        ) : (
+          <div className="placeholder">No Recipes Saved</div>
+        )}
+      </div>
 
       <div className="SectionHeader">By Item</div>
       <div className="ItemSelectablesContainer">
         <div className="SectionHeader">Baked Goods</div>
-        {BakedGoodsSelects}
+        {BakedGoodsSelects.length > 0 ? (
+          BakedGoodsSelects
+        ) : (
+          <div className="placeholder">No Baked Good Items Saved</div>
+        )}
       </div>
       <div className="ItemSelectablesContainer">
         <div className="SectionHeader">Dairy</div>
-        {DairySelects}
+        {DairySelects.length > 0 ? (
+          DairySelects
+        ) : (
+          <div className="placeholder">No Dairy Items Saved</div>
+        )}
       </div>
       <div className="ItemSelectablesContainer">
         <div className="SectionHeader">Meats</div>
-        {MeatSelects}
+        {MeatSelects.length > 0 ? (
+          MeatSelects
+        ) : (
+          <div className="placeholder">No Meat Items Saved</div>
+        )}
       </div>
       <div className="ItemSelectablesContainer">
         <div className="SectionHeader">Produce</div>
-        {ProduceSelects}
+        {ProduceSelects.length > 0 ? (
+          ProduceSelects
+        ) : (
+          <div className="placeholder">No Produce Items Saved</div>
+        )}
       </div>
       <div className="ItemSelectablesContainer">
         <div className="SectionHeader">Miscellaneous</div>
-        {MiscellaneousSelects}
+        {MiscellaneousSelects.length > 0 ? (
+          MiscellaneousSelects
+        ) : (
+          <div className="placeholder">No Miscellaneous Items Saved</div>
+        )}
       </div>
 
       <button onClick={closeAddPopUp}>

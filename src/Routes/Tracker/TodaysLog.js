@@ -41,7 +41,7 @@ function TodaysLog(props) {
   }
   return (
     <div className="FirstSection TodaysLog">
-      <div className="Big SectionHeader">Today</div>
+      <div className="Big SectionHeader">Today's Log</div>
       <div className="Graphs">
         <div className="PieChart">
           <PieGraphPanel mealsEaten={mealsEaten} />
@@ -70,7 +70,7 @@ function TodaysLog(props) {
             />
           </div>
           <div className="SetGoalsFormInput Protein">
-            <label htmlFor="proteinGoalInput">Protein(g)</label>
+            <label htmlFor="proteinGoalInput">Protein (g)</label>
             <input
               onChange={handleGoalChange}
               id="proteinGoalInput"
@@ -80,7 +80,7 @@ function TodaysLog(props) {
             />
           </div>
           <div className="SetGoalsFormInput Carbs">
-            <label htmlFor="carbsGoalInput">Carbs(g)</label>
+            <label htmlFor="carbsGoalInput">Carbs (g)</label>
             <input
               onChange={handleGoalChange}
               id="carbsGoalInput"
@@ -90,7 +90,7 @@ function TodaysLog(props) {
             />
           </div>
           <div className="SetGoalsFormInput Fat">
-            <label htmlFor="fatGoalInput">Fat(g)</label>
+            <label htmlFor="fatGoalInput">Fat (g)</label>
             <input
               onChange={handleGoalChange}
               id="fatGoalInput"

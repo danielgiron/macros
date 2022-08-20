@@ -100,7 +100,13 @@ function PreviousLogs(props) {
     <>
       <div className="PreviousLogs">
         <div className="SectionHeader">Select Log</div>
-        <div className="LogList">{logList}</div>
+        <div className="LogList">
+          {logList.length > 0 ? (
+            logList
+          ) : (
+            <div className="placeholder">No Logs Yet</div>
+          )}
+        </div>
       </div>
       <div className="PieChartContainer">
         <div className="SectionHeader">Calorie Composition</div>
@@ -112,7 +118,13 @@ function PreviousLogs(props) {
       </div>
       <div className="ItemsConsumedContainer">
         <div className="SectionHeader">Meals</div>
-        <div className="ItemsConsumedContainer">{ItemsConsumed}</div>
+        <div className="ItemsConsumedContainer">
+          {ItemsConsumed > 0 ? (
+            ItemsConsumed
+          ) : (
+            <div className="placeholder">No Meals Consumed</div>
+          )}
+        </div>
       </div>
     </>
   );

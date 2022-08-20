@@ -1,3 +1,30 @@
+.Tracker .SecondSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
+  width: calc(100% - 2rem);
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+  margin-bottom: 1rem;
+}
+
+.TSGContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.148);
+  width: 100%;
+}
+
+#TimeSeriesGraph {
+  width: calc(80% - 0rem);
+  height: 400px;
+  /* background-color: #ffffff; */
+  margin-right: 1rem;
+  /* height: 100%; */
+  /* mix-blend-mode: screen; */
+}
+
 .SecondSection .TSGContainer .GraphControls {
   display: flex;
   flex-direction: column;
@@ -42,22 +69,53 @@ hr {
   background-color: white;
 }
 
-.TSGContainer {
-  display: flex;
-  flex-direction: row;
+@media (max-width: 900px) {
+  .TSGContainer {
+    flex-direction: column;
+  }
 
-  background-color: rgba(255, 255, 255, 0.148);
-  /* border: 1px solid white; */
-  /* color: #ffae00; */
+  #TimeSeriesGraph {
+    width: calc(100% - 0rem);
+  }
+  .SecondSection .TSGContainer .GraphControls {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: calc(100%);
 
-  width: 100%;
-}
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.411);
+    gap: 0.5rem;
+  }
+  .SecondSection .TSGContainer .GraphControls label {
+    display: none;
+  }
 
-#TimeSeriesGraph {
-  width: calc(80% - 0rem);
-  height: 400px;
-  /* background-color: #ffffff; */
-  margin-right: 1rem;
-  /* height: 100%; */
-  /* mix-blend-mode: screen; */
+  .GraphControls button {
+    padding: 0.5rem;
+    /* width: 70px; */
+    height: 40px !important;
+    background-color: rgba(255, 255, 255, 0.464);
+    border: 1px solid white;
+    /* border: none; */
+    cursor: pointer;
+
+    font-size: 0.7rem;
+    color: grey;
+    letter-spacing: 1px;
+    height: 100%;
+  }
+
+  .GraphControls button:last-child {
+    font-size: 0.5rem;
+    padding: 0.25rem;
+  }
+
+  hr {
+    width: 1px;
+    height: 40px;
+    border-right: 1px solid lightgray;
+    border-top: none;
+  }
 }

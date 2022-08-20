@@ -84,12 +84,18 @@ function AddMeal(props) {
 
   return (
     <div className="TodaysMealsContainer">
-      <div className="SectionHeader">Add Meal</div>
-      <div className="AddMealSection">
+      <div className="SectionHeader">
+        <span>Add Meal</span>{" "}
         <button onClick={openAddPopUp} id="AddMealButton">
           +
         </button>
-        {eatenMealEntries}
+      </div>
+      <div className="AddMealSection">
+        {eatenMealEntries.length > 0 ? (
+          eatenMealEntries
+        ) : (
+          <div className="placeholder">No Entries Yet</div>
+        )}
       </div>
 
       <AddMealPopUp

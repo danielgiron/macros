@@ -1,11 +1,5 @@
 .Tracker {
   width: 100%;
-  /* height: 100%; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center; */
-
   overflow-y: scroll;
 }
 
@@ -14,8 +8,6 @@
 }
 
 .FirstSection {
-  /* position: relative; */
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -29,14 +21,14 @@
 }
 
 .Tracker .SectionHeader {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
 }
 
 .Tracker .Big.SectionHeader {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
 }
 
@@ -50,16 +42,15 @@
   align-items: center;
   width: calc(100% - 0rem);
   height: 200px;
-  /* background-color: red; */
   gap: 1rem;
-  /* padding: 1rem; padding around graphs */
 }
 
 .Tracker .Graphs .SectionHeader {
   margin-top: 1rem;
 }
 
-.Tracker .FirstSection .Graphs > * {
+.Tracker .FirstSection .Graphs .PieChart,
+.Tracker .FirstSection .Graphs .BarChart {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -113,6 +104,40 @@
   width: 50%;
 }
 
+.Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput {
+  display: flex;
+  flex-direction: column;
+  padding: 0.15rem;
+  margin: 0;
+  gap: 0;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput.Calories {
+  background-color: #ffc965;
+}
+.Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput.Protein {
+  background-color: #ff6f65;
+}
+.Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput.Carbs {
+  background-color: #65afff;
+}
+.Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput.Fat {
+  background-color: #c765ff;
+}
+
+.Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput label {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput input {
+  background-color: white;
+  width: 80%;
+  border-radius: 0.25rem;
+}
+
 /*****************  Add Meals  *******************/
 
 .Tracker .TodaysMealsContainer {
@@ -138,10 +163,12 @@
 
   background-color: white;
 }
-
-.AddMealSection > button {
-  height: 25px;
-  aspect-ratio: 1;
+.Tracker .TodaysMealsContainer .SectionHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .AddMealSection .Meal {
@@ -162,10 +189,14 @@
   white-space: nowrap;
 }
 
+.AddMealSection > button {
+  height: 25px;
+}
+
 #AddMealButton {
   font-weight: 700;
-  color: #dadada;
-  border: 2px solid #dadada;
+  color: #bcbcbc;
+  border: 2px solid #bcbcbc;
   background-color: transparent;
   cursor: pointer;
 }
@@ -285,22 +316,11 @@
   display: none;
 }
 
-/*********************************************  (Big) LineGraph  *******************************/
-
-.Tracker .SecondSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* align-items: center; */
-  width: calc(100% - 2rem);
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0);
-  margin-bottom: 1rem;
-}
+/************************ SECOND SECTION: Macro Trends (Big LineGraph)  *******************************/
 
 /*********** For TimeSeriesGraph styles, go to TimeseriesGraph.css *********/
 
-/*****************************  PreviousLogs  *****************************/
+/*****************************  THIRD SECTION: PreviousLogs  *****************************/
 
 .Tracker .ThirdSection {
   display: flex;
@@ -311,10 +331,6 @@
   padding: 1rem;
   background-color: white;
 }
-
-/* .PreviousLogs {
-  width: 100% !important;
-} */
 
 .ThirdSection .PreviousLogsContainer .SectionHeader {
   font-size: 1.1rem;
@@ -507,4 +523,278 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+/* THIRD SECTION: PREVIOUS LOGS (NEW) */
+
+.Tracker .ThirdSection {
+  width: calc(100% - 2rem);
+  padding: 1rem;
+  margin: 0;
+  gap: 0;
+}
+
+.Tracker .ThirdSection .PreviousLogsContainer {
+  height: auto;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+
+.Tracker .ThirdSection .PreviousLogsContainer .SectionHeader {
+  font-size: 1rem;
+  /* letter-spacing: normal; */
+  text-align: left;
+}
+
+.Tracker .ThirdSection .PreviousLogsContainer {
+  display: grid;
+  gap: 1rem 2rem;
+  width: calc(100% - 1rem);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "previousLogs consumed" "pieChart barChart";
+}
+
+.Tracker .PreviousLogsContainer .PreviousLogs {
+  grid-area: previousLogs;
+  min-width: unset;
+  width: 100%;
+  overflow-x: hidden;
+  /* padding-left: 0; */
+}
+
+.Tracker .PreviousLogsContainer .PreviousLogs .LogList {
+  width: calc(100% - 0rem);
+}
+.Tracker .PreviousLogsContainer .PreviousLogs .logEntry {
+  width: calc(100% - 0.5rem);
+  margin-left: 0;
+  box-sizing: border-box;
+}
+
+.PreviousLogsContainer .PieChartContainer {
+  grid-area: pieChart;
+  min-width: unset;
+  width: 100%;
+  overflow-x: hidden;
+}
+.PreviousLogsContainer .BarChartContainer {
+  grid-area: barChart;
+  min-width: unset;
+  width: 100%;
+  overflow-x: hidden;
+}
+.PreviousLogsContainer .ItemsConsumedContainer {
+  grid-area: consumed;
+  min-width: unset;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+  .FirstSection {
+    width: calc(100% - 1rem);
+    height: auto;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* FIRSTSECTION: GRAPHS */
+
+  .Tracker .FirstSection .Graphs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /* width: calc(100% - 0rem); */
+    width: calc(100% - 0rem);
+    height: 200px;
+    gap: 0.5rem;
+  }
+
+  .Tracker .PieGraphPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+  }
+
+  .Tracker .Graphs .SectionHeader {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    width: 50%;
+    text-align: center;
+    justify-self: center;
+  }
+
+  .Tracker .FirstSection .Graphs .PieChart,
+  .Tracker .FirstSection .Graphs .BarChart {
+    width: calc(50% - 1rem);
+    background-color: #eeeeee;
+    height: 100%;
+  }
+
+  .Tracker .BarChart .GoalsGraph .MacroBar {
+    width: calc(100% - 0rem);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    /* height: 100%; */
+  }
+
+  .Tracker .BarChart .GoalsGraph .MacroBar .MacroName {
+    padding-left: 0.5rem;
+    font-weight: 400;
+  }
+  .Tracker .BarChart .GoalsGraph .MacroBar .BarProgress {
+    padding-right: 0.5rem;
+  }
+
+  .Tracker .BarChart .GoalsGraph .MacroBar .BarValue {
+    display: none;
+  }
+
+  /* FIRSTSECTION: SET GOALS SECTIONS */
+
+  .Tracker .SetGoals {
+    padding: 0.5rem;
+    gap: 0.25rem;
+  }
+
+  .Tracker .SetGoals .SetGoalsForm {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput {
+    min-width: 40%;
+  }
+
+  .Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput label {
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+  .Tracker .SetGoals .SetGoalsForm .SetGoalsFormInput input {
+    background-color: white;
+    width: 80%;
+    border-radius: 0.25rem;
+  }
+
+  /* ADD MEAL SECTION */
+
+  .Tracker .TodaysMealsContainer .AddMealSection {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-start; */
+    align-items: center;
+    gap: 1rem;
+    width: calc(100% - 2rem);
+    height: 82px;
+    padding: 0rem 1rem;
+    overflow-x: scroll;
+
+    background-color: white;
+  }
+
+  .AddMealSection .Meal {
+    list-style: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffc965;
+    height: unset;
+    /* max-width: 50px; */
+    padding: 1rem;
+    cursor: default;
+
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    /* overflow: hidden; */
+    white-space: nowrap;
+  }
+
+  .AddMealPopUp {
+    padding-bottom: 3rem;
+  }
+
+  /* MACRO TRENDS (BIG GRAPH) SECTION */
+  /* See TimeSeriesGraph.css */
+
+  /* THIRD SECTION: PREVIOUS LOGS */
+
+  .Tracker .ThirdSection {
+    height: auto;
+    width: calc(100% - 1rem);
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
+    margin: 0;
+    gap: 0;
+  }
+
+  .Tracker .ThirdSection .PreviousLogsContainer {
+    height: auto;
+    width: 100%;
+    padding: 0rem;
+    margin: 0;
+    gap: 0;
+  }
+
+  .Tracker .ThirdSection .PreviousLogsContainer .SectionHeader {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .Tracker .ThirdSection .PreviousLogsContainer {
+    display: grid;
+    gap: 1rem 2rem;
+    padding: 0;
+    width: calc(100vw - 2rem);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "previousLogs consumed" "pieChart barChart";
+  }
+
+  .Tracker .PreviousLogsContainer .PreviousLogs {
+    grid-area: previousLogs;
+    min-width: unset;
+    width: 100%;
+    overflow-x: hidden;
+    /* padding-left: 0; */
+  }
+
+  .Tracker .PreviousLogsContainer .PreviousLogs .LogList {
+    width: calc(100% - 0rem);
+  }
+  .Tracker .PreviousLogsContainer .PreviousLogs .logEntry {
+    width: calc(100% - 0.5rem);
+    margin-left: 0;
+    box-sizing: border-box;
+    font-size: 0.85rem !important;
+  }
+
+  .PreviousLogsContainer .PieChartContainer {
+    grid-area: pieChart;
+    min-width: unset;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .PreviousLogsContainer .BarChartContainer {
+    grid-area: barChart;
+    min-width: unset;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .PreviousLogsContainer .ItemsConsumedContainer {
+    grid-area: consumed;
+    min-width: unset;
+    width: 100%;
+    overflow-x: hidden;
+  }
 }
