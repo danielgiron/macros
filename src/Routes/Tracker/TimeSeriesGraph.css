@@ -81,7 +81,7 @@ hr {
     display: flex;
     flex-direction: row;
     height: auto;
-    width: calc(100%);
+    width: calc(100% - 1rem);
     padding: 0rem 0.5rem;
     justify-content: center;
     align-items: center;
