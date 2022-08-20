@@ -75,7 +75,7 @@ hr {
   }
 
   #TimeSeriesGraph {
-    width: calc(100% - 1rem);
+    width: calc(100% - 0rem);
   }
   .SecondSection .TSGContainer .GraphControls {
     display: flex;
