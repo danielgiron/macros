@@ -122,7 +122,7 @@ function PreviousLogs(props) {
           {ItemsConsumed > 0 ? (
             ItemsConsumed
           ) : (
-            <div className="placeholder">No Meals Consumed</div>
+            <div className="placeholder">No Meals</div>
           )}
         </div>
       </div>
