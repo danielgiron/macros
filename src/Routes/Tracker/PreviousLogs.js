@@ -119,7 +119,7 @@ function PreviousLogs(props) {
       <div className="ItemsConsumedContainer">
         <div className="SectionHeader">Meals</div>
         <div className="ItemsConsumedContainer">
-          {ItemsConsumed > 0 ? (
+          {ItemsConsumed.length > 0 ? (
             ItemsConsumed
           ) : (
             <div className="placeholder">No Meals</div>

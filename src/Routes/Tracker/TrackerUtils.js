@@ -176,7 +176,11 @@ export function populateColumns(timeFrame, logs) {
   let columns = [["x"], ["Calories"], ["Protein"], ["Carbs"], ["Fat"]];
 
   try {
-    for (let index = logs.length - 1; columns[0].length < timeFrame; index--) {
+    for (
+      let index = logs.length - 1;
+      columns[0].length < timeFrame + 1;
+      index--
+    ) {
       columns[0].push(formatDate(logs[index].date));
       columns[1].push(
         (logs[index].macrosConsumed.calories / logs[index].goals.calories) * 100

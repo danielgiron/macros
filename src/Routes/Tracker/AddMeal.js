@@ -58,6 +58,11 @@ function AddMeal(props) {
     setMealsToAdd([]);
   }
 
+  function cancelAddPopUp(e) {
+    setIsHidden(true);
+    setMealsToAdd([]);
+  }
+
   function removeMealFromLog(mealToRemove) {
     const updatedMeals = mealsEaten.filter(
       (meal) => meal.mealEaten_id !== mealToRemove.mealEaten_id
@@ -104,6 +109,7 @@ function AddMeal(props) {
         mealsToAdd={mealsToAdd}
         setMealsToAdd={setMealsToAdd}
         closeAddPopUp={closeAddPopUp}
+        cancelAddPopUp={cancelAddPopUp}
         recipes={recipes}
         collection={collection}
       />

@@ -13,7 +13,9 @@ function AddMealPopUp(props) {
     mealsToAdd,
     setMealsToAdd,
     closeAddPopUp,
+    cancelAddPopUp,
   } = props;
+
   const recipeSelects = recipes.map((recipe) => {
     return (
       <RecipeSelectable
@@ -90,6 +92,7 @@ function AddMealPopUp(props) {
       <button onClick={closeAddPopUp}>
         Close and Add Selected Items ({mealsToAdd.length})
       </button>
+      <button onClick={cancelAddPopUp}>Close Without Adding Items</button>
     </div>
   );
 }

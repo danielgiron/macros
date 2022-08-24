@@ -29,12 +29,9 @@ function TimeSeriesGraph(props) {
       axis: {
         x: {
           type: "timeseries",
-          // tick: {
-          //   format: "%m/%d/%Y",
-          // },
+
           tick: {
             format: "%m/%d",
-            // rotate: 20,
             multiline: false,
           },
           height: 35,

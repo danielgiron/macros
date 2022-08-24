@@ -56,7 +56,7 @@ function TSGContainer(props) {
             setUseSeedData(!useSeedData);
           }}
         >
-          Use {useSeedData ? "My" : "Seed"} Data
+          Use {useSeedData ? "My" : "Sample"} Data
         </button>
       </div>
     </div>

@@ -13,7 +13,7 @@ function Collection(props) {
         <h1>Collection</h1>
         <div className="DataButtons">
           <button onClick={props.handleClear}>Clear Data</button>
-          <button onClick={props.handleSeed}>Seed Sample Data</button>
+          <button onClick={props.handleSeed}>Use Sample Data</button>
         </div>
       </div>
       <div className="CollectionContainer">

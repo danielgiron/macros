@@ -27,14 +27,7 @@ function ItemInfo(props) {
   let item = getItemById(id);
 
   const [itemValues, setItemValues] = useState({ ...item });
-  //   const [itemValues, setItemValues] = useState({
-  //     food_name: "",
-  //     nf_calories: "",
-  //     nf_protein: "",
-  //     nf_total_carbohydrate: "",
-  //     nf_total_fat: "",
-  //     serving_weight_grams: "",
-  //   });
+
   const onChange = (e) => {
     setItemValues({
       ...itemValues,

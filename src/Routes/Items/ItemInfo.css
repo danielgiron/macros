@@ -142,10 +142,10 @@ h1 {
 @media (max-width: 900px) {
   .ItemInfo {
     flex-direction: column;
-    justify-content: center;
+    justify-content: unset;
     align-items: unset;
     max-width: 100%;
-    overflow-y: unset;
+    overflow-y: scroll;
     height: auto;
     gap: 0;
     padding: 0;
@@ -154,28 +154,35 @@ h1 {
   .ItemInfo .leftSide {
     width: calc(100% - 0rem);
     min-width: none;
-    min-width: 100%;
-    height: 100%;
+    align-items: center;
+    height: min-content;
+    overflow-y: unset;
+    overflow: unset;
+    padding-right: 0;
   }
 
   .ItemInfo .confirmationField {
-    width: calc(100% - 2.7rem);
+    width: calc(100% - 1rem);
     min-width: unset;
+    max-width: calc(100% - 2rem);
     padding: 0rem;
+    margin-right: 0;
   }
 
   .fullNutrientsContainer {
-    height: 100%;
+    height: auto;
     min-width: unset;
     max-width: unset;
     width: calc(100% - 2rem) !important;
     overflow-y: unset;
     padding: 1rem;
     margin: 0;
+    background-color: transparent;
   }
 
   .fullNutrients {
     padding-bottom: 0rem;
+    min-width: unset;
   }
 
   .buttons {
