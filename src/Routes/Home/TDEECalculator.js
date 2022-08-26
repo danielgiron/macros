@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import './TDEECalculator.css'
+import "./TDEECalculator.css";
 
 function TDEECalculator(props) {
   // used to toggle Component between open (expanded) or close (collapsed) state
@@ -77,9 +77,9 @@ function TDEECalculator(props) {
       <div className={`Body ${isExpanded ? "Expanded" : "Collapsed"}`}>
         <p>
           This calculator tool will help you determine what your Total Daily
-          Energy Expenditure (TDEE) so you may better plan out what your daily
-          macronutrient intake should be. This tool uses the Mifflin-St Jeor
-          Equation.
+          Energy Expenditure (TDEE) is so you may better plan out what your
+          daily macronutrient intake should be. This tool uses the Mifflin-St
+          Jeor Equation.
         </p>
         <form onSubmit={calculate}>
           <div className="buttonGroup">
@@ -120,6 +120,7 @@ function TDEECalculator(props) {
                   min="1"
                   id="weight_kg"
                   name="weight_kg"
+                  placeholder="Weight in kilograms"
                   required
                 />
               </div>
@@ -132,6 +133,7 @@ function TDEECalculator(props) {
                     min="1"
                     id="weight_lb"
                     name="weight_lb"
+                    placeholder="Weight in pounds"
                     required
                   />
                 </div>
@@ -147,6 +149,7 @@ function TDEECalculator(props) {
                   min="1"
                   name="height_cm"
                   id="height_cm"
+                  placeholder="Height in centimeters"
                   required
                 />
               </div>
@@ -159,6 +162,7 @@ function TDEECalculator(props) {
                     min="1"
                     name="height_feet"
                     id="height_feet"
+                    placeholder="Feet"
                     required
                   />
                 </div>
@@ -170,6 +174,7 @@ function TDEECalculator(props) {
                     min="1"
                     name="height_inches"
                     id="height_inches"
+                    placeholder="Inches"
                     required
                   />
                 </div>
@@ -179,7 +184,14 @@ function TDEECalculator(props) {
           <div className="fieldGroup">
             <div className="field">
               <label htmlFor="age">Age</label>
-              <input type="number" min="1" name="age" id="age" required />
+              <input
+                type="number"
+                min="1"
+                name="age"
+                id="age"
+                placeholder="Age in years"
+                required
+              />
             </div>
           </div>
           <div className="fieldGroup">
@@ -206,7 +218,7 @@ function TDEECalculator(props) {
 
         {TDEE_Result ? (
           <div className="Results">
-            <div>Your TDEE is {TDEE_Result} Calories</div>
+            <p>Your TDEE is {TDEE_Result} Calories</p>
 
             <button
               onClick={saveTDEE_Result}
@@ -214,6 +226,12 @@ function TDEECalculator(props) {
             >
               {`${isTDEE_upToDate ? "Saved" : "Save"}`}
             </button>
+
+            <p>
+              To set up new macronutrient goals using this calculated TDEE, open
+              the Goals Tool below or go to the Tracker page to manually set
+              your own goals{" "}
+            </p>
           </div>
         ) : null}
       </div>

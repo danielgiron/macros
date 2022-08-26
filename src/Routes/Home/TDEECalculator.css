@@ -1,0 +1,157 @@
+.TDEECalculator {
+  background-color: rgba(255, 255, 255, 0.49);
+  padding: 1rem;
+  width: calc(100% - 3rem);
+  border-radius: 0.25rem;
+}
+
+.TDEECalculator .SectionHeader {
+  font-size: 1.3rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+
+.TDEECalculator .SectionHeader button {
+  border: 2px solid #fbc662;
+  font-weight: 500;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.TDEECalculator .SectionHeader button:hover {
+  background-color: #fbc662;
+  color: white;
+}
+
+.TDEECalculator .Body.Collapsed {
+  display: none;
+}
+
+.TDEECalculator .Body p {
+  font-size: 0.9rem;
+}
+
+.TDEECalculator .buttonGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 0.5rem;
+}
+
+.TDEECalculator .buttonGroup button {
+  margin: 0;
+  padding: 0.5rem;
+  border: none;
+  width: 30%;
+  color: black;
+  font-size: 0.9rem;
+  background-color: rgb(230, 230, 230);
+  cursor: pointer;
+}
+
+.TDEECalculator .buttonGroup button.Active {
+  background-color: #fbc662;
+}
+
+.TDEECalculator .buttonGroup button:first-child {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.TDEECalculator .buttonGroup button:last-child {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.TDEECalculator form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TDEECalculator .fieldGroup {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  margin: 0.15rem;
+  padding: 1rem;
+  width: calc(100% - 2rem);
+}
+
+.TDEECalculator .fieldGroup .field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.TDEECalculator .fieldGroup .field label,
+.TDEECalculator .fieldGroup .field input,
+.TDEECalculator .fieldGroup .field select {
+  font-size: 1rem;
+  padding: 0.25rem;
+  outline: none;
+  width: 50%;
+  border-radius: 0.25rem;
+  border: none;
+}
+
+.TDEECalculator .fieldGroup .field select {
+  -webkit-appearance: none;
+  border: none;
+  width: calc(50% + 10px);
+  background-color: white;
+}
+
+.TDEECalculator form .submitButton {
+  padding: 0.5rem;
+  margin: 1rem 0rem;
+  border: none;
+  border-radius: 0.25rem;
+  width: calc(100% - 0rem);
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 400;
+  background-color: #fbc662;
+  cursor: pointer;
+}
+
+.TDEECalculator form .submitButton:hover {
+  filter: brightness(1.1);
+}
+
+.TDEECalculator .Results {
+  background-color: white;
+  width: calc(100% - 2rem);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.TDEECalculator .Results button {
+  width: 60%;
+  padding: 0.25rem;
+  border: 2px solid #fbc662;
+  font-weight: 500;
+  font-size: 0.9rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.TDEECalculator .Results button:hover {
+  background-color: #fbc662;
+  color: white;
+}
+
+.TDEECalculator .Results button.Saved {
+  background-color: rgb(230, 230, 230);
+  border: 1px solid rgb(230, 230, 230);
+  color: white;
+  pointer-events: none;
+}
