@@ -5,11 +5,19 @@ import GoalsCalculator from "./GoalsCalculator";
 import "./Home.css";
 
 function Home(props) {
+  const [TDEE, setTDEE] = useState(
+    JSON.parse(localStorage.getItem("TDEE") || 2000)
+  );
+
+  useEffect(() => {
+    localStorage.setItem("TDEE", TDEE);
+  }, [TDEE]);
+
   return (
     <div className="Home">
       <h1>Home</h1>
-      <TDEECalculator />
-      <GoalsCalculator />
+      <TDEECalculator TDEE={TDEE} setTDEE={setTDEE} />
+      <GoalsCalculator TDEE={TDEE} setTDEE={setTDEE} />
       <p className="disclaimer">
         Disclaimer: This site is not intended to replace the guidance of a
         doctor or any medical professional and is meant for informational

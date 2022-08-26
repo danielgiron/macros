@@ -6,10 +6,10 @@ import GoalsGraph from "./GoalsGraph";
 function TodaysLog(props) {
   const { todaysLog } = props;
   const [goals, setGoals] = useState({
-    calories: +todaysLog.goals.calories || 0,
-    protein: +todaysLog.goals.protein || 0,
-    carbs: +todaysLog.goals.carbs || 0,
-    fat: +todaysLog.goals.fat || 0,
+    calories: JSON.parse(localStorage.getItem("goals"))?.calories || 1,
+    protein: JSON.parse(localStorage.getItem("goals"))?.protein || 1,
+    carbs: JSON.parse(localStorage.getItem("goals"))?.carbs || 1,
+    fat: JSON.parse(localStorage.getItem("goals"))?.fat || 1,
   });
 
   const [mealsEaten, setMealsEaten] = useState(todaysLog.mealsEaten || []);

@@ -5,12 +5,62 @@ function GoalsCalculator(props) {
   const [isExpanded, set_isExpanded] = useState(false);
   const [weightGoal, setWeightGoal] = useState("maintenance");
   const [calculatorMode, setCalculatorMode] = useState("maintenance");
+  const [calculatorResults, setCalculatorResults] = useState(null);
 
-  const TDEE = JSON.parse(localStorage.getItem("TDEE") || 2000);
+  //   const TDEE = JSON.parse(localStorage.getItem("TDEE") || 2000);
+  const { TDEE, setTDEE } = props;
 
   function calculateMacros(e) {
+    const percentProtein = parseInt(e.target.protein.value);
+    const percentCarb = parseInt(e.target.carbs.value);
+    const percentFat = parseInt(e.target.fat.value);
+    const startingTDEE = parseInt(e.target.startingTDEE.value);
+    let shift = 0;
+    if (calculatorMode !== "maintenance") {
+      shift = parseInt(e.target.shift.value);
+    }
+    if (percentFat + percentProtein + percentCarb != 100) {
+      alert(
+        `Macronutrient percentages must sum to 100 (Current sum is ${
+          percentFat + percentProtein + percentCarb
+        })`
+      );
+      setCalculatorResults(null);
+
+      return;
+    }
+
+    let shiftedTDEE = startingTDEE;
+    if (calculatorMode === "deficit") {
+      shiftedTDEE -= shift;
+    } else if (calculatorMode === "surplus") {
+      shiftedTDEE += shift;
+    }
+
+    const caloriesFromCarbs = shiftedTDEE * (percentCarb / 100);
+    const caloriesFromProtein = shiftedTDEE * (percentProtein / 100);
+    const caloriesFromFat = shiftedTDEE * (percentFat / 100);
+
+    const gramsCarb = Math.round(caloriesFromCarbs / 4);
+    const gramsProtein = Math.round(caloriesFromProtein / 4);
+    const gramsFat = Math.round(caloriesFromFat / 9);
+
+    return {
+      carbs: gramsCarb,
+      protein: gramsProtein,
+      fat: gramsFat,
+      calories: shiftedTDEE,
+    };
+  }
+
+  function saveMacroGoals(goals) {
+    localStorage.setItem("goals", JSON.stringify(goals));
+  }
+
+  function handleCalculatorSubmit(e) {
     e.preventDefault();
-    alert("Submitted macros calculator form");
+    // console.log(calculateMacros(e));
+    setCalculatorResults(calculateMacros(e));
   }
 
   return (
@@ -119,6 +169,19 @@ function GoalsCalculator(props) {
                   <span className="label">Calories</span>
                   <span className="value">{Math.round(TDEE * 0.8)}</span>
                 </div>
+                <button
+                  className="saveMacros"
+                  onClick={() => {
+                    saveMacroGoals({
+                      calories: Math.round(TDEE * 0.8),
+                      carbs: Math.round((TDEE * 0.8 * 0.4) / 4),
+                      protein: Math.round((TDEE * 0.8 * 0.4) / 4),
+                      fat: Math.round((TDEE * 0.8 * 0.2) / 9),
+                    });
+                  }}
+                >
+                  Save & Use as Tracker Goals
+                </button>
               </div>
             </>
           ) : null}
@@ -170,6 +233,19 @@ function GoalsCalculator(props) {
                   <span className="label">Calories</span>
                   <span className="value">{Math.round(TDEE * 1)}</span>
                 </div>
+                <button
+                  className="saveMacros"
+                  onClick={() => {
+                    saveMacroGoals({
+                      calories: Math.round(TDEE * 1),
+                      carbs: Math.round((TDEE * 1 * 0.4) / 4),
+                      protein: Math.round((TDEE * 1 * 0.3) / 4),
+                      fat: Math.round((TDEE * 1 * 0.3) / 9),
+                    });
+                  }}
+                >
+                  Save & Use as Tracker Goals
+                </button>
               </div>
             </>
           ) : null}
@@ -227,16 +303,37 @@ function GoalsCalculator(props) {
                   <span className="label">Calories</span>
                   <span className="value">{Math.round(TDEE * 1.2)}</span>
                 </div>
+                <button
+                  className="saveMacros"
+                  onClick={() => {
+                    saveMacroGoals({
+                      calories: Math.round(TDEE * 1.2),
+                      carbs: Math.round((TDEE * 1.2 * 0.4) / 4),
+                      protein: Math.round((TDEE * 1.2 * 0.3) / 4),
+                      fat: Math.round((TDEE * 1.2 * 0.3) / 9),
+                    });
+                  }}
+                >
+                  Save & Use as Tracker Goals
+                </button>
               </div>
             </>
           ) : null}
         </div>
-        <div className="customFiguresCalculator">
-          <p>
-            If you would like to configure your macronutrient targets to your
-            own specific needs, you may use this calculator below
-          </p>
-          <form onSubmit={calculateMacros}>
+        <p>
+          If you would like to configure your macronutrient targets to your own
+          specific needs, you may use this calculator below
+        </p>
+        <form
+          className="customFiguresCalculator"
+          onSubmit={handleCalculatorSubmit}
+        >
+          <div className="fieldGroup">
+            <p>
+              Select Deficit mode if your aim is to lose weight, Maintenance
+              mode to maintain your current weight, or Surplus mode if you'd
+              like to gain weight
+            </p>
             <div className="buttonGroup">
               <button
                 type="button"
@@ -268,22 +365,28 @@ function GoalsCalculator(props) {
                 Surplus
               </button>
             </div>
+          </div>
 
-            <div className="fieldGroup">
-              <div className="field">
-                <label htmlFor="startingTDEE">Starting TDEE</label>
-                <input
-                  type="number"
-                  id="startingTDEE"
-                  name="startingTDEE"
-                  min="0"
-                  placeholder="TDEE"
-                  defaultValue={TDEE}
-                  required
-                />
-              </div>
+          <div className="fieldGroup">
+            <p>
+              Specify what the TDEE value you'd like to start with and how many
+              calories a day you'd like to add (if set to surplus mode) or
+              subtract (if in deficit mode)
+            </p>
+            <div className="field">
+              <label htmlFor="startingTDEE">TDEE</label>
+              <input
+                type="number"
+                id="startingTDEE"
+                name="startingTDEE"
+                min="1"
+                placeholder="TDEE"
+                defaultValue={TDEE}
+                required
+              />
             </div>
-            <div className="fieldGroup">
+
+            {calculatorMode !== "maintenance" ? (
               <div className="field">
                 <label htmlFor="shift">Calorie Shift</label>
                 <input
@@ -291,57 +394,94 @@ function GoalsCalculator(props) {
                   id="shift"
                   name="shift"
                   min="0"
+                  max={TDEE}
                   placeholder="Shift to +/- from TDEE"
                   //   defaultValue={0}
                   required
                 />
               </div>
+            ) : null}
+          </div>
+          <div className="fieldGroup">
+            <p>
+              Enter what percent of calories you want to come from
+              carbohydrates, protein, and fats
+            </p>
+            <div className="field">
+              <label htmlFor="carbs">Carbs (%)</label>
+              <input
+                type="number"
+                id="carbs"
+                name="carbs"
+                min="0"
+                max="100"
+                placeholder="Percentage"
+                //   defaultValue={40}
+                required
+              />
             </div>
-            <div className="fieldGroup">
-              <div className="field">
-                <label htmlFor="carbs">Calories from Carbs(%)</label>
-                <input
-                  type="number"
-                  id="carbs"
-                  name="carbs"
-                  min="0"
-                  placeholder="Percentage"
-                  //   defaultValue={40}
-                  required
-                />
+            <div className="field">
+              <label htmlFor="protein">Protein (%)</label>
+              <input
+                type="number"
+                id="protein"
+                name="protein"
+                min="0"
+                max="100"
+                placeholder="Percentage"
+                //   defaultValue={30}
+                required
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="fat">Fat (%)</label>
+              <input
+                type="number"
+                id="fat"
+                name="fat"
+                min="0"
+                max="100"
+                placeholder="Percentage"
+                //   defaultValue={30}
+                required
+              />
+            </div>
+          </div>
+          <button className="submitButton" type="submit">
+            Calculate
+          </button>
+          {calculatorResults ? (
+            <div className="calculatorResults">
+              <p>Calculated Macronutrients:</p>
+              <div className="macroTargets">
+                <div className="target carbs">
+                  <span className="label">Carbs</span>
+                  <span className="value">{calculatorResults.carbs}g</span>
+                </div>
+                <div className="target protein">
+                  <span className="label">Protein</span>
+                  <span className="value">{calculatorResults.protein}g</span>
+                </div>
+                <div className="target fats">
+                  <span className="label">Fats</span>
+                  <span className="value">{calculatorResults.fat}g</span>
+                </div>
+                <div className="target calories">
+                  <span className="label">Calories</span>
+                  <span className="value">{calculatorResults.calories}</span>
+                </div>
               </div>
+              <button
+                className="saveMacros"
+                onClick={() => {
+                  saveMacroGoals(calculatorResults);
+                }}
+              >
+                Save & Use as Tracker Goals
+              </button>
             </div>
-            <div className="fieldGroup">
-              <div className="field">
-                <label htmlFor="protein">Calories from Protein(%)</label>
-                <input
-                  type="number"
-                  id="protein"
-                  name="protein"
-                  min="0"
-                  placeholder="Percentage"
-                  //   defaultValue={30}
-                  required
-                />
-              </div>
-            </div>
-            <div className="fieldGroup">
-              <div className="field">
-                <label htmlFor="fat">Calories from Fat(%)</label>
-                <input
-                  type="number"
-                  id="fat"
-                  name="fat"
-                  min="0"
-                  placeholder="Percentage"
-                  //   defaultValue={30}
-                  required
-                />
-              </div>
-            </div>
-            <button type="submit">Calculate</button>
-          </form>
-        </div>
+          ) : null}
+        </form>
       </div>
     </div>
   );
