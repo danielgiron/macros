@@ -1,5 +1,5 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PreviousLogs from "./PreviousLogs";
 import TSGContainer from "./TSGContainer";
 import TodaysLog from "./TodaysLog";
