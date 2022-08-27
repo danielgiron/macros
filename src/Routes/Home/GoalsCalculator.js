@@ -420,7 +420,7 @@ function GoalsCalculator(props) {
                 min="0"
                 max="100"
                 placeholder="Percentage"
-                //   defaultValue={40}
+                defaultValue={40}
                 required
               />
             </div>
@@ -433,7 +433,7 @@ function GoalsCalculator(props) {
                 min="0"
                 max="100"
                 placeholder="Percentage"
-                //   defaultValue={30}
+                defaultValue={30}
                 required
               />
             </div>
@@ -446,7 +446,7 @@ function GoalsCalculator(props) {
                 min="0"
                 max="100"
                 placeholder="Percentage"
-                //   defaultValue={30}
+                defaultValue={30}
                 required
               />
             </div>
