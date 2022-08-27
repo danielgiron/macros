@@ -1,12 +1,11 @@
-import { seedString } from "./seedData";
 import ItemEntry from "./ItemEntry";
 import { attr } from "./attr";
 import { v4 as uuidv4 } from "uuid";
 
 //////////////////////////////////////////////////////  ITEMSEARCH COMPONENT
 
-const nutritionix_key = "32d54e5d69a98a8624cc81712bb937e7";
-const nutritionix_id = "f29aaa43";
+const nutritionix_key = process.env.REACT_APP_NUTRITIONIX_KEY;
+const nutritionix_id = process.env.REACT_APP_NUTRITIONIX_ID;
 
 export async function getFoodItem(query) {
   const endpoint = `https://trackapi.nutritionix.com/v2/natural/nutrients`;
