@@ -51,6 +51,7 @@
 .searchContainer form button {
   width: 100%;
   background-color: rgb(255, 201, 101);
+  color: black;
 }
 
 .searchContainer form button:hover {

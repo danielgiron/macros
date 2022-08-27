@@ -63,6 +63,7 @@ h1 {
 .ItemInfo .confirmationField select,
 .ItemInfo .confirmationField input {
   font-size: 1rem;
+  color: #000;
 }
 
 .ItemInfo input,
