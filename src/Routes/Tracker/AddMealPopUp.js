@@ -48,7 +48,7 @@ function AddMealPopUp(props) {
       </div>
 
       <div className="SectionHeader">By Item</div>
-      <div className="ItemSelectablesContainer">
+      <div className="ItemSelectablesContainer BakedGoods">
         <div className="SectionHeader">Baked Goods</div>
         {BakedGoodsSelects.length > 0 ? (
           BakedGoodsSelects
@@ -56,7 +56,7 @@ function AddMealPopUp(props) {
           <div className="placeholder">No Baked Good Items Saved</div>
         )}
       </div>
-      <div className="ItemSelectablesContainer">
+      <div className="ItemSelectablesContainer Dairy">
         <div className="SectionHeader">Dairy</div>
         {DairySelects.length > 0 ? (
           DairySelects
@@ -64,7 +64,7 @@ function AddMealPopUp(props) {
           <div className="placeholder">No Dairy Items Saved</div>
         )}
       </div>
-      <div className="ItemSelectablesContainer">
+      <div className="ItemSelectablesContainer Meat">
         <div className="SectionHeader">Meats</div>
         {MeatSelects.length > 0 ? (
           MeatSelects
@@ -72,7 +72,7 @@ function AddMealPopUp(props) {
           <div className="placeholder">No Meat Items Saved</div>
         )}
       </div>
-      <div className="ItemSelectablesContainer">
+      <div className="ItemSelectablesContainer Produce">
         <div className="SectionHeader">Produce</div>
         {ProduceSelects.length > 0 ? (
           ProduceSelects
@@ -80,7 +80,7 @@ function AddMealPopUp(props) {
           <div className="placeholder">No Produce Items Saved</div>
         )}
       </div>
-      <div className="ItemSelectablesContainer">
+      <div className="ItemSelectablesContainer Miscellaneous">
         <div className="SectionHeader">Miscellaneous</div>
         {MiscellaneousSelects.length > 0 ? (
           MiscellaneousSelects

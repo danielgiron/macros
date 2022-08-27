@@ -265,6 +265,7 @@
   gap: 0.5rem;
   margin: 1rem 0rem;
   background-color: #efefef;
+  border: 1px solid #efefef;
   padding: 0.5rem;
 }
 
@@ -298,6 +299,19 @@
   background-color: #ffc965;
   padding: 0.5rem;
   cursor: pointer;
+}
+
+.ItemSelectablesContainer.Dairy .ItemSelectable {
+  background-color: #c2e0ec;
+}
+.ItemSelectablesContainer.Meat .ItemSelectable {
+  background-color: #fb7864;
+}
+.ItemSelectablesContainer.Produce .ItemSelectable {
+  background-color: #befd7b;
+}
+.ItemSelectablesContainer.Miscellaneous .ItemSelectable {
+  background-color: #c48aff;
 }
 
 .isSelected {

@@ -104,21 +104,21 @@
   filter: brightness(1.1);
 }
 
-.Dairy {
-  background-color: rgb(194, 224, 236);
+.Item .Dairy {
+  background-color: #c2e0ec;
 }
-.BakedGoods {
-  background-color: #fbc662 !important;
-  border: 0px solid #fbc662 !important;
+.Item .BakedGoods {
+  background-color: #ffc965 !important;
+  border: 0px solid #ffc965 !important;
 }
-.Meat {
-  background-color: rgb(251, 120, 100);
+.Item .Meat {
+  background-color: #fb7864;
 }
-.Produce {
-  background-color: rgb(190, 253, 123);
+.Item .Produce {
+  background-color: #befd7b;
 }
-.Miscellaneous {
-  background-color: rgb(196, 138, 255);
+.Item .Miscellaneous {
+  background-color: #c48aff;
 }
 
 @media (max-width: 900px) {
