@@ -3,6 +3,7 @@
   padding: 1rem;
   /* width: calc(100% - 3rem); */
   border-radius: 0.5rem;
+  max-width: 800px;
 }
 
 .TDEECalculator .SectionHeader {
