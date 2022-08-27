@@ -61,7 +61,7 @@ function ItemSearch(props) {
     } catch {
       api_return = { error: "Food not found :/" };
       alert(
-        "Sorry! Item not found. Please try again or check that your query was spelled correctly."
+        "Sorry! Item not found...Please try again, or check the item you're searching for is spelled correctly."
       );
     }
   };
