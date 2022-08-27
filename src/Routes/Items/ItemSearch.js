@@ -214,7 +214,13 @@ function ItemSearch(props) {
             </form>
           </>
         ) : (
-          <div className="confirmationForm">Nothing here yet</div>
+          <div
+            className="confirmationForm placeholder"
+            style={{ textAlign: "center" }}
+          >
+            Nothing here yet! Search for an item and your results will appear
+            here
+          </div>
         )}
       </div>
     </div>
