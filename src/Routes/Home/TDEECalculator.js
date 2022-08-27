@@ -83,6 +83,10 @@ function TDEECalculator(props) {
           daily macronutrient intake should be. This tool uses the Mifflin-St
           Jeor Equation.
         </p>
+        <p className="note">
+          Note: If you haven't previously saved your TDEE, a 2000 calorie will
+          be used as an example.
+        </p>
         <form onSubmit={calculate}>
           <div className="buttonGroup">
             <button

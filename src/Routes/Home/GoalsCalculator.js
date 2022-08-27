@@ -86,6 +86,10 @@ function GoalsCalculator(props) {
           you achieve your goals based on your calculated TDEE of {TDEE}{" "}
           calories. Select an option to learn more.
         </p>
+        <p className="note">
+          Note: If you haven't previously saved your TDEE, a 2000 calorie will
+          be used as an example.
+        </p>
         <div className="GoalContainer">
           <div className="buttonGroup">
             <button
@@ -322,7 +326,7 @@ function GoalsCalculator(props) {
         </div>
         <p>
           If you would like to configure your macronutrient targets to your own
-          specific needs, you may use this calculator below
+          specific needs, you may use the calculator below:
         </p>
         <form
           className="customFiguresCalculator"
