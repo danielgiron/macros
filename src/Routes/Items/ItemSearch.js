@@ -60,6 +60,9 @@ function ItemSearch(props) {
       setConfirmationValues({ ...newItem });
     } catch {
       api_return = { error: "Food not found :/" };
+      alert(
+        "Sorry! Item not found. Please try again or check that your query was spelled correctly."
+      );
     }
   };
 
