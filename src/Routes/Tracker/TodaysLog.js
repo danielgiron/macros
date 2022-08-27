@@ -35,6 +35,10 @@ function TodaysLog(props) {
     localStorage.setItem("todaysLog", JSON.stringify(todaysLog));
   }, [goals, mealsEaten]);
 
+  useEffect(() => {
+    localStorage.setItem("goals", JSON.stringify(goals));
+  }, [goals]);
+
   function handleGoalChange(e) {
     const { name, value } = e.target;
     setGoals({ ...goals, [name]: +value });
