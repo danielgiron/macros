@@ -43,16 +43,20 @@ function Home(props) {
             open the Tracker page and toy around with all the fun charts and
             graphs displaying your information!
           </p>
-          <p>
-            On all pages there will be options to use sample data so you can
-            skip the work and see the app's full functionality.
+          <p className="tip">
+            Tip: On all pages there will be options to use sample data so you
+            can skip the work and see the app's full functionality
+          </p>
+          <p className="tip">
+            Tip: For a better mobile (iOS) experience, save this website to your
+            phone's Home Screen
           </p>
         </div>
       </div>
 
       <TDEECalculator TDEE={TDEE} setTDEE={setTDEE} />
       <GoalsCalculator TDEE={TDEE} setTDEE={setTDEE} />
-      <p className="disclaimer">
+      <p className="disclaimer tip">
         Disclaimer: This site is not intended to replace the guidance of a
         doctor or any medical professional and is meant for informational
         purposes only. Follow up with your doctor before making any changes to
