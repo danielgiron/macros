@@ -3,8 +3,11 @@ import React, { useState, useEffect } from "react";
 import QuickForm from "./QuickForm";
 import "./Recipes.css";
 import { generateRecipeEntries } from "./RecipeUtils";
+import { sampleRecipes } from "./SampleRecipes";
 
 function Recipes(props) {
+  // const [useSampleData, set_useSampleData] = useState(false);
+
   // localStorage.setItem("recipes", JSON.stringify([]));
   // console.log(JSON.parse(localStorage.getItem("recipes")));
   if (!localStorage.getItem("collection")) {
@@ -32,8 +35,11 @@ function Recipes(props) {
 
   useEffect(() => {
     localStorage.setItem("recipes", JSON.stringify(recipes));
-    // console.log("from didUpdate: recipes: ", recipes);
   }, [recipes]);
+
+  function toggleSampleData() {
+    // useSampleData?
+  }
 
   // console.log("From Recipes.js: ", recipes);
   function newRecipeClick(e) {
@@ -66,7 +72,23 @@ function Recipes(props) {
         </div>
       </div>
       <div className="rightSide">
-        <div className="sectionTitle">Your Recipes</div>
+        <div className="sectionTitle">
+          <span>Your Recipes</span>
+          <button
+            onClick={() => {
+              if (
+                window.confirm(
+                  "Loading sample data will overwrite your saved recipes. Do you wish to continue?"
+                )
+              ) {
+                setRecipes(sampleRecipes);
+              } else {
+              }
+            }}
+          >
+            Load Sample Data
+          </button>
+        </div>
 
         <div className="RecipesContainer">
           {recipes.length > 0 ? (

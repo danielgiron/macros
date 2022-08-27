@@ -103,7 +103,7 @@
 
 .Recipes .leftSide .NewRecipe button {
   border: 1px solid rgb(255, 201, 101);
-  background-color: rgb(255, 201, 101);
+  background-color: #ffc965;
   width: calc(100% - 0rem);
   color: black;
 }
@@ -125,10 +125,27 @@
 }
 
 .Recipes .rightSide .sectionTitle {
-  /* font-size: 1.6rem; */
   font-weight: 500;
-  margin: 0.75rem 1rem;
-  padding-left: 2rem;
+  margin: 01rem 0rem;
+
+  width: calc(100% - 2rem);
+  display: flex;
+  justify-content: space-between;
+}
+
+.Recipes .rightSide .sectionTitle button {
+  border: 1px solid grey;
+  background-color: transparent;
+  color: grey;
+  font-weight: 500;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.Recipes .rightSide .sectionTitle button:hover {
+  background-color: #ffc965;
+  border: 1px solid #ffc965;
+  color: white;
 }
 
 /* For more styling, look in RecipeEntry.css */
@@ -168,7 +185,6 @@
   }
 
   .Recipes .leftSide > div {
-    /* height: 100%; */
     width: 100%;
     min-width: none;
 
