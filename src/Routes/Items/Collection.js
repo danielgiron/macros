@@ -13,7 +13,19 @@ function Collection(props) {
         <h1>Collection</h1>
         <div className="DataButtons">
           <button onClick={props.handleClear}>Clear Data</button>
-          <button onClick={props.handleSeed}>Use Sample Data</button>
+          <button
+            onClick={() => {
+              if (
+                window.confirm(
+                  "Loading sample items will overwrite your saved items. Do you wish to continue?"
+                )
+              ) {
+                props.handleSeed();
+              }
+            }}
+          >
+            Use Sample Data
+          </button>
         </div>
       </div>
       <div className="CollectionContainer">
