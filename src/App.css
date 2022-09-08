@@ -3,17 +3,20 @@
   height: 100vh;
   overflow: hidden;
 
-  display: grid;
+  /* display: grid;
   justify-content: center;
-  /* align-items: center; */
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Header Component Styles */
 
 .Header {
   position: relative;
-  width: calc(100%);
+  width: calc(85vw);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,6 +132,12 @@
 /* MAX-WIDTH: 900 PX */
 
 @media (max-width: 900px) {
+  .App {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: auto 1fr;
+  }
+
   .Header {
     width: calc(100vw - 2rem);
     margin-left: 1rem;

@@ -19,7 +19,7 @@ function Header(props) {
     "June",
     "July",
     "Aug",
-    "Sept",
+    "Sep",
     "Oct",
     "Nov",
     "Dec",
