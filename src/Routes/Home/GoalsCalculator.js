@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./GoalsCalculator.css";
 
 function GoalsCalculator(props) {
@@ -7,18 +7,25 @@ function GoalsCalculator(props) {
   const [calculatorMode, setCalculatorMode] = useState("maintenance");
   const [calculatorResults, setCalculatorResults] = useState(null);
 
-  //   const TDEE = JSON.parse(localStorage.getItem("TDEE") || 2000);
-  const { TDEE, setTDEE } = props;
+  const { TDEE } = props;
 
   function calculateMacros(e) {
+    ///////////////////////////////////////////////////////////////////////
+    // This function is called on user submit event from Macro Calculator
+    ///////////////////////////////////////////////////////////////////////
     const percentProtein = parseInt(e.target.protein.value);
     const percentCarb = parseInt(e.target.carbs.value);
     const percentFat = parseInt(e.target.fat.value);
     const startingTDEE = parseInt(e.target.startingTDEE.value);
+
     let shift = 0;
+    // A +/- shift value on TDEE is only necessary on deficit/surplus mode
     if (calculatorMode !== "maintenance") {
       shift = parseInt(e.target.shift.value);
     }
+
+    // Total percentage must add up to 100.
+    // Otherwise exit function and set results to null.
     if (percentFat + percentProtein + percentCarb != 100) {
       alert(
         `Macronutrient percentages must sum to 100 (Current sum is ${
@@ -30,6 +37,7 @@ function GoalsCalculator(props) {
       return;
     }
 
+    // Calculate new surplus/deficit TDEE goal
     let shiftedTDEE = startingTDEE;
     if (calculatorMode === "deficit") {
       shiftedTDEE -= shift;
@@ -37,14 +45,17 @@ function GoalsCalculator(props) {
       shiftedTDEE += shift;
     }
 
+    // Calculate calorie targets per macronutrient using their target percentages
     const caloriesFromCarbs = shiftedTDEE * (percentCarb / 100);
     const caloriesFromProtein = shiftedTDEE * (percentProtein / 100);
     const caloriesFromFat = shiftedTDEE * (percentFat / 100);
 
+    // Convert calorie amounts to grams
     const gramsCarb = Math.round(caloriesFromCarbs / 4);
     const gramsProtein = Math.round(caloriesFromProtein / 4);
     const gramsFat = Math.round(caloriesFromFat / 9);
 
+    // Return gram targets calculated above
     return {
       carbs: gramsCarb,
       protein: gramsProtein,
@@ -53,13 +64,13 @@ function GoalsCalculator(props) {
     };
   }
 
+  // Save macro goal targets to localstorage for later retrieval and use in Tracker page
   function saveMacroGoals(goals) {
     localStorage.setItem("goals", JSON.stringify(goals));
   }
 
   function handleCalculatorSubmit(e) {
     e.preventDefault();
-    // console.log(calculateMacros(e));
     setCalculatorResults(calculateMacros(e));
   }
 
@@ -400,7 +411,6 @@ function GoalsCalculator(props) {
                   min="0"
                   max={TDEE}
                   placeholder="Shift to +/- from TDEE"
-                  //   defaultValue={0}
                   required
                 />
               </div>

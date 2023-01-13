@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./TDEECalculator.css";
 
 function TDEECalculator(props) {
-  const { TDEE, setTDEE } = props;
+  const { setTDEE } = props;
   // used to toggle Component between open (expanded) or close (collapsed) state
   const [isExpanded, set_isExpanded] = useState(false);
 
@@ -29,7 +29,6 @@ function TDEECalculator(props) {
 
   // button callback to store calculated TDEE in localStorage
   function saveTDEE_Result() {
-    // localStorage.setItem("TDEE", JSON.stringify(TDEE_Result));
     setTDEE(TDEE_Result);
     set_isTDEE_upToDate(true);
   }

@@ -2,11 +2,15 @@ import ItemEntry from "./ItemEntry";
 import { attr } from "./attr";
 import { v4 as uuidv4 } from "uuid";
 
-//////////////////////////////////////////////////////  ITEMSEARCH COMPONENT
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////  ITEMSEARCH COMPONENT //
+///////////////////////////////////////////////////////////////////////////////
 
 const nutritionix_key = process.env.REACT_APP_NUTRITIONIX_KEY;
 const nutritionix_id = process.env.REACT_APP_NUTRITIONIX_ID;
 
+// Make a request to Nutritionix API and return results, if any.
+// For use when user clicks "Search" button from Items Page ItemSearch Component.
 export async function getFoodItem(query) {
   const endpoint = `https://trackapi.nutritionix.com/v2/natural/nutrients`;
   const requestOptions = {
@@ -22,6 +26,7 @@ export async function getFoodItem(query) {
     }),
   };
   let food = "";
+
   await fetch(endpoint, requestOptions)
     .then((response) => response.json())
     .then((data) => {
@@ -31,6 +36,9 @@ export async function getFoodItem(query) {
   return food;
 }
 
+// Process results from Nutritionix API request and assign unique id for use in app/localstorage.
+// NOTE: Double quote characters crash JSON.parse() when parsing data from localstorage.
+// Must replace double quotes with string "inch" for compatibility.
 export function processReturn(api_return) {
   console.log(api_return);
   const {
@@ -64,6 +72,7 @@ export function processReturn(api_return) {
   return newItem;
 }
 
+// Invoked when user opts to manually enter food item data from ItemSearch Component
 export function newEmptyItem() {
   const newItem = {
     food_name: "New Item",
@@ -82,6 +91,7 @@ export function newEmptyItem() {
   return newItem;
 }
 
+// Generates input field html elements for confirmation form if Nutritionix API calls returns data
 export function generateFieldDivs(fieldsArray, onChange) {
   const confirmationFieldDivs = fieldsArray.map((field) => {
     let input;
@@ -128,8 +138,13 @@ export function generateFieldDivs(fieldsArray, onChange) {
   return confirmationFieldDivs;
 }
 
-//////////////////////////////////////////////////////  COLLECTION COMPONENT
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////  COLLECTION COMPONENT //
+///////////////////////////////////////////////////////////////////////////////
 
+// Categorize all items in Collection data into BakedGoods,
+// Dairy, Meats, Misc, and Produce categories. Generate and return
+// categorized ItemEntry html elements for use in Items page
 export function generateCategories(collection) {
   const DairyItems = collection.filter((item) => {
     return item.category === "Dairy";
@@ -174,7 +189,11 @@ export function generateCategories(collection) {
   return categories;
 }
 
-//////////////////////////////////////////////////////// ITEMINFO.js
+///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////// ITEMINFO.js //
+///////////////////////////////////////////////////////////////////////////////////
+
+// Search for item by id in locastorage collection data
 export function getItemById(id) {
   let itemInQuestion = JSON.parse(localStorage.getItem("collection"));
 
@@ -185,6 +204,7 @@ export function getItemById(id) {
   return itemInQuestion;
 }
 
+// Lookup attribute codes from attr.js and convert numeric codes to human readable names and values
 export function getFullNutrients(item) {
   const attrList = attr;
   let fullNutrients = [];

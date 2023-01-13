@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Field from "./Field.js";
 import "./ItemSearch.css";
 import {
@@ -27,11 +27,12 @@ function ItemSearch(props) {
       placeholder: "Enter food item to search for",
       type: "text",
       errorMsg: "Must enter valid food item",
-      // pattern: null,
       required: true,
     },
   ];
 
+  // The following two functions are used to track user updates on form data
+  // for querying API and confirming results for local storage
   const onChange_search = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
@@ -43,6 +44,11 @@ function ItemSearch(props) {
     });
   };
 
+  // On user "Search" button click
+  // Prevent default form behavior, read user input,
+  // Make request to Nutritionix API for item data
+  // On successful API call, populate search result fields for user confirmation
+  // Otherwise alert user of failure
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -53,7 +59,6 @@ function ItemSearch(props) {
     try {
       api_return = await getFoodItem(input.food);
       const newItem = processReturn(api_return);
-      // console.log(newItem);
       setSearchResults_Mobile_Hidden(true);
 
       setFoodData({ ...newItem });
@@ -66,6 +71,10 @@ function ItemSearch(props) {
     }
   };
 
+  // For use when user opts to manually enter food item data
+  // NOTE: No image data will be retrieved, and such item entries
+  // will have empty fields for image and full micronutrient info fields
+  // on ItemInfo pages
   const handleManualItemEntry = (e) => {
     const newItem = newEmptyItem();
     console.log(newItem);
@@ -85,6 +94,7 @@ function ItemSearch(props) {
     );
   });
 
+  // Used in generating input field html elements for search results confirmation
   const confirmationForm_fields = [
     {
       fieldname: "food_name",
@@ -134,25 +144,19 @@ function ItemSearch(props) {
       required: true,
       pattern: null,
     },
-    // {
-    //   fieldname: "serving_size", // item.serving_qty + " " + item.serving_unit
-    //   type: "text",
-    //   label: "Serving Size",
-    //   value: confirmationValues.serving_size,
-    //   required: true,
-    //   pattern: null,
-    // },
     {
       fieldname: "category",
       type: "select",
       options: ["Baked Goods", "Dairy", "Meat", "Produce", "Miscellaneous"],
       label: "Category",
-      // value: null,
       required: true,
       pattern: null,
     },
   ];
 
+  // Function executed once user confirms search results from Nutritionix API call.
+  // Add item to collection data from parent component, and save to update to localstorage.
+  // Clear confirmation and search fields for use in next user item search query.
   function handleConfirmSubmit(e) {
     e.preventDefault();
     setSearchResults_Mobile_Hidden(false);
@@ -169,6 +173,8 @@ function ItemSearch(props) {
     setFormValues({});
   }
 
+  // For use when user decides to cancel saving an item search result to localstorage.
+  // Clear all form data.
   function handleConfirmCancel(e) {
     e.preventDefault();
     setSearchResults_Mobile_Hidden(false);

@@ -5,6 +5,7 @@ import GoalsCalculator from "./GoalsCalculator";
 import "./Home.css";
 
 function Home(props) {
+  // Pull TDEE target figure from user localstorage data, or use default 2000 cals
   const [TDEE, setTDEE] = useState(
     JSON.parse(localStorage.getItem("TDEE") || 2000)
   );

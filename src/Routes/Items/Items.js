@@ -11,22 +11,25 @@ function Items(props) {
   }
   const [collection, setCollection] = useState([]);
 
+  // Clear user collection data (to be used on Items Page on button click)
   function handleClear(e) {
     setCollection([]);
   }
 
+  // Set user collection data to default example data
   function handleSeed(e) {
     setCollection(seedData);
   }
 
+  // On render, populate collection data in data saved in localstorage
   useEffect(() => {
     const savedData = JSON.parse(localStorage.getItem("collection"));
     setCollection(savedData);
   }, []);
 
+  // Store all changes to collection data in localstorage
   useEffect(() => {
     localStorage.setItem("collection", JSON.stringify(collection));
-    // console.log("from didUpdate: collection -> ", collection);
   }, [collection]);
 
   return (

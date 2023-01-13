@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./ItemInfo.css";
 import { getItemById, generateFieldDivs, getFullNutrients } from "./itemUtils";
-import { attr } from "./attr";
 
 function ItemInfo(props) {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  let item = getItemById(id);
+  const [itemValues, setItemValues] = useState({ ...item });
+
   function handleDelete() {
+    // On delete request, retrieve localstorage data for item collection,
+    // filter out undesired item data,
+    // save new collection array in localstorage
+    // return user to Items view
     const oldCollectionData = localStorage.getItem("collection");
     const oldCollection = JSON.parse(oldCollectionData);
     const newCollection = oldCollection.filter((oldItem) => {
-      //   console.log(`Comparing ${id} and ${oldItem.id}`);
       return !(oldItem.id == id);
     });
 
@@ -20,24 +25,12 @@ function ItemInfo(props) {
     navigate(-1);
   }
 
-  function handleBack() {
-    navigate(-1);
-  }
-
-  let item = getItemById(id);
-
-  const [itemValues, setItemValues] = useState({ ...item });
-
   const onChange = (e) => {
     setItemValues({
       ...itemValues,
       [e.target.name]: e.target.value,
     });
   };
-
-  useEffect(() => {
-    // setItemValues({ ...item });
-  }, [itemValues]);
 
   const fields = [
     {
@@ -108,8 +101,10 @@ function ItemInfo(props) {
     },
   ];
 
+  // Generate item info field HTML Div elements
   const fieldDivs = generateFieldDivs(fields, onChange);
-  //   console.log(item.full_nutrients);
+
+  // Generate list of div elements for each micronutrient in item data for use in render function
   const fullNutrients = getFullNutrients(item).map((n) => {
     return (
       <div key={n.name} className="nutrient">
@@ -122,6 +117,7 @@ function ItemInfo(props) {
     );
   });
 
+  // If item has img data, generate img element for use in render function
   let imgDiv = "";
   if (item.photo) {
     imgDiv = <img src={item.photo.thumb} alt={`${item.food_name}`} />;
@@ -140,7 +136,12 @@ function ItemInfo(props) {
 
         <div className="itemValues">{fieldDivs}</div>
         <div className="buttons">
-          <button id="back" onClick={handleBack}>
+          <button
+            id="back"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
             Back
           </button>
           <button id="delete" onClick={handleDelete}>
